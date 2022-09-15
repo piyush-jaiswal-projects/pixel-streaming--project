@@ -19,11 +19,10 @@ const password = "webdevwork";
 const uri = "mongodb+srv://"+username+":"+password+"@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect(err => {
-  const collection = client.db("test").collection("devices");
+  const collection = client.db("gamingproject").collection("users");
   // perform actions on the collection object
   if(!err) console.log("database connected");
-  else console.log("Error");
-  client.close();
+  else console.log(err);
 });
 
 
