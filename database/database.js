@@ -10,9 +10,9 @@ var userSchema = new Schema({
     Organization: String,
     Link: String,
     Code: String,
+    Date: Date,
     Duration: Number,
-    LoginCount: Number,
-    DayCount: Number
+    LoginCount: Number
 });
 
 

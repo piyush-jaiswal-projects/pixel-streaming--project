@@ -4,26 +4,24 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 // Create a new express application named 'app'
 const app = express();
 
-dotenv.config({ path: "./.env" });
+dotenv.config();
 
 // Set our backend port to be either an environment variable or port 5000
 const port = process.env.PORT || 5000;
-console.log(process.env.USERNAME);
 const username = "webdevwork";
 const password = "webdevwork";
 const uri = "mongodb+srv://"+username+":"+password+"@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-client.connect(err => {
-  const collection = client.db("gamingproject").collection("users");
-  // perform actions on the collection object
-  if(!err) console.log("database connected");
-  else console.log(err);
-});
+
+mongoose.connect(uri,
+    { useNewUrlParser: true, useUnifiedTopology: true }, err => {
+        console.log('Database Connected')
+    });
 
 
 // This application level middleware prints incoming requests to the servers console, useful to see incoming requests
