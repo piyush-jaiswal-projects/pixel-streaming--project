@@ -6,6 +6,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const { MongoClient, ServerApiVersion } = require('mongodb');
+const User = require("./database/database");
 
 // Create a new express application named 'app'
 const app = express();
@@ -53,6 +54,13 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging')
     });
 };
 
+//api to connect registration
+app.post('/signup', async (req, res) => {
+    let user = new User(req.body);
+    let result = await user.save();
+    res.send(result);
+})
+
 // Catch any bad requests
 app.get('*', (req, res) => {
     res.status(200).json({
@@ -60,5 +68,11 @@ app.get('*', (req, res) => {
     });
 });
 
+
 // Configure our server to listen on the port defiend by our port variable
 app.listen(port, () => console.log(`BACK_END_SERVICE_PORT: ${port}`));
+
+//exporting constant
+module.exports = {
+    uri:uri
+};

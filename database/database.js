@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
+const link = require('./server.js');
 
 const Schema = mongoose.Schema;
-
-
 
 var userSchema = new Schema({
     Name: String,
@@ -14,6 +13,17 @@ var userSchema = new Schema({
     Duration: Number,
     LoginCount: Number
 });
+
+
+const main = async () => {
+    //connecting database url
+    await mongoose.connect(link.uri);
+
+    
+    
+}
+
+main();
 
 
 
