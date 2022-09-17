@@ -6,8 +6,8 @@ const path = require('path');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const { MongoClient, ServerApiVersion } = require('mongodb');
-// const User = require("./database/database.js");
-const MyModel = require("./database/database");
+const User = require("./database/database.js");
+
 
 // Create a new express application named 'app'
 const app = express();
@@ -59,15 +59,14 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging')
 app.post('/signup', async (req, res) => {
     console.log("inside post funcnction");
 
-    const data = new MyModel({
-        name:req.body.name, 
-        org:req.body.org, 
-        email:req.body.email
-    });
-
-    const val = await data.save();
-    res.json(val);
+    let user = new User(req.body);
+    let result = await user.save();
+    res.send(result);
+    // console.log(result);
+    
 })
+
+//
 
 // Catch any bad requests
 app.get('*', (req, res) => {
