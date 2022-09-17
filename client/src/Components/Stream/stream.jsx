@@ -1,5 +1,5 @@
 import React from "react";
-import "./deny.css";
+// import "./deny.css";
 
 function Stream(props){
     const prevDuration = props.Duration;
