@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const link = require('./server.js');
+const uri = require('../server.js');
 
 const Schema = mongoose.Schema;
 
@@ -14,13 +14,24 @@ var userSchema = new Schema({
     LoginCount: Number
 });
 
+const MyModel = mongoose.model('ModelName', userSchema);
+
+const instance = new MyModel();
+instance.my.key = 'hello';
+instance.save(function (err) {
+  //
+});
+
+// //if above thing doesnt work
+// const conn = mongoose.createConnection(uri);
+// const MyModel = mongoose.model('ModelName', userSchema);
+// const m = new MyModel;
+// m.save(); 
+
 
 const main = async () => {
     //connecting database url
-    await mongoose.connect(link.uri);
-
-    
-    
+    await mongoose.connect(uri);  
 }
 
 main();
@@ -28,5 +39,7 @@ main();
 
 
 module.exports = {
-    userSchema
+    userSchema, 
+    MyModel
+
   };
