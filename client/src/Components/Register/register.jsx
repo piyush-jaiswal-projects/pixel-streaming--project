@@ -59,6 +59,7 @@ function Register(){
                     alert(res.data.message);
                     if(res.data.message === "Success"){
                         // Component Rendering ---> Go to Link & pass duration as props
+                        console.log("chal rha hai");
                     }
                     else if(res.data.message === "failed"){
                         setName("");

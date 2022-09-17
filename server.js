@@ -43,6 +43,7 @@ app.use(cors());
 
 // Require Route
 const api = require('./routes/routes');
+const { response } = require('express');
 // Configure app to use route
 app.use('/api/v1/', api);
 
@@ -55,18 +56,39 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging')
     });
 };
 
-//api to connect registration
+//signup api
 app.post('/signup', async (req, res) => {
     console.log("inside post funcnction");
 
     let user = new User(req.body);
     let result = await user.save();
     res.send(result);
-    // console.log(result);
+    let condition = await User.find(req.body).select("-email");
+    if(condition){
+        res.status({msg:"Already Registered"});
+    } else{
+        res.status({msg:"Success"});
+    }
     
-})
+    
+});
 
-//
+//login api
+app.post('/login', async (req, res) => {
+    console.log(req.body);
+    if(req.body.email && req.body.code){
+        let user = await User.findOne(req.body).select("-code");
+        if(user){
+            res.send(user);
+        }else{
+            res.send({result: 'No User Found'});
+        }
+    }else{
+        res.send({result: 'No User Found'});
+    }
+
+    
+});
 
 // Catch any bad requests
 app.get('*', (req, res) => {
