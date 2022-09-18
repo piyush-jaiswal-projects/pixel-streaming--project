@@ -21,7 +21,8 @@ const password = "webdevwork";
 const uri = "mongodb+srv://"+username+":"+password+"@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(uri,
-    { useNewUrlParser: true, useUnifiedTopology: true }, err => {
+    { useNewUrlParser: true, useUnifiedTopology: true,
+        useCreateIndex: true }, err => {
         console.log('Database Connected')
     });
 
@@ -45,7 +46,7 @@ app.use(cors());
 const api = require('./routes/routes');
 const { response } = require('express');
 // Configure app to use route
-app.use('/api/v1/', api);
+app.use('/', api);
 
 // This middleware informs the express application to serve our compiled React files
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
@@ -55,40 +56,6 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging')
         res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
     });
 };
-
-//signup api
-app.post('/signup', async (req, res) => {
-    console.log("inside post funcnction");
-
-    let user = new User(req.body);
-    let result = await user.save();
-    res.send(result);
-    let condition = await User.find(req.body).select("-email");
-    if(condition){
-        res.status({msg:"Already Registered"});
-    } else{
-        res.status({msg:"Success"});
-    }
-    
-    
-});
-
-//login api
-app.post('/login', async (req, res) => {
-    console.log(req.body);
-    if(req.body.email && req.body.code){
-        let user = await User.findOne(req.body).select("-code");
-        if(user){
-            res.send(user);
-        }else{
-            res.send({result: 'No User Found'});
-        }
-    }else{
-        res.send({result: 'No User Found'});
-    }
-
-    
-});
 
 // Catch any bad requests
 app.get('*', (req, res) => {
