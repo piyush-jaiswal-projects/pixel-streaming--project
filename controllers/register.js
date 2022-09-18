@@ -10,9 +10,9 @@ async function register(req, res){
     res.send(result);
     let condition = await User.find(req.body).select("-email");
     if(condition){
-        res.status({msg:"Already Registered"});
+        res.send({msg:"Already Registered"});
     } else{
-        res.status({msg:"Success"});
+        res.send({msg:"Success"});
     }
 }
 
