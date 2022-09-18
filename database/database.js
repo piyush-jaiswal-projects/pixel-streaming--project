@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
+const uri = require('../server.js');
 
-const Schema = mongoose.Schema;
-
-
-
-var userSchema = new Schema({
+var userSchema = new mongoose.Schema({
     Name: String,
     Email: String,
     Organization: String,
@@ -17,6 +14,6 @@ var userSchema = new Schema({
 
 
 
-module.exports = {
-    userSchema
-  };
+// mongoose.connect(uri);
+
+module.exports = mongoose.model("users", userSchema);

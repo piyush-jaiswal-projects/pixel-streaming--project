@@ -6,11 +6,13 @@ const path = require('path');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const { MongoClient, ServerApiVersion } = require('mongodb');
+const User = require("./database/database.js");
+
 
 // Create a new express application named 'app'
 const app = express();
 
-dotenv.config();
+dotenv.config(); 
 
 // Set our backend port to be either an environment variable or port 5000
 const port = process.env.PORT || 5000;
@@ -41,6 +43,7 @@ app.use(cors());
 
 // Require Route
 const api = require('./routes/routes');
+const { response } = require('express');
 // Configure app to use route
 app.use('/api/v1/', api);
 
@@ -53,6 +56,40 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging')
     });
 };
 
+//signup api
+app.post('/signup', async (req, res) => {
+    console.log("inside post funcnction");
+
+    let user = new User(req.body);
+    let result = await user.save();
+    res.send(result);
+    let condition = await User.find(req.body).select("-email");
+    if(condition){
+        res.status({msg:"Already Registered"});
+    } else{
+        res.status({msg:"Success"});
+    }
+    
+    
+});
+
+//login api
+app.post('/login', async (req, res) => {
+    console.log(req.body);
+    if(req.body.email && req.body.code){
+        let user = await User.findOne(req.body).select("-code");
+        if(user){
+            res.send(user);
+        }else{
+            res.send({result: 'No User Found'});
+        }
+    }else{
+        res.send({result: 'No User Found'});
+    }
+
+    
+});
+
 // Catch any bad requests
 app.get('*', (req, res) => {
     res.status(200).json({
@@ -60,5 +97,11 @@ app.get('*', (req, res) => {
     });
 });
 
+
 // Configure our server to listen on the port defiend by our port variable
 app.listen(port, () => console.log(`BACK_END_SERVICE_PORT: ${port}`));
+
+//exporting constant
+module.exports = {
+    uri
+};

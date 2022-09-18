@@ -94,6 +94,23 @@ function Access(){
                     setDenyHidden(false);
             }
         });
+
+        //storing data
+        /*const collectData = async () => {
+            console.warn("bahut jagah hai");
+
+            //using fetch to store data
+            let result = await fetch(uri, {
+                method: 'post',
+                body: JSON.stringify({email, code}),
+                headers:{
+                    'Content-Type':'application/json'
+                }
+            });
+            result = await result.json();
+            console.warn(result);
+        }*/
+
     }
 
     return(
@@ -107,7 +124,8 @@ function Access(){
         <h3 className="register-title">Access Experience</h3>
         <input type="email" className="info-input" placeholder="Email address" value={email} onChange={handleEmailChange}></input>
         <input type="text" className="info-input" placeholder="Personal Code" value={code} onChange={handleCodeChange}></input>
-        <button className="register-button" onClick={handleLogin}>Log in</button>
+        <button className="register-button" onClick={ handleLogin }>Log in</button>
+        {/* changed handleLogin with collectData */}
         </div>
         </div>
         </div>

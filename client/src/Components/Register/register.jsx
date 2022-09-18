@@ -63,9 +63,11 @@ function Register(){
                 }).then((res) => {
                     alert(res.data.message);
                     if(res.data.message === "Success"){
+
                         // Component Rendering ---> Go to Link
                         setRegisterHidden(true);
                         setAccessLinkHidden(false);
+                        console.log("chal rha hai");
                     }
                     else if(res.data.message === "failed"){
                         setName("");
