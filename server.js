@@ -64,12 +64,11 @@ app.post('/signup', async (req, res) => {
     let result = await user.save();
     res.send(result);
     let condition = await User.find(req.body).select("-email");
-    if(condition){
-        res.status({msg:"Already Registered"});
-    } else{
-        res.status({msg:"Success"});
-    }
-    
+    // if(condition){
+    //     res.json({msg:"Already Registered"});
+    // } else{
+    //     res.json({msg:"Success"});
+    // }
     
 });
 

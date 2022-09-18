@@ -17,14 +17,19 @@ function Access(){
 
     function updateLoginCount(email, logincount){
         const mail = email;
-        const loginCount = logincount;
-        const newLogincount = logincount + 1;
+        // const loginCount = logincount;
+        // const newLogincount = logincount + 1;
+        var loginCount = 0;
+
         axios.post('/updatelogincount',{
             'Email': mail,
-            'LoginCount': newLogincount
+            'LoginCount': logincount //newLogincount
         }).then((res)=>{
-            if(res.data.message === "Success") return "done";
-            else return "fail";
+            if(res.data.message === "Success"){
+                loginCount++;
+                return "done";    
+            }else 
+                return "fail";
         });
     }
 
