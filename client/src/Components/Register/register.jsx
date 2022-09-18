@@ -1,6 +1,8 @@
 import React, {useState} from "react";
+import {Link} from "react-router-dom";
 import "./register.css";
 import axios from "axios";
+import AccessLink from "../Link/link.jsx";
 var validator = require("email-validator");
 
 function Register(){
@@ -8,6 +10,8 @@ function Register(){
     const [name, setName] = useState("");
     const [org, setOrg] = useState("");
     const [email, setEmail] = useState("");
+    const [registerHidden, setRegisterHidden] = useState(false);
+    const [accessLinkHidden, setAccessLinkHidden] = useState(true);
 
     function handleNameChange(event){
         setName(event.target.value);
@@ -31,12 +35,13 @@ function Register(){
 
           return (result);
     }
-
+    var code;
     function handleRegistration(){
         if(validator.validate(email)){
 
+            // Stream Link
             const link = "";
-            const code = generateCode();
+            code = generateCode();
             const duration = 0;
             const logincount = 1;
             const date = new Date();
@@ -58,7 +63,10 @@ function Register(){
                 }).then((res) => {
                     alert(res.data.message);
                     if(res.data.message === "Success"){
-                        // Component Rendering ---> Go to Link & pass duration as props
+
+                        // Component Rendering ---> Go to Link
+                        setRegisterHidden(true);
+                        setAccessLinkHidden(false);
                         console.log("chal rha hai");
                     }
                     else if(res.data.message === "failed"){
@@ -77,9 +85,12 @@ function Register(){
     }
 
     return(
+        <div>
         <div className="register-section">
         <div className="register-div">
+        <Link to="/">
         <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
+        </Link>
         <div className="form-container">
         <h3 className="register-title">Your Information</h3>
         <input type="text" className="info-input" placeholder="Name" value={name} onChange={handleNameChange}></input>
@@ -88,6 +99,8 @@ function Register(){
         <button className="register-button" onClick={handleRegistration}>Request Access</button>
         </div>
         </div>
+        </div>
+        <div hidden={accessLinkHidden}><AccessLink code={code}/></div>
         </div>
     );
 }

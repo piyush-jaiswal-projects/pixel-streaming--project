@@ -1,7 +1,6 @@
 import React from "react";
-import Register from "../Register/register.jsx";
-import ReactDOM from "react-dom";
 import "./home.css";
+import {Link} from "react-router-dom";
 // import {handleAccessClick} from "../../App.js";
 
 function Home(){
@@ -10,8 +9,12 @@ function Home(){
         <div className="home-section">
         <div className="home-div">
         <h3 className="section-title">Welcome to No Time to Waste</h3>
+        <Link to="/register">
         <button className="section-button">Request Access</button>
+        </Link>
+        <Link to="/login">
         <button className="section-button">Login</button>
+        </Link>
         </div>
         </div>
     );
