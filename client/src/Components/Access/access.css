@@ -7,6 +7,10 @@
     background-color: white;
 }
 
+#stream{
+    display: none;
+}
+
 .register-button{
     width: 50%;
     margin: 1rem 0rem 1rem 1rem;

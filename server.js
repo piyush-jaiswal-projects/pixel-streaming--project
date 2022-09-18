@@ -16,15 +16,29 @@ dotenv.config();
 
 // Set our backend port to be either an environment variable or port 5000
 const port = process.env.PORT || 5000;
-const username = "webdevwork";
-const password = "webdevwork";
-const uri = "mongodb+srv://"+username+":"+password+"@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
+// const username = "webdevwork";
+// const password = "webdevwork";
+const uri = "mongodb+srv://newpassword:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(uri,
-    { useNewUrlParser: true, useUnifiedTopology: true,
-        useCreateIndex: true }, err => {
-        console.log('Database Connected')
+    { useNewUrlParser: true, useUnifiedTopology: true}, err => {
+        if(!err) console.log('Database Connected');
+        else if(err) console.log(err);
     });
+
+
+
+// const uri = "mongodb+srv://webdevwork:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
+// const connectDB = async () => {
+//     await mongoose.connect(uri)
+//         .catch(function (error) {
+//             console.log(`Unable to connect to the Mongo db  ${error} `);
+//         });
+// //...rest of code
+// };  
+
+// // use as a function        
+// connectDB();
 
 
 // This application level middleware prints incoming requests to the servers console, useful to see incoming requests

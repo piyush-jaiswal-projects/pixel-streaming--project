@@ -35,17 +35,16 @@ function Register(){
 
           return (result);
     }
-    var code;
+    var code = generateCode();;
     function handleRegistration(){
         if(validator.validate(email)){
 
             // Stream Link
             const link = "";
-            code = generateCode();
             const duration = 0;
             const logincount = 1;
             const date = new Date();
-
+            console.log(code);
 //             var today = new Date();
 // var dd = String(today.getDate()).padStart(2, '0');
 // var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -57,24 +56,23 @@ function Register(){
                     'Organization': org,
                     'Link': link,
                     'Code': code,
-                    'Date': date,
+                    'RegisterDate': date,
                     'Duration': duration,
                     'LoginCount': logincount
                 }).then((res) => {
-                    alert(res.data.message);
-                    if(res.data.message === "Success"){
+                    alert(res.data.Message);
+                    if(res.data.Message === "Success"){
 
-                        // Component Rendering ---> Go to Link
+                        // Component Rendering ---> Go to 
                         setRegisterHidden(true);
                         setAccessLinkHidden(false);
-                        console.log("chal rha hai");
                     }
-                    else if(res.data.message === "failed"){
+                    else if(res.data.Message === "failed"){
                         setName("");
                         setOrg("");
                         setEmail("");
                     }
-                    else if(res.data.message === "Already Registered"){
+                    else if(res.data.Message === "Already Registered"){
                         setEmail("");
                     }
                 });
@@ -83,10 +81,11 @@ function Register(){
             alert("Please Enter Valid Email Address");
         }
     }
+    console.log(code);
 
     return(
         <div>
-        <div className="register-section">
+        <div className="register-section" hidden={registerHidden}>
         <div className="register-div">
         <Link to="/">
         <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
@@ -100,7 +99,7 @@ function Register(){
         </div>
         </div>
         </div>
-        <div hidden={accessLinkHidden}><AccessLink code={code}/></div>
+        <div hidden={accessLinkHidden}><AccessLink value={code}/></div>
         </div>
     );
 }

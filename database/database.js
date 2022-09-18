@@ -7,7 +7,7 @@ var userSchema = new mongoose.Schema({
     Organization: String,
     Link: String,
     Code: String,
-    Date: Date,
+    RegisterDate: Date,
     Duration: Number,
     LoginCount: Number
 });
@@ -16,4 +16,4 @@ var userSchema = new mongoose.Schema({
 
 // mongoose.connect(uri);
 
-module.exports = mongoose.model("users", userSchema);
+module.exports = userSchema;

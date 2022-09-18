@@ -1,21 +1,60 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const User = require("../database/database.js");
+const userSchema = require("../database/database.js");
+
+
+const User = mongoose.model("User", userSchema);
 
 async function login(req, res){
     console.log("inside login function");
-    console.log(req.body);
-    if(req.body.email && req.body.code){
-        let user = await User.findOne(req.body).select("-code");
-        if(user){
-            res.send(user);
-        }else{
-            res.send({result: 'No User Found'});
-        }
-    }else{
-        res.send({result: 'No User Found'});
-    }
-    }
+    const email = req.body.Email;
+    const code = req.body.Code;
+    var message = null;
+    //ensuring no blank request
+    if (email == null || code == null) {
 
+        console.log(">> Attempt of unauthorized access detected.");
+        res.status(401).send("<h2>Please enter username and password!</h2>");
+
+    }
+    else {
+
+        //checking if user already registered 
+        User.findOne({ Email: email }, function (err, foundUser) {
+
+            if (foundUser) {
+                console.log(foundUser.RegisterDate);
+                if (foundUser.Code == code) {  //checking password
+                    message="Success"; 
+                    const responseData ={
+                        Message: message,
+                        RegisterDate: foundUser.RegisterDate,
+                        LoginCount: foundUser.LoginCount,
+                        Duration: foundUser.Duration
+                    };
+                    const jsonContent = JSON.stringify(responseData);
+                    res.status(200).send(jsonContent);
+                    console.log(">> Login Success");
+
+                } else {
+                    console.log(">> Attempt of unauthorized access detected.");
+                    message="Invalid Code";
+                    const responseData ={
+                        Message: message
+                    };
+                    const jsonContent = JSON.stringify(responseData);
+                    res.status(200).send(jsonContent);
+                }
+            } else {
+                message="failed";
+                    const responseData ={
+                        Message: message
+                    };
+                    const jsonContent = JSON.stringify(responseData);
+                    res.status(200).send(jsonContent);
+            }
+        });
+    }
+    }
 
 module.exports = login;

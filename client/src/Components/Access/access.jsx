@@ -13,8 +13,9 @@ function Access(){
     const [accessHidden, setAccessHidden] = useState(false);
     const [accessLinkHidden, setAccessLinkHidden] = useState(true);
     const [denyHidden, setDenyHidden] = useState(true);
-    const [streamHidden, setStreamHidden] = useState(true);
+    const streamRoot = document.getElementById("stream");
 
+    var address;
     function handleCodeChange(event){
         setCode(event.target.value);
     }
@@ -36,6 +37,16 @@ function Access(){
         });
     }
 
+    function deleteUser(email){
+        const mail = email;
+        axios.post('/deleteuser',{
+            'Email': mail
+        }).then((res)=>{
+            if(res.data.message === "Success") return "done";
+            else return "fail";
+        });
+    }
+
     var duration;
     function handleLogin(props){
         
@@ -43,50 +54,56 @@ function Access(){
             'Email': email,
             'Code': code
         }).then((res) => {
-            // alert(res.data.message);
-            if(res.data.message === "Success"){
-                const registerDate = res.data.RegisterDate;
-                const todayDate = new Date();
-                var Difference_In_Time = registerDate.getTime() - todayDate.getTime();
-                const dayCount = Difference_In_Time / (1000 * 3600 * 24);
+            alert(res.data.Message);
+            if(res.data.Message === "Success"){
+                const registerDate = Date.parse(res.data.RegisterDate);
+                const todayDate = new Date().toISOString();
+                address=res.data.Email;
+                var d1 = new Date(registerDate);
+                var d2 = new Date(todayDate);
+                var diff = d1-d2;
+                var dayCount = Math.trunc(diff / 86400e3);
+                // var Difference_In_Time = registerDate.getUTCMilliseconds() - todayDate.getUTCMilliseconds();
+                // const dayCount = Difference_In_Time / (1000 * 3600 * 24);
                 const logincount = res.data.LoginCount;
                 duration = res.data.Duration;
                 const result = updateLoginCount(email, logincount);
-                if(dayCount <= 5 && logincount <= 5 && duration <= 45 && result === "done"){
+                if(dayCount <= 5 && logincount <= 5 && duration <= 45){
                     // Go to stream and pass duration as props
-                    alert("Login Success");
                     setAccessHidden(true);
                     setAccessLinkHidden(true);
                     setAccessHidden(true);
-                    setStreamHidden(false);
+                    streamRoot.style.display="block";
                 }
                 else if(dayCount >5){
                     alert("5 days limit exceeded!");
+                    deleteUser(email);
                     // go to deny
                     setAccessHidden(true);
                     setDenyHidden(false);
                 }
                 else if(logincount >5){
                     alert("5 login limit exceeded!");
+                    deleteUser(email);
                     // go to deny
                     setAccessHidden(true);
                     setDenyHidden(false);
                 }
                 else if(duration >45){
                     alert("45 mins duration limit exceeded!");
+                    deleteUser(email);
                     // go to deny
                     setAccessHidden(true);
                     setDenyHidden(false);
                 }
             }
-            else if(res.data.message === "failed"){
+            else if(res.data.Message === "failed"){
                 setEmail("");
                 setCode("");
                 // go to access
-                setAccessHidden(true);
-                setAccessLinkHidden(false);
+                setAccessHidden(false);
             }
-            else if(res.data.message === "Invalid Code"){
+            else if(res.data.Message === "Invalid Code"){
                 setEmail("");
                 setCode("");
                 // go to deny
@@ -95,23 +112,14 @@ function Access(){
             }
         });
 
-        //storing data
-        /*const collectData = async () => {
-            console.warn("bahut jagah hai");
-
-            //using fetch to store data
-            let result = await fetch(uri, {
-                method: 'post',
-                body: JSON.stringify({email, code}),
-                headers:{
-                    'Content-Type':'application/json'
-                }
-            });
-            result = await result.json();
-            console.warn(result);
-        }*/
-
     }
+
+    
+
+    const values ={
+        Duration: 20,
+        Email: 'test@admin.com'
+    };
 
     return(
         <div>
@@ -131,7 +139,7 @@ function Access(){
         </div>
         <div hidden={accessLinkHidden}><AccessLink code={code}/></div>
         <div hidden={denyHidden}><Deny /></div>
-        <div hidden={streamHidden}><Stream duration={duration}/></div>
+        <div id="stream"><Stream values={values}/></div>
         </div>
     );
 }
