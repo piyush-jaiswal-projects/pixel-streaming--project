@@ -68,7 +68,7 @@ function Access(){
                 const logincount = res.data.LoginCount;
                 duration = res.data.Duration;
                 const result = updateLoginCount(email, logincount);
-                if(dayCount <= 5 && logincount <= 5 && duration <= 45){
+                if(dayCount <= 5 && logincount <5 && duration > 0){
                     // Go to stream and pass duration as props
                     setAccessHidden(true);
                     setAccessLinkHidden(true);
@@ -82,14 +82,14 @@ function Access(){
                     setAccessHidden(true);
                     setDenyHidden(false);
                 }
-                else if(logincount >5){
+                else if(logincount >=5){
                     alert("5 login limit exceeded!");
                     deleteUser(email);
                     // go to deny
                     setAccessHidden(true);
                     setDenyHidden(false);
                 }
-                else if(duration >45){
+                else if(duration <=0){
                     alert("45 mins duration limit exceeded!");
                     deleteUser(email);
                     // go to deny
@@ -117,7 +117,7 @@ function Access(){
     
 
     const values ={
-        Duration: 20,
+        Duration: 45,
         Email: 'test@admin.com'
     };
 

@@ -41,8 +41,8 @@ function Register(){
 
             // Stream Link
             const link = "";
-            const duration = 0;
-            const logincount = 1;
+            const duration = 45;
+            const logincount = 0;
             const date = new Date();
             console.log(code);
 //             var today = new Date();
