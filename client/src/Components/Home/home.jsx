@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 function Home(){
 
     return(
-        <div className="home-section">
+        <div className="home-section" id="centreDiv">
         <div className="home-div">
         <h3 className="section-title">Welcome to No Time to Waste</h3>
         <Link to="/register">

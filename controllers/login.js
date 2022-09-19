@@ -29,6 +29,7 @@ async function login(req, res){
                     const responseData ={
                         Message: message,
                         RegisterDate: foundUser.RegisterDate,
+                        Email: foundUser.Email,
                         LoginCount: foundUser.LoginCount,
                         Duration: foundUser.Duration
                     };

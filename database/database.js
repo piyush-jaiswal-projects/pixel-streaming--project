@@ -8,7 +8,10 @@ var userSchema = new mongoose.Schema({
     Link: String,
     Code: String,
     RegisterDate: Date,
-    Duration: Number,
+    Duration: {
+        Minutes: Number,
+        Seconds: Number
+    },
     LoginCount: Number
 });
 

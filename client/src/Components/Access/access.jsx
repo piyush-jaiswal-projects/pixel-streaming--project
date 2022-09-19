@@ -5,14 +5,19 @@ import axios from "axios";
 import AccessLink from "../Link/link.jsx";
 import Deny from "../Deny/deny.jsx";
 import Stream from "../Stream/stream";
+import { setMaxListeners } from "events";
 
 function Access(){
 
     const [email, setEmail] = useState("");
     const [code, setCode] = useState("");
+    const [mail, setMail] = useState("");
+    const [cond, setCond] = useState(false);
     const [accessHidden, setAccessHidden] = useState(false);
     const [accessLinkHidden, setAccessLinkHidden] = useState(true);
     const [denyHidden, setDenyHidden] = useState(true);
+    const [minutes, setMinutes] = useState(44);
+    const [seconds, setSeconds] = useState(60);
     const streamRoot = document.getElementById("stream");
 
     var address;
@@ -66,7 +71,10 @@ function Access(){
                 // var Difference_In_Time = registerDate.getUTCMilliseconds() - todayDate.getUTCMilliseconds();
                 // const dayCount = Difference_In_Time / (1000 * 3600 * 24);
                 const logincount = res.data.LoginCount;
-                duration = res.data.Duration;
+                duration = res.data.Duration.Minutes;
+                setMinutes(res.data.Duration.Minutes);
+                setSeconds(res.data.Duration.Seconds);
+                setMail(res.data.Email);
                 const result = updateLoginCount(email, logincount);
                 if(dayCount <= 5 && logincount <5 && duration > 0){
                     // Go to stream and pass duration as props
@@ -74,6 +82,7 @@ function Access(){
                     setAccessLinkHidden(true);
                     setAccessHidden(true);
                     streamRoot.style.display="block";
+                    setCond(true);
                 }
                 else if(dayCount >5){
                     alert("5 days limit exceeded!");
@@ -114,13 +123,6 @@ function Access(){
 
     }
 
-    
-
-    const values ={
-        Duration: 45,
-        Email: 'test@admin.com'
-    };
-
     return(
         <div>
         <div className="register-section" hidden={accessHidden}>
@@ -139,7 +141,12 @@ function Access(){
         </div>
         <div hidden={accessLinkHidden}><AccessLink code={code}/></div>
         <div hidden={denyHidden}><Deny /></div>
-        <div id="stream"><Stream values={values}/></div>
+        <div id="stream"><Stream values={{
+            Email: mail,
+            Minutes: minutes,
+            Seconds: seconds,
+            Timer: cond
+        }}/></div>
         </div>
     );
 }

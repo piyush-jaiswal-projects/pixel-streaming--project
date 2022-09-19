@@ -7,6 +7,9 @@ var validator = require("email-validator");
 
 function Register(){
 
+    
+    document.cookie = "code=";
+
     const [name, setName] = useState("");
     const [org, setOrg] = useState("");
     const [email, setEmail] = useState("");
@@ -41,14 +44,10 @@ function Register(){
 
             // Stream Link
             const link = "";
-            const duration = 45;
+            const minutes = 44;
+            const seconds = 60;
             const logincount = 0;
             const date = new Date();
-            console.log(code);
-//             var today = new Date();
-// var dd = String(today.getDate()).padStart(2, '0');
-// var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-// var yyyy = today.getFullYear();
             
                 axios.post('/signup', {
                     'Name': name,
@@ -57,7 +56,10 @@ function Register(){
                     'Link': link,
                     'Code': code,
                     'RegisterDate': date,
-                    'Duration': duration,
+                    'Duration': {
+                        'Minutes': minutes,
+                        'Seconds': seconds
+                    },
                     'LoginCount': logincount
                 }).then((res) => {
                     alert(res.data.Message);
@@ -81,7 +83,6 @@ function Register(){
             alert("Please Enter Valid Email Address");
         }
     }
-    console.log(code);
 
     return(
         <div>
@@ -99,7 +100,11 @@ function Register(){
         </div>
         </div>
         </div>
-        <div hidden={accessLinkHidden}><AccessLink value={code}/></div>
+        <div hidden={accessLinkHidden}>
+        <AccessLink value={email} cond={accessLinkHidden}/>
+        </div>
+
+
         </div>
     );
 }
