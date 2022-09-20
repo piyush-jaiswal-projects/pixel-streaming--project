@@ -5,81 +5,55 @@ import { WebRTCClient } from "@arcware/webrtc-plugin";
 import "./stream.css";
 
 function Stream(props){
+
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
     console.log(props.values);
     const [seconds, setSeconds] =useState(props.values.Seconds);
     const [minutes, setMinutes] =useState(props.values.Minutes);
-    const [mail, setMail] =useState(props.values.Email);
+    // const [mail, setMail] =useState(props.values.Email);
+    const address = getCookie("email");
     var timer;
 
     const sizeContainerRef = React.useRef();
 const containerRef = React.useRef();
 const videoRef = React.useRef();
 
-    window.addEventListener('beforeunload', function (e) {
-        axios.post('/updateduration',{
-                    Email: mail,
-                    Duration: {
-                        Minutes: minutes,
-                        Seconds: seconds
-                    }
-                }).then((res)=>{
-                    if(res.data.Message === "Success"){
-                        alert("Stream Closed");
-                        window.close();
-                    }
-                    else{
-                        alert("Error Occurred");
-                    }
-                });
-                // e.preventDefault();
-                // e.returnValue = '';
+window.addEventListener("beforeunload",function(event){
+    event.preventDefault();
+    axios.post('/updateduration',{
+        Email: address,
+        Duration: {
+            Minutes: minutes,
+            Seconds: seconds
+        }
+    }).then((res)=>{
+        if(res.data.Message === "Success"){
+            alert("Stream Closed");
+        }
+        else{
+            alert("Error Occurred");
+        }
     });
-    console.log("mail: "+mail);
+    console.log("Stream Closed!!!");
+    alert("Stream Closed !!!");
+});
 
-    window.addEventListener('onload', function (e) {
-        e.preventDefault();
-        e.returnValue = '';
-        axios.post('/updateduration',{
-                    Email: props.values.Email,
-                    Duration: {
-                        Minutes: minutes,
-                        Seconds: seconds
-                    }
-                }).then((res)=>{
-                    if(res.data.Message === "Success"){
-                        alert("Stream Closed");
-                        window.close();
-                    }
-                    else{
-                        alert("Error Occurred");
-                    }
-                });
-    });
-
-    window.addEventListener('back', function (e) {
-        e.preventDefault();
-        e.returnValue = '';
-        axios.post('/updateduration',{
-                    Email: props.values.Email,
-                    Duration: {
-                        Minutes: minutes,
-                        Seconds: seconds
-                    }
-                }).then((res)=>{
-                    if(res.data.Message === "Success"){
-                        alert("Stream Closed");
-                        window.close();
-                    }
-                    else{
-                        alert("Error Occurred");
-                    }
-                });
-    });
-
-
-    useEffect(()=>{
-
-        // const args = {
+useEffect(()=>{
+            // const args = {
         //     address: "wss://share.ragnarok.arcware.cloud/12c0cfd9-8f8f-41b7-a21d-e10e1019e8d5",
         //     packageId: "Name of the package (if there are multiple applications)",
         //     settings: {},
@@ -92,6 +66,10 @@ const videoRef = React.useRef();
         //   };
         //   const webrtc_client = new WebRTCClient(args);
 // const emitUIInteraction = webrtc_client.emitUIInteraction;
+})
+ 
+
+    useEffect(()=>{
 
         timer = setInterval(()=>{
             setSeconds(seconds-1);

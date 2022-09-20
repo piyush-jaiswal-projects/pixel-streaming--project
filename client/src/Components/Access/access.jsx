@@ -75,6 +75,7 @@ function Access(){
                 setMinutes(res.data.Duration.Minutes);
                 setSeconds(res.data.Duration.Seconds);
                 setMail(res.data.Email);
+                document.cookie="email="+res.data.Email;
                 const result = updateLoginCount(email, logincount);
                 if(dayCount <= 5 && logincount <5 && duration > 0){
                     // Go to stream and pass duration as props
@@ -142,7 +143,6 @@ function Access(){
         <div hidden={accessLinkHidden}><AccessLink code={code}/></div>
         <div hidden={denyHidden}><Deny /></div>
         <div id="stream"><Stream values={{
-            Email: mail,
             Minutes: minutes,
             Seconds: seconds,
             Timer: cond
