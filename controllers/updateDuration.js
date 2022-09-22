@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userSchema = require("../database/database.js");
 const User = mongoose.model("User", userSchema);
+const {mail} =require("../nodemailer/nodemailer.js");
 
 async function updateDuration(req, res){
     console.log("inside updateDuration function");
@@ -10,6 +11,7 @@ async function updateDuration(req, res){
         $set: {
             Duration: req.body.Duration
         }
+       
     },
     function(err, result){
         if(!err){
@@ -20,6 +22,7 @@ async function updateDuration(req, res){
                     const jsonContent = JSON.stringify(responseData);
                     res.status(200).send(jsonContent);
                     console.log("Duration Update Success");
+                    
         }
         else if(err){
             console.log("Duration Update Failed");

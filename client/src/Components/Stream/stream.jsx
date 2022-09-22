@@ -28,8 +28,8 @@ function Stream(props){
     // const [mail, setMail] =useState(props.values.Email);
 
     const address = getCookie("email");
-    const [seconds, setSeconds] =useState(59);
-    const [minutes, setMinutes] =useState(44);
+    const [seconds, setSeconds] =useState(0);
+    const [minutes, setMinutes] =useState(0);
     var timer;
 
     const sizeContainerRef = React.useRef();
@@ -115,10 +115,10 @@ const emitUIInteraction = webrtc_client.emitUIInteraction;
     //     clearInterval(timer)
     
         timer = setInterval(()=>{
-            setSeconds(seconds-1);
-            if(seconds===0){
-                setMinutes(minutes-1);
-                setSeconds(59);
+            setSeconds(seconds+1);
+            if(seconds===45){
+                setMinutes(minutes+1);
+                setSeconds(1);
             }
         },1000)
         return ()=>clearInterval(timer)
