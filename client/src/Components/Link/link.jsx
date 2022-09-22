@@ -24,13 +24,7 @@ function Link(props){
         <div className="register-section">
         <div className="register-div">
         <div className="form-container" style={{margin:"auto", position:"relative", top:"50px"}}>
-        <h3 style={{textAlign:"left",fontFamily:"sans-serif", margin:"0"}}>This is your link</h3>
-        <p style={{textAlign:"left",fontFamily:"sans-serif", margin:"0"}}>
-        <a href="www.samplelink.com">www.samplelink.com</a>
-        </p>
-        <br></br>
-        <h3 style={{textAlign:"left",fontFamily:"sans-serif", margin:"0"}}>Your code is</h3>
-        <p style={{textAlign:"left",fontFamily:"sans-serif", margin:"0"}}>{code}</p>
+        <h3 style={{textAlign:"left",fontFamily:"sans-serif", margin:"0"}}>Your stream link and access code has been sent to your email id.</h3>
         </div>
         </div>
         </div>

@@ -36,8 +36,8 @@ function Stream(props){
 const containerRef = React.useRef();
 const videoRef = React.useRef();
 
-window.addEventListener("beforeunload",function(event){
-    event.preventDefault();
+// window.addEventListener("onunload",function(event){
+//     event.preventDefault();
 //     axios.post('/updateduration',{
 //         Email: address,
 //         Duration: {
@@ -54,7 +54,27 @@ window.addEventListener("beforeunload",function(event){
 //     });
 //     console.log("Stream Closed!!!");
 //     alert("Stream Closed !!!");
-});
+// });
+
+window.onbeforeunload = confirmExit;
+function confirmExit(){
+    axios.post('/updateduration',{
+                Email: address,
+                Duration: {
+                    Minutes: minutes,
+                    Seconds: seconds
+                }
+            }).then((res)=>{
+                if(res.data.Message === "Success"){
+                    console.log("Stream Closed");
+                    alert("Stream Closed !!!");
+                }
+                else{
+                    alert("Error Occurred");
+                }
+            });
+    return "Want to leave page ?";
+}
 
 useEffect(()=>{
             const args = {
