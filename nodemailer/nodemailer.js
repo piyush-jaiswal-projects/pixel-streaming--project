@@ -20,7 +20,7 @@ module.exports.mail= async (str,data) => {
   const options = {
 from:"Anirudh465@outlook.com",
 to:data.Email,
-html: `<b>Your Code is ${data.Code}.Please use this code to signIn </b>`,
+html: `Your Code is <b>${data.Code}</b>.Please use this code to signIn `,
   };
 
   // Send Email
