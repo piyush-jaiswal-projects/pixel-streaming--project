@@ -6,27 +6,44 @@ const path = require('path');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const { MongoClient, ServerApiVersion } = require('mongodb');
+const User = require("./database/database.js");
+
 
 // Create a new express application named 'app'
 const app = express();
 
-dotenv.config();
+dotenv.config(); 
 
 // Set our backend port to be either an environment variable or port 5000
 const port = process.env.PORT || 5000;
-const username = "webdevwork";
-const password = "webdevwork";
-const uri = "mongodb+srv://"+username+":"+password+"@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
+// const username = "webdevwork";
+// const password = "webdevwork";
+// const uri = "mongodb+srv://newpassword:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
+const db = "mongodb+srv://c:c@cluster0.szhfb1x.mongodb.net/?retryWrites=true&w=majority";
 
-mongoose.connect(uri,
-    { useNewUrlParser: true, useUnifiedTopology: true }, err => {
-        console.log('Database Connected')
+mongoose.connect(db, err => {
+        if(!err) console.log('Database Connected');
+        else if(err) console.log(err);
     });
+
+
+
+// const uri = "mongodb+srv://webdevwork:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
+// const connectDB = async () => {
+//     await mongoose.connect(uri)
+//         .catch(function (error) {
+//             console.log(`Unable to connect to the Mongo db  ${error} `);
+//         });
+// //...rest of code
+// };  
+
+// // use as a function        
+// connectDB();
 
 
 // This application level middleware prints incoming requests to the servers console, useful to see incoming requests
 app.use((req, res, next) => {
-    console.log(`Request_Endpoint: ${req.method} ${req.url}`);
+    console.log(`Request_Endpoint: ${req.method} ${req.db}`);
     next();
 });
 
@@ -41,8 +58,9 @@ app.use(cors());
 
 // Require Route
 const api = require('./routes/routes');
+const { response } = require('express');
 // Configure app to use route
-app.use('/api/v1/', api);
+app.use('/', api);
 
 // This middleware informs the express application to serve our compiled React files
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
@@ -60,5 +78,11 @@ app.get('*', (req, res) => {
     });
 });
 
+
 // Configure our server to listen on the port defiend by our port variable
 app.listen(port, () => console.log(`BACK_END_SERVICE_PORT: ${port}`));
+
+//exporting constant
+module.exports = {
+    db
+};

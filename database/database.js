@@ -1,22 +1,22 @@
 const mongoose = require("mongoose");
+const uri = require('../server.js');
 
-const Schema = mongoose.Schema;
-
-
-
-var userSchema = new Schema({
+var userSchema = new mongoose.Schema({
     Name: String,
     Email: String,
     Organization: String,
     Link: String,
     Code: String,
-    Date: Date,
-    Duration: Number,
+    RegisterDate: Date,
+    Duration: {
+        Minutes: Number,
+        Seconds: Number
+    },
     LoginCount: Number
 });
 
 
 
-module.exports = {
-    userSchema
-  };
+// mongoose.connect(uri);
+
+module.exports = userSchema;

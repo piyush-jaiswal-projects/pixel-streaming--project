@@ -1,13 +1,20 @@
 import React, {useState} from "react";
+import {Link} from "react-router-dom";
 import "./register.css";
 import axios from "axios";
+import AccessLink from "../Link/link.jsx";
 var validator = require("email-validator");
 
 function Register(){
 
+    
+    document.cookie = "code=";
+
     const [name, setName] = useState("");
     const [org, setOrg] = useState("");
     const [email, setEmail] = useState("");
+    const [registerHidden, setRegisterHidden] = useState(false);
+    const [accessLinkHidden, setAccessLinkHidden] = useState(true);
 
     function handleNameChange(event){
         setName(event.target.value);
@@ -31,20 +38,16 @@ function Register(){
 
           return (result);
     }
-
+    var code = generateCode();;
     function handleRegistration(){
         if(validator.validate(email)){
 
+            // Stream Link
             const link = "";
-            const code = generateCode();
-            const duration = 0;
-            const logincount = 1;
+            const minutes = 44;
+            const seconds = 60;
+            const logincount = 0;
             const date = new Date();
-
-//             var today = new Date();
-// var dd = String(today.getDate()).padStart(2, '0');
-// var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-// var yyyy = today.getFullYear();
             
                 axios.post('/signup', {
                     'Name': name,
@@ -52,20 +55,26 @@ function Register(){
                     'Organization': org,
                     'Link': link,
                     'Code': code,
-                    'Date': date,
-                    'Duration': duration,
+                    'RegisterDate': date,
+                    'Duration': {
+                        'Minutes': minutes,
+                        'Seconds': seconds
+                    },
                     'LoginCount': logincount
                 }).then((res) => {
-                    alert(res.data.message);
-                    if(res.data.message === "Success"){
-                        // Component Rendering ---> Go to Link & pass duration as props
+                    alert(res.data.Message);
+                    if(res.data.Message === "Success"){
+
+                        // Component Rendering ---> Go to 
+                        setRegisterHidden(true);
+                        setAccessLinkHidden(false);
                     }
-                    else if(res.data.message === "failed"){
+                    else if(res.data.Message === "failed"){
                         setName("");
                         setOrg("");
                         setEmail("");
                     }
-                    else if(res.data.message === "Already Registered"){
+                    else if(res.data.Message === "Already Registered"){
                         setEmail("");
                     }
                 });
@@ -76,9 +85,12 @@ function Register(){
     }
 
     return(
-        <div className="register-section">
+        <div>
+        <div className="register-section" hidden={registerHidden}>
         <div className="register-div">
+        <Link to="/">
         <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
+        </Link>
         <div className="form-container">
         <h3 className="register-title">Your Information</h3>
         <input type="text" className="info-input" placeholder="Name" value={name} onChange={handleNameChange}></input>
@@ -87,6 +99,12 @@ function Register(){
         <button className="register-button" onClick={handleRegistration}>Request Access</button>
         </div>
         </div>
+        </div>
+        <div hidden={accessLinkHidden}>
+        <AccessLink value={email} cond={accessLinkHidden}/>
+        </div>
+
+
         </div>
     );
 }

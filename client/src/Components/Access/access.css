@@ -3,8 +3,14 @@
     height: 300px;
     margin: auto;
     padding: 0;
+    position: relative;
+    top: 22vh;
     border: 2px solid rgb(190, 190, 190);
     background-color: white;
+}
+
+#stream{
+    display: none;
 }
 
 .register-button{

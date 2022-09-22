@@ -1,5 +1,6 @@
 import React from "react";
 import "./deny.css";
+import {Link} from "react-router-dom";
 
 function Deny(){
     return(
@@ -10,7 +11,9 @@ function Deny(){
             That code is not valid. Please apply for a new one by clicking the link below.
         </p>
         <br></br>
+        <Link to='/register'>
         <button className="register-button">Request Access</button>
+        </Link>
         </div>
         </div>
         </div>
