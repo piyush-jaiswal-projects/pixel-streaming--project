@@ -6,7 +6,7 @@ import AccessLink from "../Link/link.jsx";
 import Deny from "../Deny/deny.jsx";
 import Stream from "../Stream/stream";
 import { setMaxListeners } from "events";
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser';
 
 function Access(){
 
@@ -23,12 +23,12 @@ function Access(){
     const sendEmail = (e) => {
         e.preventDefault();
     
-        emailjs.sendForm('gmail', 'template_7183es8', e.target, 'KsKIica7RfEgu6rjz')
-          .then((result) => {
-              console.log(result.text);
-          }, (error) => {
-              console.log(error.text);
-          });
+        // emailjs.sendForm('gmail', 'template_7183es8', e.target, 'KsKIica7RfEgu6rjz')
+        //   .then((result) => {
+        //       console.log(result.text);
+        //   }, (error) => {
+        //       console.log(error.text);
+        //   });
       };
     var address;
     function handleCodeChange(event){
