@@ -27,7 +27,7 @@ export default function Authenticate(){
 
       window.onbeforeunload = confirmExit;
 function confirmExit(){
-    axios.post('/updateduration',{
+    axios.post('/updateduration2',{
                 Email: email
             }).then((res)=>{
                 if(res.data.Message === "Success"){
@@ -42,7 +42,7 @@ function confirmExit(){
 }
 
       if(email === "" || email === " "){
-        alert("Email Not Found");
+        alert("Email Not Found OR LOGIN Again");
         window.location.replace('/login');
       }
       else{
