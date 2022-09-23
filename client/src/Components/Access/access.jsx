@@ -109,7 +109,7 @@ function Access(){
                     setAccessHidden(true);
                     setDenyHidden(false);
                 }
-                else if(duration <=0){
+                else if(duration >=45){
                     alert("45 mins duration limit exceeded!");
                     deleteUser(email);
                     // go to deny

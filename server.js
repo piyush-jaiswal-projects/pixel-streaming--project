@@ -19,7 +19,7 @@ const port = process.env.PORT || 5000;
 // const username = "webdevwork";
 // const password = "webdevwork";
 // const uri = "mongodb+srv://newpassword:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
-const db = "mongodb+srv://c:c@cluster0.szhfb1x.mongodb.net/?retryWrites=true&w=majority";
+const db = "mongodb+srv://newpassword:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(db, err => {
         if(!err) console.log('Database Connected');

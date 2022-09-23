@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const userSchema = require("../database/database.js");
 const User = mongoose.model("User", userSchema);
 
+const {mail} =require("../nodemailer/nodemailer2.js");
+
 async function updateDuration(req, res){
     console.log("inside updateDuration function");
     console.log(req.body);
@@ -13,6 +15,7 @@ async function updateDuration(req, res){
     },
     function(err, result){
         if(!err){
+            mail("UpdateDuration", req.body.Email, req.body.Duration.Minutes, req.body.Duration.Seconds)
             message="Success"; 
                     const responseData ={
                         Message: message
