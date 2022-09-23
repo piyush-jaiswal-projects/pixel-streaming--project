@@ -63,7 +63,7 @@ function Register(){
                 }).then((res) => {
                     alert(res.data.Message);
                     if(res.data.Message === "Success"){
-                        window.location.replace('/access-link')
+                        window.location.replace('/access-link');
                     }
                     else if(res.data.Message === "failed"){
                         setName("");

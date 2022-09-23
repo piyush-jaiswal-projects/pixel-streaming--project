@@ -12,7 +12,7 @@ import Register from "./Components/Register/register.jsx";
 import Access from "./Components/Access/access.jsx";
 import Link from "./Components/Link/link.jsx";
 import Deny from "./Components/Deny/deny.jsx";
-import Stream from './Components/Stream/stream.jsx';
+import AuthenticateUser from "./Components/AuthenticateUser/authenticateUser.jsx";
 
 const ScrollToTop = (props) => {
   const location = useLocation();
@@ -46,8 +46,7 @@ root.render(
         } />   
         <Route path="/stream" element={
           <div>
-          "YOU ARE ON STREAM PAGE"
-          <Stream />
+          <AuthenticateUser />
           </div>
         } />  
         <Route path="/access-denied" element={

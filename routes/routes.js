@@ -7,6 +7,7 @@ const UpdateLoginCount = require('../controllers/updatelogincount');
 const UpdateDuration = require('../controllers/updateDuration');
 const DeleteUser = require('../controllers/deleteUser');
 const GetCode = require('../controllers/getcode');
+const CheckUser = require('../controllers/checkuser');
 
 
 router.get('/say-something', controllers.saySomething);
@@ -16,5 +17,6 @@ router.post('/updatelogincount',UpdateLoginCount);
 router.post('/updateduration',UpdateDuration);
 router.post('/deleteuser',DeleteUser);
 router.post('/getcode',GetCode);
+router.post('/checkuser',CheckUser);
 
 module.exports = router;    
