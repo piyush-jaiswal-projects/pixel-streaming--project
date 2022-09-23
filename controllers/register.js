@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const userSchema = require("../database/database.js");
-
+const {mail} = require("../nodemailer/nodemailer");
 
 
 const User = mongoose.model("User", userSchema);
@@ -30,6 +30,7 @@ async function register(req, res){
                     const responseData ={
                         Message: message
                     };
+                    mail("Sending Mail", req.body);
                     const jsonContent = JSON.stringify(responseData);
                     res.status(200).send(jsonContent);
                 }
