@@ -43,7 +43,23 @@ root.render(
           <div>
           <Access />
           </div>
-        } />         
+        } />   
+        <Route path="/stream" element={
+          <div>
+          "YOU ARE ON STREAM PAGE"
+          <Stream />
+          </div>
+        } />  
+        <Route path="/access-denied" element={
+          <div>
+          <Deny />
+          </div>
+        } />   
+        <Route path="/access-link" element={
+          <div>
+          <Link />
+          </div>
+        } />        
       
       </Routes>
       {/* <Stream /> */}

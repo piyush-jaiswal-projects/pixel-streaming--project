@@ -14,7 +14,6 @@ function Register(){
     const [org, setOrg] = useState("");
     const [email, setEmail] = useState("");
     const [registerHidden, setRegisterHidden] = useState(false);
-    const [accessLinkHidden, setAccessLinkHidden] = useState(true);
 
     function handleNameChange(event){
         setName(event.target.value);
@@ -64,10 +63,7 @@ function Register(){
                 }).then((res) => {
                     alert(res.data.Message);
                     if(res.data.Message === "Success"){
-
-                        // Component Rendering ---> Go to 
-                        setRegisterHidden(true);
-                        setAccessLinkHidden(false);
+                        window.location.replace('/access-link')
                     }
                     else if(res.data.Message === "failed"){
                         setName("");
@@ -100,11 +96,6 @@ function Register(){
         </div>
         </div>
         </div>
-        <div hidden={accessLinkHidden}>
-        <AccessLink value={email} cond={accessLinkHidden}/>
-        </div>
-
-
         </div>
     );
 }
