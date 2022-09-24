@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const User = require("./database/database.js");
+const cookieParser = require('cookie-parser');
 
 
 // Create a new express application named 'app'
@@ -52,6 +53,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use(cookieParser());
 
 // Configure the CORs middleware
 app.use(cors());
