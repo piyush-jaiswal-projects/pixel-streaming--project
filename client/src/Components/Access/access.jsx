@@ -84,9 +84,8 @@ function Access(){
                 document.cookie="email="+res.data.Email;
                 const result = updateLoginCount(email, logincount);
                 if(dayCount <= 5 && logincount <5 && duration > 0){
-                    setAccessHidden(true);
+                    console.log("Rendering Component");
                     window.location.replace('/stream');
-
                 }
                 else if(dayCount >5){
                     deleteUser(email);
