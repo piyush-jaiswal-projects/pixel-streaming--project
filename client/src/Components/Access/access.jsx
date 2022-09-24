@@ -65,8 +65,6 @@ function Access(){
         }).then((res) => {
             alert(res.data.Message);
             if(res.data.Message === "Success"){
-                console.log("We are here");
-                console.log(res.data);
                 const registerDate = Date.parse(res.data.RegisterDate);
                 const todayDate = new Date().toISOString();
                 address=res.data.Email;
@@ -83,6 +81,8 @@ function Access(){
                 setMail(res.data.Email);
                 document.cookie="email="+res.data.Email;
                 const result = updateLoginCount(email, logincount);
+                console.log(res.Duration);
+                console.log(dayCount + logincount + duration);
                 if(dayCount <= 5 && logincount <5 && duration > 0){
                     console.log("Rendering Component");
                     window.location.replace('/stream');
