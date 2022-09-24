@@ -83,7 +83,7 @@ function Access(){
                 const result = updateLoginCount(email, logincount);
                 console.log(res.Duration);
                 console.log(dayCount + logincount + duration);
-                if(dayCount <= 5 && logincount <5 && duration > 0){
+                if(dayCount <= 5 && logincount <5){
                     console.log("Rendering Component");
                     window.location.replace('/stream');
                 }
@@ -97,11 +97,11 @@ function Access(){
                     alert("5 login limit exceeded!");
                     window.location.replace('/access-denied');
                 }
-                else if(duration >=45){
-                    deleteUser(email);
-                    alert("45 mins duration limit exceeded!");
-                    window.location.replace('/access-denied');
-                }
+                // else if(duration >=45){
+                //     deleteUser(email);
+                //     alert("45 mins duration limit exceeded!");
+                //     window.location.replace('/access-denied');
+                // }
             }
             else if(res.data.Message === "failed"){
                 setEmail("");

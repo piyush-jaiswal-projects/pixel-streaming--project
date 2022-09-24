@@ -40,29 +40,32 @@ function confirmExit(){
             });
     return "Want to leave page ?";
 }
-
-      if(email === "" || email === " "){
-        alert("Email Not Found OR LOGIN Again");
-        window.location.replace('/login');
-      }
-      else{
-        axios.post('/checkuser', {
-            'Email': email
-        }).then((res) => {
-            if(res.data.Message === "Success"){
-            // rendering stream component
-            setStreaming(<Stream />);
-            }
-            else if(res.data.Message === "No"){
-                alert("You are not registered");
-                window.location.replace('/register');
-            }
-            else{
-                alert("ERROR OCCURRED");
-                window.location.replace('/');
-            }
-        });
-      }
+const standing = "standing";
+React.useEffect(()=>{
+  if(email === "" || email === " "){
+    alert("Email Not Found OR LOGIN Again");
+    window.location.replace('/login');
+  }
+  else{
+    axios.post('/checkuser', {
+        'Email': email
+    }).then((res) => {
+        if(res.data.Message === "Success"){
+        // rendering stream component
+        setStreaming(<Stream />);
+        }
+        else if(res.data.Message === "No"){
+            alert("You are not registered");
+            window.location.replace('/register');
+        }
+        else{
+            alert("ERROR OCCURRED");
+            window.location.replace('/');
+        }
+    });
+  }
+},[standing])
+      
 
       return(
         <div id="streamer">
