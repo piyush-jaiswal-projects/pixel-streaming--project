@@ -50,6 +50,7 @@ async function login(req, res){
                     const responseData ={
                         Message: message
                     };
+                    console.log(responseData);
                     const jsonContent = JSON.stringify(responseData);
                     res.status(200).send(jsonContent);
             }

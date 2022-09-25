@@ -4,7 +4,7 @@ import Stream from '../Stream/stream.jsx';
 
 export default function Authenticate(){
 
-    const [streaming, setStreaming] = React.useState("Initial Streaming Option");
+    const [streaming, setStreaming] = React.useState("");
 
     function getCookie(cname) {
         let name = cname + "=";

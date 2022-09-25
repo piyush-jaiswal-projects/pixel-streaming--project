@@ -12,6 +12,7 @@ import Register from "./Components/Register/register.jsx";
 import Access from "./Components/Access/access.jsx";
 import Link from "./Components/Link/link.jsx";
 import Deny from "./Components/Deny/deny.jsx";
+import End from "./Components/End/end.jsx";
 import AuthenticateUser from "./Components/AuthenticateUser/authenticateUser.jsx";
 
 const ScrollToTop = (props) => {
@@ -59,9 +60,12 @@ root.render(
           <Link />
           </div>
         } />        
-      
+      <Route path="/end" element={
+          <div>
+          <End />
+          </div>
+        } /> 
       </Routes>
-      {/* <Stream /> */}
       </ScrollToTop>
     </BrowserRouter>
   </React.StrictMode>
