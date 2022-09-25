@@ -19,6 +19,16 @@ export default function Authenticate(){
       });
   }
 
+  function deleteUser(email){
+    const mail = email;
+    axios.post('/deleteuser',{
+        'Email': mail
+    }).then((res)=>{
+        if(res.data.message === "Success") return "done";
+        else return "fail";
+    });
+}
+
     function getCookie(cname) {
         let name = cname + "=";
         let decodedCookie = decodeURIComponent(document.cookie);
@@ -73,6 +83,7 @@ React.useEffect(()=>{
             window.location.replace('/register');
         }
         else if(res.data.Message === "5 Login Limit Exceeded"){
+          deleteUser(email);
           alert("5 Login Limit Exceeded");
           window.location.replace('/register');
       }
