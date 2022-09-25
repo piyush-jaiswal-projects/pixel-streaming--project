@@ -8,6 +8,7 @@ const UpdateDuration = require('../controllers/updateDuration');
 const DeleteUser = require('../controllers/deleteUser');
 const GetCode = require('../controllers/getcode');
 const CheckUser = require('../controllers/checkuser');
+const StartTimer = require('../controllers/startTimer');
 
 
 router.get('/say-something', controllers.saySomething);
@@ -18,5 +19,6 @@ router.post('/updateduration',UpdateDuration);
 router.post('/deleteuser',DeleteUser);
 router.post('/getcode',GetCode);
 router.post('/checkuser',CheckUser);
+router.post('/startTimer',StartTimer);
 
 module.exports = router;    
