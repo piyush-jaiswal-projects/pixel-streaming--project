@@ -18,9 +18,16 @@ async function Checkuser(req, res){
         }
         else if(foundUser) {
             console.log("User found");
-            const jsonContent = JSON.stringify({
-                Message: "Success"
-            });
+            var jsonContent;
+            if(foundUser.LoginCount <5){
+            jsonContent = JSON.stringify({
+                Message: "Success",
+                LoginCount: foundUser.LoginCount
+            });}
+            else{
+                jsonContent = JSON.stringify({
+                    Message: "5 Login Limit Exceeded"
+                });            }
             res.status(200).send(jsonContent);
         }
     })

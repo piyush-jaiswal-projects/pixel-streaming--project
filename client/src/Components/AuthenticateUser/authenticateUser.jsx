@@ -6,6 +6,19 @@ export default function Authenticate(){
 
     const [streaming, setStreaming] = React.useState("");
 
+    function updateLoginCount(email, logincount){
+      const mail = email;
+      const loginCount = logincount;
+      const newLogincount = logincount + 1;
+      axios.post('/updatelogincount',{
+          'Email': mail,
+          'LoginCount': newLogincount
+      }).then((res)=>{
+          if(res.data.message === "Success") return "done";
+          else return "fail";
+      });
+  }
+
     function getCookie(cname) {
         let name = cname + "=";
         let decodedCookie = decodeURIComponent(document.cookie);
@@ -52,12 +65,17 @@ React.useEffect(()=>{
     }).then((res) => {
         if(res.data.Message === "Success"){
         // rendering stream component
+        const stat = updateLoginCount(email, res.data.LoginCount);
         setStreaming(<Stream />);
         }
         else if(res.data.Message === "No"){
             alert("You are not registered");
             window.location.replace('/register');
         }
+        else if(res.data.Message === "5 Login Limit Exceeded"){
+          alert("5 Login Limit Exceeded");
+          window.location.replace('/register');
+      }
         else{
             alert("ERROR OCCURRED");
             window.location.replace('/');
