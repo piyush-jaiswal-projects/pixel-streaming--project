@@ -1,0 +1,92 @@
+#form-container{
+    display: block;
+    width: 50%;
+    border: 2px solid black;
+    position: relative;
+    top: 150px;
+}
+
+
+
+.info-input{
+    width: 90%;
+}
+
+.admin-header{
+    margin: 0;
+    padding-top: 10px;
+    position: relative;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: sans-serif;
+    border-bottom: 1px solid grey;
+}
+
+.div-one{
+    margin: 10px;
+    height: 570px;
+    background-color: white;
+    width: 40%;
+    display: flexbox;
+    float: left;
+    border: 1px solid grey;
+    border-radius: 15px;
+    text-align: center;
+    justify-content: center;
+}
+
+.div-two{
+    margin: 10px;
+    height: 570px;
+    background-color: white;
+    width: 55%;
+    display: flexbox;
+    float: left;
+    border: 1px solid grey;
+    overflow: scroll;
+}
+
+.duration-set{
+    width: 90%;
+    height: 150px;
+    /* border: 1px solid grey; */
+    border-radius: 15px;
+    margin: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
+    padding: 5px;
+    background-color: rgb(231, 229, 229);
+}
+
+.add-admin{
+    width: 90%;
+    height: 180px;
+    /* border: 1px solid grey; */
+    border-radius: 15px;
+    margin: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
+    padding: 5px;
+    background-color: rgb(231, 229, 229);
+}
+
+.message-div{
+    background-color: rgb(233, 247, 250);
+    height: 50px;
+    width: 93%;    
+    margin: 5px 1rem 5px 1rem;
+    display: block;
+    padding: 5px;
+    font-family: sans-serif;
+}
+
+h3, b, h5 {
+    margin: 0;
+    padding: 0;
+}
+
+h3{
+    color: rgb(7, 83, 146);
+}
