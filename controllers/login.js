@@ -23,7 +23,6 @@ async function login(req, res){
         User.findOne({ Email: email }, function (err, foundUser) {
 
             if (foundUser) {
-                console.log(foundUser.RegisterDate);
                 if (foundUser.Code == code) {  //checking password
                     message="Success"; 
                     const responseData ={

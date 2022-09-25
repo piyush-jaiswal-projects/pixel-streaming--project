@@ -9,6 +9,7 @@ async function deleteUser(req, res){
     function(err, result){
         if(!err){
             console.log("User Deletion Success");
+            res.cookie(`email`,``);
                     res.status(200).send();
         }
         else if(err){

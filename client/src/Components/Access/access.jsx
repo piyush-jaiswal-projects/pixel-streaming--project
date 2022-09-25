@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 import "./access.css";
 import axios from "axios";
 import AccessLink from "../Link/link.jsx";
@@ -22,13 +23,6 @@ function Access(){
     const streamRoot = document.getElementById("stream");
     const sendEmail = (e) => {
         e.preventDefault();
-    
-        // emailjs.sendForm('gmail', 'template_7183es8', e.target, 'KsKIica7RfEgu6rjz')
-        //   .then((result) => {
-        //       console.log(result.text);
-        //   }, (error) => {
-        //       console.log(error.text);
-        //   });
       };
     var address;
     function handleCodeChange(event){
@@ -87,48 +81,36 @@ function Access(){
                 setMail(res.data.Email);
                 document.cookie="email="+res.data.Email;
                 const result = updateLoginCount(email, logincount);
-                if(dayCount <= 5 && logincount <5 && duration > 0){
-                    // Go to stream and pass duration as props
-                    setAccessHidden(true);
-                    setAccessLinkHidden(true);
-                    setAccessHidden(true);
-                    streamRoot.style.display="block";
-                    setCond(true);
+                console.log(res.Duration);
+                console.log(dayCount + logincount + duration);
+                if(dayCount <= 5 && logincount <5){
+                    console.log("Rendering Component");
+                    window.location.replace('/stream');
                 }
                 else if(dayCount >5){
-                    alert("5 days limit exceeded!");
                     deleteUser(email);
-                    // go to deny
-                    setAccessHidden(true);
-                    setDenyHidden(false);
+                    alert("5 days limit exceeded!");
+                    window.location.replace('/access-denied');
                 }
                 else if(logincount >=5){
+                    deleteUser(email);
                     alert("5 login limit exceeded!");
-                    deleteUser(email);
-                    // go to deny
-                    setAccessHidden(true);
-                    setDenyHidden(false);
+                    window.location.replace('/access-denied');
                 }
-                else if(duration <=0){
-                    alert("45 mins duration limit exceeded!");
-                    deleteUser(email);
-                    // go to deny
-                    setAccessHidden(true);
-                    setDenyHidden(false);
-                }
+                // else if(duration >=45){
+                //     deleteUser(email);
+                //     alert("45 mins duration limit exceeded!");
+                //     window.location.replace('/access-denied');
+                // }
             }
             else if(res.data.Message === "failed"){
                 setEmail("");
                 setCode("");
-                // go to access
-                setAccessHidden(false);
             }
             else if(res.data.Message === "Invalid Code"){
                 setEmail("");
                 setCode("");
-                // go to deny
-                    setAccessHidden(true);
-                    setDenyHidden(false);
+                    window.location.replace('/access-denied');
             }
         });
 
@@ -152,13 +134,6 @@ function Access(){
         </div>
         </div>
         </div>
-        <div hidden={accessLinkHidden}><AccessLink code={code}/></div>
-        <div hidden={denyHidden}><Deny /></div>
-        <div id="stream"><Stream values={{
-            Minutes: minutes,
-            Seconds: seconds,
-            Timer: cond
-        }}/></div>
         </div>
     );
 }

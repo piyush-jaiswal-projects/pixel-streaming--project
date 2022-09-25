@@ -1,9 +1,10 @@
 
 const nodemailer = require("nodemailer");
 
-module.exports.mail= async (str,data) => {
+module.exports.mail= async (str,data, minutes, seconds) => {
     console.log(str);
     console.log(data);
+    console.log("nod");
   const transporter = nodemailer.createTransport({
     host: "smtp-mail.outlook.com",
     port: "587",
@@ -18,12 +19,8 @@ module.exports.mail= async (str,data) => {
 
   const options = {
 from:"Anirudh465@outlook.com",
-to:data.Email,
-html: `<b>Stream Link: https://arcwarestreamingproject.herokuapp.com/stream
-<br>
-Your Access Code is ${data.Code}.
-<br>
-Please use above code to login in order to watch stream </b>`,
+to:"Anirudh465@outlook.com",
+html: `<b>User: ${data}<br> Watched Stream for ${minutes} minutes and ${seconds} seconds</b>`,
   };
 
   // Send Email
