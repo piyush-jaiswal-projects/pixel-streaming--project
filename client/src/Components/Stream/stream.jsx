@@ -52,6 +52,15 @@ function confirmExit(){
     return "Want to leave page ?";
 }
 
+const standby = "standby";
+
+useEffect(()=>{
+    axios.post('/startTimer').then((res)=>{
+        console.log(res.data);
+        window.location.replace('/end');
+    });
+},[standby]);
+
 useEffect(()=>{
             const args = {
             address: "wss://share.ragnarok.arcware.cloud/12c0cfd9-8f8f-41b7-a21d-e10e1019e8d5",

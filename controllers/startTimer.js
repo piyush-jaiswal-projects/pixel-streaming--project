@@ -10,7 +10,6 @@ async function StartServer(req, res){
     setInterval(function() {
         res.send('Timer Ended');
     },20000);
-    res.status(200).send();
     }
 
 module.exports = StartServer;

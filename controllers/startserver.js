@@ -6,8 +6,9 @@ const userSchema = require("../database/database.js");
 const User = mongoose.model("User", userSchema);
 
 async function StartServer(req, res){
+    console.log("Timer Started");
     setInterval(function() {
-        res.send('Timer Ended');
+        res.end('Timer Ended');
     },20000);
     }
 
