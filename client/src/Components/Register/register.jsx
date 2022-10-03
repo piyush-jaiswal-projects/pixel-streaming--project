@@ -5,7 +5,7 @@ import axios from "axios";
 import AccessLink from "../Link/link.jsx";
 var validator = require("email-validator");
 
-function Register(){
+function Register({language}){
 
     
     document.cookie = "code=";
@@ -82,20 +82,39 @@ function Register(){
 
     return(
         <div>
-        <div className="register-section" hidden={registerHidden}>
-        <div className="register-div">
-        <Link to="/">
-        <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
-        </Link>
-        <div className="form-container">
-        <h3 className="register-title">Your Information</h3>
-        <input type="text" className="info-input" placeholder="Name" value={name} onChange={handleNameChange}></input>
-        <input type="text" className="info-input" placeholder="Organisation/School" value={org} onChange={handleOrgChange}></input>
-        <input type="email" className="info-input" placeholder="Email address" value={email} onChange={handleEmailChange}></input>
-        <button className="register-button" onClick={handleRegistration}>Request Access</button>
-        </div>
-        </div>
-        </div>
+        {language?   <div className="register-section" hidden={registerHidden}>
+ 
+ <div className="register-div">
+ <Link to="/">
+ <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
+ </Link>
+ <div className="form-container">
+ <h3 className="register-title">Your Information</h3>
+ <input type="text" className="info-input" placeholder="Name" value={name} onChange={handleNameChange}></input>
+ <input type="text" className="info-input" placeholder="Organisation/School" value={org} onChange={handleOrgChange}></input>
+ <input type="email" className="info-input" placeholder="Email address" value={email} onChange={handleEmailChange}></input>
+ <button className="register-button" onClick={handleRegistration}>Request Access</button>
+ </div>
+ </div>
+ </div>:<>
+ {/* belgium */}
+ <div className="register-section" hidden={registerHidden}>
+ 
+ <div className="register-div">
+ <Link to="/">
+ <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
+ </Link>
+ <div className="form-container">
+ <h3 className="register-title">Your Information</h3>
+ <input type="text" className="info-input" placeholder="Name" value={name} onChange={handleNameChange}></input>
+ <input type="text" className="info-input" placeholder="Organisation/School" value={org} onChange={handleOrgChange}></input>
+ <input type="email" className="info-input" placeholder="Email address" value={email} onChange={handleEmailChange}></input>
+ <button className="register-button" onClick={handleRegistration}>Request Access B</button>
+ </div>
+ </div>
+ </div>
+ </> }
+      
         </div>
     );
 }

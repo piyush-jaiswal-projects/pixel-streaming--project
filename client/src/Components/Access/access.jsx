@@ -9,7 +9,7 @@ import Stream from "../Stream/stream";
 import { setMaxListeners } from "events";
 // import emailjs from '@emailjs/browser';
 
-function Access(){
+function Access({language}){
 
     const [email, setEmail] = useState("");
     const [code, setCode] = useState("");
@@ -118,13 +118,14 @@ function Access(){
 
     return(
         <div>
-        <div className="register-section" hidden={accessHidden}>
+        {language?  <div className="register-section" hidden={accessHidden}>
         <div className="register-div">
         <Link to="/">
         <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
         </Link>
         <div className="form-container">
-        <h3 className="register-title">Access Experience</h3>
+        <h3 className="register-title">Enter your code</h3>
+        <h3 className="register-title">Your code can be found  in the email you recieved when you registered. Each code can be used 10 times and is valid for 7 days.</h3>
         <form onSubmit={sendEmail} >
         <input type="email" className="info-input" placeholder="Email address"  value={email}  name="email" onChange={handleEmailChange}></input>
         <input type="text" className="info-input" placeholder="Personal Code"  value={code}  onChange={handleCodeChange}></input>
@@ -133,7 +134,25 @@ function Access(){
         {/* changed handleLogin with collectData */}
         </div>
         </div>
+        </div>:
+        <div className="register-section" hidden={accessHidden}>
+        <div className="register-div">
+        <Link to="/">
+        <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
+        </Link>
+        <div className="form-container">
+        <h3 className="register-title">Enter your code</h3>
+        <h3 className="register-title">Your code can be found  in the email you recieved when you registered. bEach code can be used 10 times and is valid for 7 days.</h3>
+        <form onSubmit={sendEmail} >
+        <input type="email" className="info-input" placeholder="Email address"  value={email}  name="email" onChange={handleEmailChange}></input>
+        <input type="text" className="info-input" placeholder="Personal Code"  value={code}  onChange={handleCodeChange}></input>
+        <button className="register-button"   onClick={ handleLogin }>Log in</button>
+        </ form >
+        {/* changed handleLogin with collectData */}
         </div>
+        </div>
+        </div>}
+       
         </div>
     );
 }
