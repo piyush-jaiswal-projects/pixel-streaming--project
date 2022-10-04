@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userSchema = require("../database/database.js");
 const User = mongoose.model("User", userSchema);
-const {mail} =require("../nodemailer/nodemailer.js");
+// const {mail} =require("../nodemailer/nodemailer.js");
 
 const {mail} =require("../nodemailer/nodemailer2.js");
 

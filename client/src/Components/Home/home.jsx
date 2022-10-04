@@ -3,6 +3,7 @@ import "./home.css";
 import {Link} from "react-router-dom";
 // import {handleAccessClick} from "../../App.js";
 import logo from "./logo.png";
+import logo2 from "./logo2.png";
 function Home({language,setLanguage}){
     const[s,setS]=useState(false);
     const change=(e)=>{
@@ -21,43 +22,54 @@ function Home({language,setLanguage}){
     }
     return(
         <div className="home-section" id="centreDiv">
-        <div className="home-div">
-       
         <div className="check">
-  <select  onChange={change}ClassName="membership" id="membership">
-  <option  value="English">English</option>
-  <option  value="Belgium" >Belgium</option>
+  <select  onChange={change} className="membership" id="membership">
+  <option className="member-value" value="English">CHANGE LANGUAGE</option>
+  <option className="member-value" value="Belgium" >SWEDISH</option>
 </select>
   </div>
+        <div className="home-div">
+       
+        
+
+  
  
    { language? (<> {/* 1=English  */}
    <div  className="logo">
-            <img  className="img" src={logo} alt="" srcset="" />
+            <img  className="img" src={logo2} alt="" srcset="" />
         </div>
-      
-        <h3 className="section-title" onClick={change}>Welcome to No Time to Waste</h3>
+        <hr></hr>
+        <h3 className="section-title" onClick={change}>No Time to Waste</h3>
         <h3 className="t">Welcome to a virtual escape room experience from Håll Sverige Rent. Created to raise awareness and promote knowledge about the global plastic epidemic.</h3>
+        <div className="btn-wrapper-div">
         <Link to="/register">
-        <button className="section-button">Request Access</button>
+        <button className="section-button">REQUEST ACCESS</button>
         </Link>
         <Link to="/login">
-        <button className="section-button">Login</button>
-        </Link></>) 
+        <button className="section-button">I HAVE A CODE</button>
+        </Link>
+        </div>
+        <p className="footer-tag">Created by Interesting Time Gang</p>
+        </>) 
         :<> {/* belgium*/}
         <div  className="logo">
-            <img  className="img" src={logo} alt="" srcset="" />
+            <img  className="img" src={logo2} alt="" srcset="" />
         </div>
-        <h3 className="section-title" onClick={change}>Welcome to No Time to Waste in Belgium </h3>
-        <h3 className="t">Welcome to a virtual escape room experience from Håll Sverige Rent. Belgium Created to raise awareness and promote knowledge about the global plastic epidemic.</h3>
+        <hr></hr>
+        <h3 className="section-title" onClick={change}>Ingen tid att förlora </h3>
+        <h3 className="t">Välkommen till en virtuell escape room-upplevelse från Håll Sverige Rent. Skapad för att öka medvetenheten och främja kunskap om den globala plastepidemin.</h3>
+        <div className="btn-wrapper-div">
         <Link to="/register">
-        <button className="section-button">Request Access</button>
+        <button className="section-button">BEGÄRA TILLGÅNG</button>
         </Link>
         <Link to="/login">
-        <button className="section-button">Login</button>
+        <button className="section-button">JAG HAR EN KOD</button>
         </Link>
-        </> }
-    
         </div>
+        <p className="footer-tag">Skapad av Interesting Time Gang</p>
+        </> }
+        </div>
+        
         </div>
     );
 }

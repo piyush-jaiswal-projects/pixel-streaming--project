@@ -84,32 +84,37 @@ function Register({language}){
         <div>
         {language?   <div className="register-section" hidden={registerHidden}>
  
- <div className="register-div">
+ <div className="user-register-div">
  <Link to="/">
  <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
  </Link>
+ <br></br>
  <div className="form-container">
- <h3 className="register-title">Your Information</h3>
- <input type="text" className="info-input" placeholder="Name" value={name} onChange={handleNameChange}></input>
- <input type="text" className="info-input" placeholder="Organisation/School" value={org} onChange={handleOrgChange}></input>
- <input type="email" className="info-input" placeholder="Email address" value={email} onChange={handleEmailChange}></input>
- <button className="register-button" onClick={handleRegistration}>Request Access</button>
+ <h3 className="user-register-title">Your details</h3>
+ <input type="text" className="user-info-input" placeholder="NAME" value={name} onChange={handleNameChange}></input>
+ <input type="text" className="user-info-input" placeholder="ORG/SCHOOL" value={org} onChange={handleOrgChange}></input>
+ <input type="email" className="user-info-input" placeholder="EMAIL" value={email} onChange={handleEmailChange}></input>
+ <input className="check" type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></input>
+<label for="vehicle1" className="check-label"> I AM A TEACHER</label><br></br>
+ <button className="user-register-button" onClick={handleRegistration}>REQUEST ACCESS</button>
  </div>
  </div>
  </div>:<>
  {/* belgium */}
  <div className="register-section" hidden={registerHidden}>
  
- <div className="register-div">
+ <div className="user-register-div">
  <Link to="/">
  <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
  </Link>
  <div className="form-container">
- <h3 className="register-title">Your Information</h3>
- <input type="text" className="info-input" placeholder="Name" value={name} onChange={handleNameChange}></input>
- <input type="text" className="info-input" placeholder="Organisation/School" value={org} onChange={handleOrgChange}></input>
- <input type="email" className="info-input" placeholder="Email address" value={email} onChange={handleEmailChange}></input>
- <button className="register-button" onClick={handleRegistration}>Request Access B</button>
+ <h3 className="user-register-title">Dina detaljer</h3>
+ <input type="text" className="user-info-input" placeholder="NAMN" value={name} onChange={handleNameChange}></input>
+ <input type="text" className="user-info-input" placeholder="ORG/SKOLA" value={org} onChange={handleOrgChange}></input>
+ <input type="email" className="user-info-input" placeholder="E-POST" value={email} onChange={handleEmailChange}></input>
+ <input className="check" type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></input>
+<label for="vehicle1" className="check-label">JAG ÄR EN LÄRARE</label><br></br>
+ <button className="user-register-button" onClick={handleRegistration}>BEGÄRA TILLGÅNG</button>
  </div>
  </div>
  </div>
