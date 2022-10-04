@@ -1,9 +1,17 @@
 import axios from "axios";
 import React from "react";
 import "./link.css";
+import intro1 from "./intro1.png";
 
 function Link(props,{language}){
 
+    function handleExit(){
+        window.location.replace('/');
+    }
+
+    function handleSkip(){
+        window.location.replace('/screentwo');
+    }
     
     const [code ,setCode] = React.useState("");
     // console.log(props.value);
@@ -23,22 +31,20 @@ function Link(props,{language}){
     return(
        
         <div className="register-section">
-
-         {language ? <div className="register-div">
-         {/* english */}
-        <div className="form-container" style={{margin:"auto", position:"relative", top:"50px"}}>
-        <h3 style={{textAlign:"left",fontFamily:"sans-serif", margin:"0"}}>Your stream link and access code has been sent to your email id.</h3>
-        </div>
-        </div>:<>
+        <img className="intro-one" alt="Intro Screen 1" src={intro1}></img>
+        {language ? <div className="screenOneOverlay">
+        {/* english */}
+        <button className="skip-btn" onClick={handleSkip}>SKIP INTRO</button>
+        <button className="exit-btn" onClick={handleExit}>X</button>
+        </div>  
+        :<>
         {/* belgium */}
-        <div className="register-div">
-        <div className="form-container" style={{margin:"auto", position:"relative", top:"50px"}}>
-        <h3 style={{textAlign:"left",fontFamily:"sans-serif", margin:"0"}}>Your stream Belgium link and access code has been sent to your email id.</h3>
-        </div>
-        </div>
+        <div className="screenOneOverlay">
+        <button className="skip-btn" onClick={handleSkip}>SKIP INTRO</button>
+        <button className="exit-btn" onClick={handleExit}>X</button>
+        </div>  
 
         </>}
-       
         </div>
     );
 }

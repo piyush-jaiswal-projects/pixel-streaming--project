@@ -1,47 +1,3 @@
-.intro-one{
-    width: 99vw;
-    height: 98vh;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    z-index: -10;
-}
-
-.register-section{
-    margin: 0;
-    padding: 0;
-    background: none;
-}
-
-.screenOneoverlay{
-    margin: 0;
-    padding: 0;
-}
-
-.skip-btn{
-    box-sizing: border-box;
-    border: 1px solid #FFFFFF;
-border-radius: 5px;
-background: transparent;
-font-family: 'Titillium Web';
-font-style: normal;
-font-weight: 300;
-font-size: 30px;
-line-height: 61px;
-display: flex;
-align-items: center;
-text-align: center;
-color: #00C9FF;
-position: absolute;
-height: 97px;
-left: 87px;
-top: 50px;
-padding: 0.5rem 2rem 0.5rem 2rem;
-width: 20%;
-cursor: pointer;
-justify-content: center;
-}
-
 .exit-btn{
     box-sizing: border-box;
     border: 1px solid #FFFFFF;
@@ -65,3 +21,44 @@ width: 10%;
 cursor: pointer;
 justify-content: center;
 }
+
+.lang-wrapper-div{
+    display: flexbox;
+    position: absolute;
+    top: 50rem;
+    z-index: 1000;
+}
+
+.lang-button{
+    box-sizing: border-box;
+    border: 1px solid #FFFFFF;
+border-radius: 5px;
+background: transparent;
+text-align: center;
+color: #00C9FF;
+cursor: pointer;
+justify-content: center;
+font-family: 'Titillium Web';
+font-style: normal;
+font-weight: 300;
+font-size: 30px;
+line-height: 30px;
+padding: 0.5rem 2rem 0.5rem 2rem;
+display: inline-flex;
+width: 20%;
+margin: 2rem;
+}
+
+.one{
+position: absolute;
+left: 22rem;
+bottom: 5rem;
+}
+
+
+.two{
+position: absolute;
+left: 42rem;
+bottom: 5rem;
+}
+

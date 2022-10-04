@@ -1,6 +1,6 @@
 import React from  "react";
 import axios from 'axios';
-import Stream from '../Stream/stream.jsx';
+import Stream from '../Link/link.jsx';
 
 export default function Authenticate(){
 

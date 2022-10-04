@@ -138,6 +138,11 @@ color: #FFFFFF;
         font-size: 20px;
     }
 
+    .form-container{
+        position: relative;
+        top: 50px;
+    }
+
     .user-info-input{
         padding: 0.5rem;
     }
