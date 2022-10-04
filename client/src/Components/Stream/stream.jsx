@@ -4,7 +4,7 @@ import { useEffect ,useState} from "react";
 import { WebRTCClient } from "@arcware/webrtc-plugin";
 import "./stream.css";
 
-function Stream(props){
+function Stream(props,{language}){
 
     function getCookie(cname) {
         let name = cname + "=";
@@ -95,6 +95,8 @@ const emitUIInteraction = webrtc_client.emitUIInteraction;
 
     return(
         <div>
+        {/* use code 
+        {language ? english :belgium} */}
         <div ref={sizeContainerRef} className="stream-section">
         <div ref={containerRef} className="video-div">
         <video ref={videoRef} />

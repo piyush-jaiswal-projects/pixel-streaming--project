@@ -1,5 +1,11 @@
 
+.register-section{
 
+    background: #000;
+}
+.back-image{
+    filter: invert(1);
+}
 .register-div{
     width: 30%;
     height: 300px;
@@ -8,27 +14,39 @@
     position: relative;
     top: 22vh;
     border: 2px solid rgb(190, 190, 190);
-    background-color: white;
+    background: #000;
     justify-content: center;
 }
-
+.register-section{
+    background-color: #000;
+    height: 97vh;
+}
+.register-button:hover{
+    background-color: #00C9FF;
+    color:#FFFFFF;
+}
 .register-button{
+    background: #000;
     width: 50%;
+    color:#00C9FF;
     margin: 1rem 0rem 1rem 1rem;
     padding: 5px;
     cursor: pointer;
     font-weight: bold;
-    background-color: white;
+    background-color: #000;
     border: 2px solid rgb(211, 209, 209);
     position: relative;
     left: 12%;
 }
 .info-input{
+    background: #000;
     display: block;
     font-weight: bold;
     padding: 5px;
     margin: 1rem;
     width: 80%;
+    
+    border: 1px solid #ffffff;
 }
 
 .form-container{
@@ -40,16 +58,19 @@
 }
 
 .back{
+    margin: 11px 10px;
     border: none;
     background: none;
     float: left;
     cursor: pointer;
 }
-
+.membership{
+    background: white;
+}
 .register-title{
     font-family: sans-serif;
     font-size: 20px;
-    margin: 1rem;
+    margin: 2rem;
     text-align: left;
 }
 
