@@ -52,8 +52,8 @@ function Register({language}){
             const seconds = 60;
             const logincount = 1;
             const date = new Date();
-            const teacher = document.getElementById("vehicle1").Checked;
-            
+            const teacher = document.getElementById("vehicle1").checked;
+            console.log(teacher);
                 axios.post('/signup', {
                     'Name': name,
                     'Email': email,
