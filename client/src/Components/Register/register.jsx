@@ -52,6 +52,7 @@ function Register({language}){
             const seconds = 60;
             const logincount = 1;
             const date = new Date();
+            const teacher = document.getElementById("vehicle1").Checked;
             
                 axios.post('/signup', {
                     'Name': name,
@@ -64,7 +65,8 @@ function Register({language}){
                         'Minutes': minutes,
                         'Seconds': seconds
                     },
-                    'LoginCount': logincount
+                    'LoginCount': logincount,
+                    Teacher: teacher
                 }).then((res) => {
                     if(res.data.Message === "Success"){
                         window.location.replace('/access-link');

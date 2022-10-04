@@ -82,9 +82,9 @@ React.useEffect(()=>{
             alert("You are not registered");
             window.location.replace('/register');
         }
-        else if(res.data.Message === "5 Login Limit Exceeded"){
+        else if(res.data.Message === "10 Login Limit Exceeded"){
           deleteUser(email);
-          alert("5 Login Limit Exceeded");
+          alert("10 Login Limit Exceeded");
           window.location.replace('/register');
       }
         else{

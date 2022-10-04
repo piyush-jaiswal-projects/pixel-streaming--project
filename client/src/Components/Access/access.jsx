@@ -21,6 +21,8 @@ function Access({language}){
     const [minutes, setMinutes] = useState(44);
     const [seconds, setSeconds] = useState(60);
     const streamRoot = document.getElementById("stream");
+    const [loginTitle, setLoginTitle] = useState("Enter your code");
+    const [loginTitleSwedish, setLoginTitleSwedish] = useState("Ange din kod");
     const sendEmail = (e) => {
         e.preventDefault();
       };
@@ -63,7 +65,6 @@ function Access({language}){
             'Email': email,
             'Code': code
         }).then((res) => {
-            alert(res.data.Message);
             if(res.data.Message === "Success"){
                 const registerDate = Date.parse(res.data.RegisterDate);
                 const todayDate = new Date().toISOString();
@@ -83,34 +84,47 @@ function Access({language}){
                 const result = updateLoginCount(email, logincount);
                 console.log(res.Duration);
                 console.log(dayCount + logincount + duration);
-                if(dayCount <= 5 && logincount <5){
+                if(dayCount <= 7 && logincount <10){
                     console.log("Rendering Component");
                     window.location.replace('/stream');
                 }
-                else if(dayCount >5){
+                else if(dayCount >7){
                     deleteUser(email);
-                    alert("5 days limit exceeded!");
-                    window.location.replace('/access-denied');
+                    setLoginTitle("Exceeded days limit of 7 days");
+                    setLoginTitleSwedish("Dagsgränsen på 7 dagar har överskridits");
+                    document.getElementById("email-in").style.borderColor="red";
+                    document.getElementById("email-in").style.color="red";
+                    document.getElementById("log-btn").style.backgroundColor="red";
                 }
-                else if(logincount >=5){
+                else if(logincount >=10){
                     deleteUser(email);
-                    alert("5 login limit exceeded!");
-                    window.location.replace('/access-denied');
+                    setLoginTitle("Exceeded login limit of 10 times");
+                    setLoginTitleSwedish("Inloggningsgränsen på 10 gånger har överskridits");
+                    document.getElementById("email-in").style.borderColor="red";
+                    document.getElementById("email-in").style.color="red";
+                    document.getElementById("log-btn").style.backgroundColor="red";
                 }
-                // else if(duration >=45){
-                //     deleteUser(email);
-                //     alert("45 mins duration limit exceeded!");
-                //     window.location.replace('/access-denied');
-                // }
             }
             else if(res.data.Message === "failed"){
                 setEmail("");
                 setCode("");
+                setLoginTitle("Error Occurred");
+                setLoginTitleSwedish("Fel inträffade");
+                document.getElementById("code-in").style.borderColor="red";
+                document.getElementById("code-in").style.color="red";
+                document.getElementById("email-in").style.borderColor="red";
+                document.getElementById("email-in").style.color="red";
+                document.getElementById("log-btn").style.backgroundColor="red";
             }
             else if(res.data.Message === "Invalid Code"){
                 setEmail("");
                 setCode("");
-                    window.location.replace('/access-denied');
+                setLoginTitle("Invalid code");
+                setLoginTitleSwedish("Ogiltig kod");
+                document.getElementById("code-in").style.borderColor="red";
+                document.getElementById("code-in").style.color="red";
+                document.getElementById("log-btn").style.backgroundColor="red";
+                
             }
         });
 
@@ -124,12 +138,12 @@ function Access({language}){
         <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
         </Link>
         <div className="form-container">
-        <h3 className="register-title">Enter your code</h3>
-        <h3 className="register-title">Your code can be found  in the email you recieved when you registered. Each code can be used 10 times and is valid for 7 days.</h3>
+        <h3 className="login-title">{loginTitle}</h3>
+        <h3 className="login-para">Your code can be found  in the email you recieved when you registered. Each code can be used 10 times and is valid for 7 days.</h3>
         <form onSubmit={sendEmail} >
-        <input type="email" className="info-input" placeholder="Email address"  value={email}  name="email" onChange={handleEmailChange}></input>
-        <input type="text" className="info-input" placeholder="Personal Code"  value={code}  onChange={handleCodeChange}></input>
-        <button className="register-button"   onClick={ handleLogin }>Log in</button>
+        <input id="email-in" type="email" className="info-input" placeholder="EMAIL"  value={email}  name="email" onChange={handleEmailChange}></input>
+        <input id="code-in" type="text" className="info-input" placeholder="PERSONAL CODE"  value={code}  onChange={handleCodeChange}></input>
+        <button id="log-btn" className="register-button"   onClick={ handleLogin }>LOG IN</button>
         </ form >
         {/* changed handleLogin with collectData */}
         </div>
@@ -141,12 +155,12 @@ function Access({language}){
         <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
         </Link>
         <div className="form-container">
-        <h3 className="register-title">Enter your code</h3>
-        <h3 className="register-title">Your code can be found  in the email you recieved when you registered. bEach code can be used 10 times and is valid for 7 days.</h3>
+        <h3 className="login-title">{loginTitleSwedish}</h3>
+        <h3 className="login-para">Din kod finns i e-postmeddelandet du fick när du registrerade dig. bVarje kod kan användas 10 gånger och är giltig i 7 dagar.</h3>
         <form onSubmit={sendEmail} >
-        <input type="email" className="info-input" placeholder="Email address"  value={email}  name="email" onChange={handleEmailChange}></input>
-        <input type="text" className="info-input" placeholder="Personal Code"  value={code}  onChange={handleCodeChange}></input>
-        <button className="register-button"   onClick={ handleLogin }>Log in</button>
+        <input id="email-in" type="email" className="info-input" placeholder="E-POST"  value={email}  name="email" onChange={handleEmailChange}></input>
+        <input id="code-in" type="text" className="info-input" placeholder="PERSONLIG KOD"  value={code}  onChange={handleCodeChange}></input>
+        <button id="log-btn" className="register-button"   onClick={ handleLogin }>LOGGA IN</button>
         </ form >
         {/* changed handleLogin with collectData */}
         </div>

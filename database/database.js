@@ -12,7 +12,8 @@ var userSchema = new mongoose.Schema({
         Minutes: Number,
         Seconds: Number
     },
-    LoginCount: Number
+    LoginCount: Number,
+    Teacher: Boolean
 });
 
 
