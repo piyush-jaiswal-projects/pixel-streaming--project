@@ -11,7 +11,7 @@ async function login(req, res){
     const code = req.body.Code;
     var message = null;
     //ensuring no blank request
-    if (email == null || code == null) {
+    if (code == null) {
 
         console.log(">> Attempt of unauthorized access detected.");
         res.status(401).send("<h2>Please enter username and password!</h2>");
