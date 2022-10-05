@@ -9,21 +9,26 @@
 
 input[type=checkbox] {
     cursor: pointer;
-    float: left;
     display: inline;
-    accent-color: red;
+    float: left;
+    accent-color: #000000;
+    outline: #808080 0.5px solid;
+    width: 11%;
+    height: 45px;
+    margin: 0.5rem 0.5rem 0.5rem 1rem;
 }
 
 .check-label{
     color: #808080;
     font-family: 'Titillium Web';
-font-size: 20px;
-width: 30%;
+font-size: 15px;
+width: 20%;
 float: left;
 display: inline;
-line-height: 25px;
-margin: 1rem;
+line-height: 20px;
+margin: 0.5rem;
 }
+
 .user-register-div{
     width: 40%;
     height: 400px;
@@ -54,6 +59,7 @@ margin: 1rem;
     background-color: #000;
     border: 1px solid #808080;
     position: relative;
+    bottom: 10px;
     float: left;
 }
 .user-info-input{
@@ -126,6 +132,8 @@ color: #FFFFFF;
     input[type=checkbox] {
         margin: 0 0 0 1rem;
         float: none;
+        width: 10%;
+        height: 20px;
     }
 }
 

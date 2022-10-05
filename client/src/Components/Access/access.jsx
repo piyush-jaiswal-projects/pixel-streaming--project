@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
-import {Navigate} from "react-router-dom";
+// import {Navigate} from "react-router-dom";
 import "./access.css";
 import axios from "axios";
-import AccessLink from "../Link/link.jsx";
-import Deny from "../Deny/deny.jsx";
-import Stream from "../Stream/stream";
-import { setMaxListeners } from "events";
+// import AccessLink from "../Link/link.jsx";
+// import Deny from "../Deny/deny.jsx";
+// import Stream from "../Stream/stream";
+// import { setMaxListeners } from "events";
 // import emailjs from '@emailjs/browser';
 
 function Access({language}){
@@ -37,7 +37,6 @@ function Access({language}){
 
     function updateLoginCount(email, logincount){
         const mail = email;
-        const loginCount = logincount;
         const newLogincount = logincount + 1;
         axios.post('/updatelogincount',{
             'Email': mail,
@@ -62,7 +61,6 @@ function Access({language}){
     function handleLogin(props){
         
         axios.post('/login', {
-            'Email': email,
             'Code': code
         }).then((res) => {
             if(res.data.Message === "Success"){
@@ -73,14 +71,13 @@ function Access({language}){
                 var d2 = new Date(todayDate);
                 var diff = d1-d2;
                 var dayCount = Math.trunc(diff / 86400e3);
-                // var Difference_In_Time = registerDate.getUTCMilliseconds() - todayDate.getUTCMilliseconds();
-                // const dayCount = Difference_In_Time / (1000 * 3600 * 24);
                 const logincount = res.data.LoginCount;
                 duration = res.data.Duration.Minutes;
                 setMinutes(res.data.Duration.Minutes);
                 setSeconds(res.data.Duration.Seconds);
                 setMail(res.data.Email);
                 document.cookie="email="+res.data.Email;
+                setEmail(res.data.Email);
                 const result = updateLoginCount(email, logincount);
                 console.log(res.Duration);
                 console.log(dayCount + logincount + duration);
@@ -141,7 +138,7 @@ function Access({language}){
         <h3 className="login-title">{loginTitle}</h3>
         <h3 className="login-para">Your code can be found  in the email you recieved when you registered. Each code can be used 10 times and is valid for 7 days.</h3>
         <form onSubmit={sendEmail} >
-        <input id="email-in" type="email" className="info-input" placeholder="EMAIL"  value={email}  name="email" onChange={handleEmailChange}></input>
+        {/* <input id="email-in" type="email" className="info-input" placeholder="EMAIL"  value={email}  name="email" onChange={handleEmailChange}></input> */}
         <input id="code-in" type="text" className="info-input" placeholder="PERSONAL CODE"  value={code}  onChange={handleCodeChange}></input>
         <button id="log-btn" className="register-button"   onClick={ handleLogin }>LOG IN</button>
         </ form >
@@ -158,7 +155,7 @@ function Access({language}){
         <h3 className="login-title">{loginTitleSwedish}</h3>
         <h3 className="login-para">Din kod finns i e-postmeddelandet du fick när du registrerade dig. bVarje kod kan användas 10 gånger och är giltig i 7 dagar.</h3>
         <form onSubmit={sendEmail} >
-        <input id="email-in" type="email" className="info-input" placeholder="E-POST"  value={email}  name="email" onChange={handleEmailChange}></input>
+        {/* <input id="email-in" type="email" className="info-input" placeholder="E-POST"  value={email}  name="email" onChange={handleEmailChange}></input> */}
         <input id="code-in" type="text" className="info-input" placeholder="PERSONLIG KOD"  value={code}  onChange={handleCodeChange}></input>
         <button id="log-btn" className="register-button"   onClick={ handleLogin }>LOGGA IN</button>
         </ form >

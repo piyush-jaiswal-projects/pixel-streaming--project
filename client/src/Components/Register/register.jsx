@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import "./register.css";
 import axios from "axios";
-import AccessLink from "../Link/link.jsx";
 var validator = require("email-validator");
 
 function Register({language}){
@@ -13,7 +12,7 @@ function Register({language}){
     const [name, setName] = useState("");
     const [org, setOrg] = useState("");
     const [email, setEmail] = useState("");
-    const [registerHidden, setRegisterHidden] = useState(false);
+    // const [registerHidden, setRegisterHidden] = useState(false);
     const [title, setTitle] = useState("block");
     const [emailError, setEmailError] = useState("none");
     const [invalid, setInvalid] = useState("none");
@@ -99,7 +98,7 @@ function Register({language}){
 
     return(
         <div>
-        {language?   <div className="register-section" hidden={registerHidden}>
+        {language?   <div className="register-section" >
  
  <div className="user-register-div">
  <Link to="/">
@@ -120,7 +119,7 @@ function Register({language}){
  </div>
  </div>:<>
  {/* belgium */}
- <div className="register-section" hidden={registerHidden}>
+ <div className="register-section" >
  
  <div className="user-register-div">
  <Link to="/">

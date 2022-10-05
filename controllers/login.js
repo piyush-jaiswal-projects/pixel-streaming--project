@@ -20,10 +20,9 @@ async function login(req, res){
     else {
 
         //checking if user already registered 
-        User.findOne({ Email: email }, function (err, foundUser) {
+        User.findOne({ Code: code }, function (err, foundUser) {
 
             if (foundUser) {
-                if (foundUser.Code == code) {  //checking password
                     message="Success"; 
                     const responseData ={
                         Message: message,
@@ -36,17 +35,9 @@ async function login(req, res){
                     res.status(200).send(jsonContent);
                     console.log(">> Login Success");
 
-                } else {
-                    console.log(">> Attempt of unauthorized access detected.");
-                    message="Invalid Code";
-                    const responseData ={
-                        Message: message
-                    };
-                    const jsonContent = JSON.stringify(responseData);
-                    res.status(200).send(jsonContent);
-                }
+                
             } else {
-                message="failed";
+                message="Invalid Code";
                     const responseData ={
                         Message: message
                     };
