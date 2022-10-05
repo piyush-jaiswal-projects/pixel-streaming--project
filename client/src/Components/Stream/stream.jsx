@@ -57,7 +57,7 @@ const standby = "standby";
 useEffect(()=>{
     axios.post('/startTimer').then((res)=>{
         console.log(res.data);
-        window.location.replace('/end');
+        window.location.replace('/login');
     });
 },[standby]);
 

@@ -40,7 +40,7 @@ function Link(props,{language}){
         :<>
         {/* belgium */}
         <div className="screenOneOverlay">
-        <button className="skip-btn" onClick={handleSkip}>SKIP INTRO</button>
+        <button className="skip-btn" onClick={handleSkip}>HOPPA ÖVER INTRO</button>
         <button className="exit-btn" onClick={handleExit}>X</button>
         </div>  
 
