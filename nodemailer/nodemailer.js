@@ -19,7 +19,7 @@ module.exports.mail= async (str,data) => {
   const options = {
 from:"Anirudh465@outlook.com",
 to:data.Email,
-html: `<b>Stream Link: https://arcwarestreamingproject.herokuapp.com/stream
+html: `<b>Stream Link: ${data.Link}
 <br>
 Your Access Code is ${data.Code}.
 <br>

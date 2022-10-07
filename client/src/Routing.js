@@ -36,6 +36,7 @@ const Routing = () => {
           <Access language={language} setLanguage={setLanguage}/>
           </div>
         } />   
+        
         <Route path="/stream" element={
           <div>
           <AuthenticateUser language={language} setLanguage={setLanguage} />
@@ -46,9 +47,9 @@ const Routing = () => {
           <Deny language={language} setLanguage={setLanguage}/>
           </div>
         } />   
-        <Route path="/access-link" element={
+        <Route path="/access-link/:id" element={
           <div>
-          <Link language={language} setLanguage={setLanguage}/>
+          <Link language={language} />
           </div>
         } />        
       <Route path="/end" element={

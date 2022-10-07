@@ -129,34 +129,34 @@ function Access({ language }) {
     return (
         <div>
             {language ? <div className="register-section" hidden={accessHidden}>
-                <div className="register-div">
+                <div className="register-div1">
                     <Link to="/">
                         <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
                     </Link>
                     <div className="form-container">
-                        <h3 className="login-title">{loginTitle}</h3>
-                        <h3 className="login-para">Your code can be found  in the email you recieved when you registered. Each code can be used 10 times and is valid for 7 days.</h3>
+                        <h3 className="login-title1">{loginTitle}</h3>
+                        <h3 className="login-para1">Your code can be found  in the email you recieved when you registered. Each code can be used 10 times and is valid for 7 days.</h3>
                         <form onSubmit={sendEmail} >
                             {/* <input id="email-in" type="email" className="info-input" placeholder="EMAIL"  value={email}  name="email" onChange={handleEmailChange}></input> */}
-                            <input id="code-in" type="text" className="info-input" placeholder="PERSONAL CODE" value={code} onChange={handleCodeChange}></input>
-                            <button id="log-btn" className="register-button" onClick={handleLogin}>LOG IN</button>
+                            <input id="code-in" type="text" className="info-input1" placeholder="PERSONAL CODE" value={code} onChange={handleCodeChange}></input>
+                            <button id="log-btn" className="register-button1" onClick={handleLogin}>LOG IN</button>
                         </ form >
                         {/* changed handleLogin with collectData */}
                     </div>
                 </div>
             </div> :
                 <div className="register-section" hidden={accessHidden}>
-                    <div className="register-div">
+                    <div className="register-div1">
                         <Link to="/">
                             <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
                         </Link>
                         <div className="form-container">
-                            <h3 className="login-title">{loginTitleSwedish}</h3>
-                            <h3 className="login-para">Din kod finns i e-postmeddelandet du fick när du registrerade dig. bVarje kod kan användas 10 gånger och är giltig i 7 dagar.</h3>
+                            <h3 className="login-title1">{loginTitleSwedish}</h3>
+                            <h3 className="login-para1">Din kod finns i e-postmeddelandet du fick när du registrerade dig. bVarje kod kan användas 10 gånger och är giltig i 7 dagar.</h3>
                             <form onSubmit={sendEmail} >
                                 {/* <input id="email-in" type="email" className="info-input" placeholder="E-POST"  value={email}  name="email" onChange={handleEmailChange}></input> */}
-                                <input id="code-in" type="text" className="info-input" placeholder="PERSONLIG KOD" value={code} onChange={handleCodeChange}></input>
-                                <button id="log-btn" className="register-button" onClick={handleLogin}>LOGGA IN</button>
+                                <input id="code-in" type="text" className="info-input1" placeholder="PERSONLIG KOD" value={code} onChange={handleCodeChange}></input>
+                                <button id="log-btn" className="register-button1" onClick={handleLogin}>LOGGA IN</button>
                             </ form >
                             {/* changed handleLogin with collectData */}
                         </div>

@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import "./register.css";
 import axios from "axios";
+
 var validator = require("email-validator");
 
+
+
 function Register({ language }) {
-
-
+    const navigate = useNavigate();
     document.cookie = "code=";
 
     const [name, setName] = useState("");
@@ -47,7 +50,7 @@ function Register({ language }) {
         if (validator.validate(email)) {
 
             // Stream Link
-            const link = "";
+            const link = `http://localhost:3000/access-link/${code}`;
             const minutes = 44;
             const seconds = 60;
             const logincount = 1;
@@ -69,7 +72,7 @@ function Register({ language }) {
                 Teacher: teacher
             }).then((res) => {
                 if (res.data.Message === "Success") {
-                    window.location.replace('/access-link');
+                    window.location.replace('/login');
                 }
                 else if (res.data.Message === "failed") {
                     setName("");
@@ -95,6 +98,8 @@ function Register({ language }) {
             inEmail.style.color = "red";
             inEmail.style.borderColor = "red";
         }
+        // navigate(`/access-link/${code}`);
+        
     }
 
     return (
