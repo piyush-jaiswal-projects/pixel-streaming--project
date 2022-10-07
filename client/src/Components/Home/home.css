@@ -4,7 +4,7 @@
 }
 .home-div {
     /* width: 30%; */
-    height: 96vh;
+    height: 91vh;
     margin: 0;
     padding: 0;
     justify-content: center;
@@ -46,11 +46,11 @@ option{
     text-align: center;
 }
 
-    .img {
+    /* .img {
         position: relative;
         height: 220px;
         width: 260px;
-    }
+    } */
 
 
 .section-button {
@@ -80,7 +80,7 @@ width: 100%;
 justify-content: center;
 color:#FFFFFF;
 font-family: Titillium Web;
-font-size: 50px;
+font-size: 36px;
 font-weight: 300;
 line-height: 94px;
 letter-spacing: 0em;
@@ -103,29 +103,40 @@ padding: auto;
 hr{
     width: 10%;
 }
-
-@media screen and (max-width: 425px) {
+.img{
+    height: 101px;
+    width: 180px;
+}
+@media screen and (max-width: 700px) {
     .t{
+        margin-top: 2rem;
+        width: 72%;
+        font-size: 17px;
+       
+    }}
+@media screen and (max-width: 425px) {
+    /* .t{
         width: 90%;
         font-size: 14px;
-    }
+    } */
 
     .membership{
     font-size: 13px;
     right: 10px;
     }
 
-    .img{
+    /* .img{
         height: 150px;
         width: 180px;
-    }
+    } */
 
     .section-title{
         line-height: 50px;
-        font-size: 30px;
+        /* font-size: 30px; */
     }
 
     .section-button {
+        height: 4rem;
         width: 80%;
         font-size: 1rem;
         padding: 0.5rem;
@@ -134,37 +145,65 @@ hr{
 
     .btn-wrapper-div{
         width: 100%;
-        margin: auto;
+        margin: 1.5rem;
         padding: auto;
         justify-content: center;
         text-align: center;
     }
 }
-
-@media screen and (max-width: 1300px) and (min-width: 425px) {
+@media screen and (min-width: 972px) {
+    .section-button {
+      
+        width: 22%;}
+}
+@media screen and (max-width: 971px) {
+    .section-button {
+      
+        width: 22%;}
+}
+@media screen and (min-width: 700px) and (max-width: 970px){
+    .section-button {
+      
+        width: 31%;}
+}
+@media screen and (min-width: 500px) and (max-width: 699px){
+    .section-button {
+      
+        width: 40%;}
+}
+@media screen and (min-width: 900px) {
     .t{
-        width: 70%;
+        line-height: 2rem;
+        margin-top: 2rem;
+        width: 40%;
         font-size: 18px;
-    }
+    }}
+@media screen and (max-width: 900px)and (min-width: 700px) {
+    .t{
+     
+        margin-top: 2rem;
+        width: 50%;
+        font-size: 18px;
+    }}
+@media screen and (min-width: 425px) {
+
 
     .membership{
     font-size: 18px;
     right: 10px;
     }
 
-    .img{
-        height: 150px;
-        width: 180px;
-    }
+ 
 
     .section-title{
-        line-height: 50px;
-        font-size: 40px;
+        line-height: 51px;
+        /* font-size: 38px; */
         margin-top: 2rem;
     }
 
     .section-button {
-        width: 40%;
+        height: 4rem;
+        /* width: 40%; */
         font-size: 1rem;
         padding: 0.5rem;
         margin: 1rem;
@@ -172,7 +211,7 @@ hr{
 
     .btn-wrapper-div{
         width: 80%;
-        margin: auto;
+        margin:2.5rem auto;
         padding: auto;
         justify-content: center;
         text-align: center;

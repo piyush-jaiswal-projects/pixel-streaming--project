@@ -3,8 +3,10 @@ import React from "react";
 import "./link.css";
 import intro1 from "./intro1.png";
 
-function Link(props,{language}){
-
+function Link(props){
+// console.log(`i am in link ${language}`)
+console.log(`i am in link ${props.language}`)
+var language= props.language;
     function handleExit(){
         window.location.replace('/');
     }
