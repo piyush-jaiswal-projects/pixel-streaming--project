@@ -136,7 +136,29 @@ color: #FFFFFF;
         height: 20px;
     }
 }
-
+.user-register-div1 {
+    width: 28rem;
+    height: 467px;
+    margin: auto;
+    padding: 0;
+    position: relative;
+    top: 15vh;
+    border: 1px solid rgb(190, 190, 190);
+    background: #000000;
+    justify-content: center;}
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+    .user-register-div1 {
+        width: 28rem;
+        height: 467px;
+        margin: auto;
+        padding: 0;
+        position: relative;
+        top: 15vh;
+        border: 1px solid rgb(190, 190, 190);
+        background: #000000;
+        justify-content: center;
+    
+    }}
 @media screen and (min-width: 600px) and (max-width: 1000px) {
     .user-register-div{
         width: 50%;
