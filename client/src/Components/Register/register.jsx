@@ -106,7 +106,7 @@ function Register({ language }) {
         <div>
             {language ? <div className="register-section" >
 
-                <div className="user-register-div">
+                <div className="user-register-div1">
                     <Link to="/">
                         <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
                     </Link>
@@ -127,7 +127,7 @@ function Register({ language }) {
                 {/* belgium */}
                 <div className="register-section" >
 
-                    <div className="user-register-div">
+                    <div className="user-register-div1">
                         <Link to="/">
                             <button className="back"><img src="./images/back.png" className="back-image" alt="Back"></img></button>
                         </Link>
