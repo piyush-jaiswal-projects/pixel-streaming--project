@@ -3,7 +3,7 @@ import React from  "react";
 import axios from 'axios';
 import Stream from '../Link/link.jsx';
 
-export default function Authenticate(){
+export default function Authenticate({language}){
 
     const [streaming, setStreaming] = React.useState("");
 
@@ -66,34 +66,35 @@ export default function Authenticate(){
 // }
 const standing = "standing";
 React.useEffect(()=>{
-  if(email === "" || email === " "){
-    alert("Email Not Found OR LOGIN Again");
-    window.location.replace('/login');
-  }
-  else{
-    axios.post('/checkuser', {
-        'Email': email
-    }).then((res) => {
-        if(res.data.Message === "Success"){
-        // rendering stream component
-        const stat = updateLoginCount(email, res.data.LoginCount);
-        setStreaming(<Stream />);
-        }
-        else if(res.data.Message === "No"){
-            alert("You are not registered");
-            window.location.replace('/register');
-        }
-        else if(res.data.Message === "10 Login Limit Exceeded"){
-          deleteUser(email);
-          alert("10 Login Limit Exceeded");
-          window.location.replace('/register');
-      }
-        else{
-            alert("ERROR OCCURRED");
-            window.location.replace('/');
-        }
-    });
-  }
+  setStreaming(<Stream language={language}/>);
+  // if(email === "" || email === " "){
+  //   alert("Email Not Found OR LOGIN Again");
+  //   window.location.replace('/login');
+  // }
+  // else{
+  //   axios.post('/checkuser', {
+  //       'Email': email
+  //   }).then((res) => {
+  //       if(res.data.Message === "Success"){
+  //       // rendering stream component
+  //       const stat = updateLoginCount(email, res.data.LoginCount);
+  //       setStreaming(<Stream />);
+  //       }
+  //       else if(res.data.Message === "No"){
+  //           alert("You are not registered");
+  //           window.location.replace('/register');
+  //       }
+  //       else if(res.data.Message === "10 Login Limit Exceeded"){
+  //         deleteUser(email);
+  //         alert("10 Login Limit Exceeded");
+  //         window.location.replace('/register');
+  //     }
+  //       else{
+  //           alert("ERROR OCCURRED");
+  //           window.location.replace('/');
+  //       }
+  //   });
+  // }
 },[standing])
       
 

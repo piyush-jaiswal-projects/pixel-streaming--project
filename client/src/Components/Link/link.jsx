@@ -4,6 +4,8 @@ import "./link.css";
 import intro1 from "./intro1.png";
 
 function Link(props){
+    var language=props.language;
+    console.log("i am in link under");
     console.log(props.language);
     function getCookie(cname) {
         let name = cname + "=";
@@ -33,27 +35,7 @@ var language= props.language;
     }
     const stateChange=()=>{
         console.log(`i am in link ${state}`)
-        if(state==="true"){
-            return(
-                <>
-            <div className="screenOneOverlay">
-        {/* english */}
-        <button className="skip-btn" onClick={handleSkip}>SKIP INTRO</button>
-        <button className="exit-btn" onClick={handleExit}>X</button>
-        </div> 
-        </> )
-        }
-        else{
-            return(
-                <>
-            <div className="screenOneOverlay">
-        <button className="skip-btn2" onClick={handleSkip}>HOPPA ÖVER INTRO</button>
-        <button className="exit-btn" onClick={handleExit}>X</button>
-        </div> 
-        </>
        
-        )
-        }
        
     }
 
@@ -80,7 +62,24 @@ var language= props.language;
        
         <div className="register-section">
         <img className="intro-one" alt="Intro Screen 1" src={intro1}></img>
-        {stateChange()}
+     {language?
+                <>
+            <div className="screenOneOverlay">
+        {/* english */}
+        <button className="skip-btn" onClick={handleSkip}>SKIP INTRO</button>
+        <button className="exit-btn" onClick={handleExit}>X</button>
+        </div> 
+        </> 
+       :
+       
+                <>
+            <div className="screenOneOverlay">
+        <button className="skip-btn2" onClick={handleSkip}>HOPPA ÖVER INTRO</button>
+        <button className="exit-btn" onClick={handleExit}>X</button>
+        </div> 
+        </>
+     }
+      
      
        
         </div>
