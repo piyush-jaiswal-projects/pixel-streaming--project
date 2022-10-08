@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./access.css";
 import axios from "axios";
+// import updatelanguage from "../../../../controllers/updatelangage";
 
 function Access({ language }) {
 
@@ -34,6 +35,17 @@ function Access({ language }) {
         setEmail(event.target.value);
     }
 
+    // function updateLanguage(email, language) {
+    //     const mail = email;
+    //     const newLogincount = logincount + 1;
+    //     axios.post('/updatelogincount', {
+    //         'Email': mail,
+    //         'LoginCount': newLogincount
+    //     }).then((res) => {
+    //         if (res.data.message === "Success") return "done";
+    //         else return "fail";
+    //     });
+    // }
     function updateLoginCount(email, logincount) {
         const mail = email;
         const newLogincount = logincount + 1;
@@ -75,6 +87,7 @@ function Access({ language }) {
                 setMinutes(res.data.Duration.Minutes);
                 setSeconds(res.data.Duration.Seconds);
                 setMail(res.data.Email);
+              
                 document.cookie = "email=" + res.data.Email;
                 setEmail(res.data.Email);
                 // eslint-disable-next-line no-unused-vars
