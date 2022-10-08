@@ -18,6 +18,7 @@ function Access({ language }) {
     const streamRoot = document.getElementById("stream");
     const [loginTitle, setLoginTitle] = useState("Enter your code");
     const [loginTitleSwedish, setLoginTitleSwedish] = useState("Ange din kod");
+    console.log(`i am inn  accessssss${language}`);
     const sendEmail = (e) => {
         e.preventDefault();
     };
