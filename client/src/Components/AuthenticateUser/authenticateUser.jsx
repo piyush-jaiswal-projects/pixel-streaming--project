@@ -112,8 +112,7 @@ React.useEffect(()=>{
 
       return(
         <div id="streamer">
-        {language ?  <Stream />: <Stream2 />}
-      
+      <Stream />
         </div>
       );
 }

@@ -7,6 +7,10 @@
     z-index: -10;
 }
 
+.skip-btn{
+    line-height: 10px;
+}
+
 .register-section{
     margin: 0;
     padding: 0;
