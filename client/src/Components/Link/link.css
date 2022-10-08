@@ -18,6 +18,65 @@
     padding: 0;
 }
 
+@media screen and  (min-width:950px) {
+    .skip-btn{ 
+        
+        font-size: 25px;
+        height: 63px;
+        width: 13rem;
+        
+    }
+}
+@media screen and (min-width:600px) and  (max-width:949px) {
+ 
+        .skip-btn {
+            font-size: 25px;
+            height: 63px;
+            width: 13rem;
+        }
+    
+}
+@media screen and (max-width:599px) {
+    .skip-btn {
+        font-size: 15px;
+        height: 57px;
+        width: 9rem;
+    }
+}
+@media screen and  (min-width:950px) {
+    .skip-btn{ 
+        
+        font-size: 25px;
+        height: 63px;
+        width: 13rem;
+        
+    }
+}
+@media screen and  (min-width:950px) {
+    .skip-btn2{ 
+        
+        font-size: 15px;
+        height: 63px;
+        width: 13rem;
+        
+    }
+}
+@media screen and (min-width:600px) and  (max-width:949px) {
+ 
+        .skip-btn2 {
+            font-size: 14px;
+            height: 63px;
+            width: 13rem;
+        }
+    
+}
+@media screen and (max-width:599px) {
+    .skip-btn2 {
+        font-size: 9px;
+        height: 57px;
+        width: 9rem;
+    }
+}
 .skip-btn{
     box-sizing: border-box;
     border: 1px solid #FFFFFF;
@@ -26,18 +85,41 @@ background: transparent;
 font-family: 'Titillium Web';
 font-style: normal;
 font-weight: 300;
-font-size: 30px;
+
 line-height: 61px;
 display: flex;
 align-items: center;
 text-align: center;
 color: #00C9FF;
 position: absolute;
-height: 97px;
+
 left: 87px;
 top: 50px;
 padding: 0.5rem 2rem 0.5rem 2rem;
-width: 20%;
+
+cursor: pointer;
+justify-content: center;
+}
+.skip-btn2{
+    box-sizing: border-box;
+    border: 1px solid #FFFFFF;
+border-radius: 5px;
+background: transparent;
+font-family: 'Titillium Web';
+font-style: normal;
+font-weight: 300;
+
+line-height: 61px;
+display: flex;
+align-items: center;
+text-align: center;
+color: #00C9FF;
+position: absolute;
+
+left: 87px;
+top: 50px;
+padding: 0.5rem 2rem 0.5rem 2rem;
+
 cursor: pointer;
 justify-content: center;
 }
@@ -57,11 +139,11 @@ align-items: center;
 text-align: center;
 color: #00C9FF;
 position: absolute;
-height: 97px;
+height: 56px;
 right: 87px;
 top: 50px;
 padding: 0.5rem 2rem 0.5rem 2rem;
-width: 10%;
+width: 7%;
 cursor: pointer;
 justify-content: center;
 }

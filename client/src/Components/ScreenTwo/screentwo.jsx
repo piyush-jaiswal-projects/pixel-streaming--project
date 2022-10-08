@@ -41,15 +41,20 @@ function ScreenTwo(props,{language}){
         {language ? <div className="screenTwoOverlay">
         {/* english */}
         <button className="exit-btn" onClick={handleExit}>X</button>
+        <div className="screen-two-div">
         <button className="lang-button one" onClick={handleButton}>English</button>
         <button className="lang-button two" onClick={handleButton}>Svenska</button>
+        </div>  
         </div>  
         :<>
         {/* belgium */}
         <div className="screenTwoOverlay">
+      
         <button className="exit-btn" onClick={handleExit}>X</button>
+        <div className="screen-two-div">
         <button className="lang-button one" onClick={handleButton}>English</button>
         <button className="lang-button two" onClick={handleButton}>Svenska</button>
+        </div>  
         </div>  
 
         </>}
