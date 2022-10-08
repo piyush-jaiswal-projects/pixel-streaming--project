@@ -17,6 +17,9 @@ import AuthenticateUser from "./Components/AuthenticateUser/authenticateUser.jsx
 import ScreenTwo from "./Components/ScreenTwo/screentwo.jsx";
 const Routing = () => {
     const [language,setLanguage]=useState(true);
+    console.log(`i am in routing ${language}`);
+    
+    
 
   return (
     <>
@@ -49,7 +52,7 @@ const Routing = () => {
         } />   
         <Route path="/access-link/:id" element={
           <div>
-          <Link language={language} />
+          <AuthenticateUser language={language} setLanguage={setLanguage} />
           </div>
         } />        
       <Route path="/end" element={

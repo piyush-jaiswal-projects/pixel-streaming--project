@@ -49,21 +49,21 @@ export default function Authenticate(){
       const email = getCookie("email");
       console.log("Email from cookie: "+email);
 
-      window.onbeforeunload = confirmExit;
-function confirmExit(){
-    axios.post('/updateduration2',{
-                Email: email
-            }).then((res)=>{
-                if(res.data.Message === "Success"){
-                    console.log("Stream Closed");
-                    alert("Stream Closed !!!");
-                }
-                else{
-                    alert("Error Occurred");
-                }
-            });
-    return "Want to leave page ?";
-}
+      // window.onbeforeunload = confirmExit;
+// function confirmExit(){
+//     axios.post('/updateduration2',{
+//                 Email: email
+//             }).then((res)=>{
+//                 if(res.data.Message === "Success"){
+//                     console.log("Stream Closed");
+//                     alert("Stream Closed !!!");
+//                 }
+//                 else{
+//                     alert("Error Occurred");
+//                 }
+//             });
+//     return "Want to leave page ?";
+// }
 const standing = "standing";
 React.useEffect(()=>{
   if(email === "" || email === " "){

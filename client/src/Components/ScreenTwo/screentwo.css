@@ -13,11 +13,11 @@ align-items: center;
 text-align: center;
 color: #00C9FF;
 position: absolute;
-height: 97px;
+height: 56px;
 right: 87px;
 top: 50px;
 padding: 0.5rem 2rem 0.5rem 2rem;
-width: 10%;
+width: 6%;
 cursor: pointer;
 justify-content: center;
 }

@@ -5,9 +5,11 @@ import {Link} from "react-router-dom";
 import logo from "./logo.png";
 import logo2 from "./logo2.png";
 function Home({language,setLanguage}){
+   
     const[s,setS]=useState(false);
+  
     const change=(e)=>{
-        if (e.target.value==="Belgium"){
+        if (e.target.value==="Swedish"){
             // console.log(language);
             setS(true)
             // console.log(s);
@@ -16,6 +18,9 @@ function Home({language,setLanguage}){
             
         }
         setLanguage(s);
+        document.cookie="language="+s;
+          console.log(`i am in home ${s}`);
+       
     //     console.log(language);
     //   
     //    console.log(language);
@@ -25,7 +30,7 @@ function Home({language,setLanguage}){
         <div className="check">
   <select  onChange={change} className="membership" id="membership">
   <option className="member-value" value="English">CHANGE LANGUAGE</option>
-  <option className="member-value" value="Belgium" >SWEDISH</option>
+  <option className="member-value" value="Swedish" >SWEDISH</option>
 </select>
   </div>
         <div className="home-div">
@@ -38,6 +43,7 @@ function Home({language,setLanguage}){
    <div  className="logo">
             <img  className="img" src={logo2} alt="" srcset="" />
         </div>
+        <br />
         <hr></hr>
         <h3 className="section-title" onClick={change}>No Time to Waste</h3>
         <h3 className="t">Welcome to a virtual escape room experience from Håll Sverige Rent. Created to raise awareness and promote knowledge about the global plastic epidemic.</h3>
