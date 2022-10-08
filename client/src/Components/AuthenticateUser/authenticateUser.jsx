@@ -31,18 +31,6 @@ export default function Authenticate({language}){
           else return "fail";
       });
   }
-    function updateLanguage(email, language){
-      const mail = email;
-      const loginCount = language;
-      
-      axios.post('/updatelanguage',{
-          'Email': mail,
-          'Language': language
-      }).then((res)=>{
-          if(res.data.message === "Success") return "done";
-          else return "fail";
-      });
-  }
 
   function deleteUser(email){
     const mail = email;

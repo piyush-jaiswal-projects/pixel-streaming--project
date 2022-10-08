@@ -37,18 +37,6 @@ function Link({ language }){
     return(
        
         <div className="register-section">
-        {language ?
-        (<>
-        <img className="intro-one" alt="Intro Screen 1" src={intro1}></img>
-    
-            <div className="screenOneOverlay">
-        {/* english */}
-        <button className="skip-btn" onClick={handleSkip}>SKIP INTRO</button>
-        <button className="exit-btn" onClick={handleExit}>X</button>
-        </div> 
-        </>)
-        :
-        <>
         <img className="intro-one" alt="Intro Screen 1" src={intro1}></img>
     
             <div className="screenOneOverlay">
@@ -56,8 +44,6 @@ function Link({ language }){
         <button className="skip-btn" onClick={handleSkip}>HOPPA ÖVER INTRO</button>
         <button className="exit-btn" onClick={handleExit}>X</button>
         </div> 
-        </>
-        }
       
         </div>
     );

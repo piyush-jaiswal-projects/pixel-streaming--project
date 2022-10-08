@@ -62,6 +62,7 @@ function Access({ language }) {
         axios.post('/login', {
             'Code': code
         }).then((res) => {
+            console.log(res.data);
             if (res.data.Message === "Success") {
                 const registerDate = Date.parse(res.data.RegisterDate);
                 const todayDate = new Date().toISOString();
@@ -78,12 +79,10 @@ function Access({ language }) {
                 document.cookie = "email=" + res.data.Email;
                 setEmail(res.data.Email);
                 // eslint-disable-next-line no-unused-vars
-                const result = updateLoginCount(email, logincount);
-                console.log(res.Duration);
-                console.log(dayCount + logincount + duration);
+                const result = updateLoginCount(res.data.Email, logincount);
                 if (dayCount <= 7 && logincount < 10) {
-                    console.log("Rendering Component");
-                    window.location.replace('/stream');
+                    console.log(language);
+                   language? window.location.replace('/stream') : window.location.replace('/streamswed');
                 }
                 else if (dayCount > 7) {
                     deleteUser(email);
@@ -140,6 +139,7 @@ function Access({ language }) {
                         <form onSubmit={sendEmail} >
                             {/* <input id="email-in" type="email" className="info-input" placeholder="EMAIL"  value={email}  name="email" onChange={handleEmailChange}></input> */}
                             <input id="code-in" type="text" className="info-input1" placeholder="PERSONAL CODE" value={code} onChange={handleCodeChange}></input>
+                            {console.log("Access.jsx "+language)}
                             <button id="log-btn" className="register-button1" onClick={handleLogin}>LOG IN</button>
                         </ form >
                         {/* changed handleLogin with collectData */}
