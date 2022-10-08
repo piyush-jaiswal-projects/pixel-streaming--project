@@ -5,7 +5,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import { useEffect ,useState} from "react";
+import { useEffect ,useState,createContext} from "react";
 import { useLocation } from "react-router";
 import Register from "./Components/Register/register.jsx";
 import Access from "./Components/Access/access.jsx";
@@ -15,13 +15,21 @@ import End from "./Components/End/end.jsx";
 import AdminPortal from "./Components/AdminPortal/adminPortal.jsx";
 import AuthenticateUser from "./Components/AuthenticateUser/authenticateUser.jsx";
 import ScreenTwo from "./Components/ScreenTwo/screentwo.jsx";
+const State =createContext()
 const Routing = () => {
+
     const [language,setLanguage]=useState(true);
     console.log(`i am in routing ${language}`);
+    // useEffect(()=>{
+    //   updateLanguage(language);
+    // },[language])
+
+    
     
     
 
   return (
+    <State.Provider value={language}> 
     <>
          <Routes>
          <Route path="/" element={
@@ -42,9 +50,10 @@ const Routing = () => {
         
         <Route path="/stream" element={
           <div>
-          <AuthenticateUser language={language} setLanguage={setLanguage} />
+          <AuthenticateUser  />
           </div>
         } />  
+        
         <Route path="/access-denied" element={
           <div>
           <Deny language={language} setLanguage={setLanguage}/>
@@ -72,7 +81,9 @@ const Routing = () => {
         } />
       </Routes>
     </>
+    </State.Provider>
   )
 }
 
 export default Routing
+export{State}

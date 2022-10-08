@@ -1,12 +1,24 @@
 /* eslint-disable no-unused-vars */
-import React from  "react";
+import React ,{useContext,useState}from  "react";
 import axios from 'axios';
 import Stream from '../Link/link.jsx';
-
+import Stream2 from '../Link/linkswedish';
+import {State} from "../../../src/Routing"
 export default function Authenticate({language}){
-
+  const context=useContext(State);
     const [streaming, setStreaming] = React.useState("");
-
+    console.log(`i am inn auhentdjcj ${context}`)
+    const [la ,setLa]=useState();
+    console.log(`i am in dhdhshddhshdh ${language}`);
+    // if(language==false){
+    //   setLa(false);
+    //   console.log(`i am in laaaaa ${la}`);
+    // }
+  
+    console.log(`i am in laaaaa ${la}`);
+// setLa(context);
+// console.log(`i am inauth state ${la}`)
+// console.log(`i am inauth state ${context}`);
     function updateLoginCount(email, logincount){
       const mail = email;
       const loginCount = logincount;
@@ -14,6 +26,18 @@ export default function Authenticate({language}){
       axios.post('/updatelogincount',{
           'Email': mail,
           'LoginCount': newLogincount
+      }).then((res)=>{
+          if(res.data.message === "Success") return "done";
+          else return "fail";
+      });
+  }
+    function updateLanguage(email, language){
+      const mail = email;
+      const loginCount = language;
+      
+      axios.post('/updatelanguage',{
+          'Email': mail,
+          'Language': language
       }).then((res)=>{
           if(res.data.message === "Success") return "done";
           else return "fail";
@@ -66,7 +90,7 @@ export default function Authenticate({language}){
 // }
 const standing = "standing";
 React.useEffect(()=>{
-  setStreaming(<Stream language={language}/>);
+  
   // if(email === "" || email === " "){
   //   alert("Email Not Found OR LOGIN Again");
   //   window.location.replace('/login');
@@ -100,7 +124,8 @@ React.useEffect(()=>{
 
       return(
         <div id="streamer">
-        {streaming}
+        {language ?  <Stream la={la}/>: <Stream2 la={la}/>}
+      
         </div>
       );
 }

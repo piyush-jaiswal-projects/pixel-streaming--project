@@ -62,12 +62,17 @@ function Link({la}){
         <div className="register-section">
         <img className="intro-one" alt="Intro Screen 1" src={intro1}></img>
     
+       
+                <>
             <div className="screenOneOverlay">
-        {/* english */}
-        <button className="skip-btn" onClick={handleSkip}>SKIP INTRO</button>
+        <button className="skip-btn2" onClick={handleSkip}>HOPPA ÖVER INTRO</button>
         <button className="exit-btn" onClick={handleExit}>X</button>
         </div> 
+        </>
+
       
+     
+       
         </div>
     );
 }
