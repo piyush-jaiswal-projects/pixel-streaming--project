@@ -61,6 +61,7 @@ function Home({language,setLanguage}){
         <div  className="logo">
             <img  className="img" src={logo2} alt="" srcset="" />
         </div>
+        <br />
         <hr></hr>
         <h3 className="section-title" onClick={change}>Ingen tid att förlora </h3>
         <h3 className="t">Välkommen till en virtuell escape room-upplevelse från Håll Sverige Rent. Skapad för att öka medvetenheten och främja kunskap om den globala plastepidemin.</h3>
