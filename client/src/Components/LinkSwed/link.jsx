@@ -41,7 +41,7 @@ function Link({ language }){
     
             <div className="screenOneOverlay">
         {/* english */}
-        <button className="skip-btn" onClick={handleSkip}>HOPPA ÖVER INTRO</button>
+        <button id="skipBtn" className="skip-btn" onClick={handleSkip}>HOPPA ÖVER INTRO</button>
         <button className="exit-btn" onClick={handleExit}>X</button>
         </div> 
       
