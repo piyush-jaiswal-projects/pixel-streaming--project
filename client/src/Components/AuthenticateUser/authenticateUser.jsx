@@ -3,19 +3,19 @@ import React ,{useContext,useState}from  "react";
 import axios from 'axios';
 import Stream from '../Link/link.jsx';
 import Stream2 from '../Link/linkswedish';
-import {State} from "../../../src/Routing"
+// import {State} from "../../../src/Routing"
 export default function Authenticate({language}){
-  const context=useContext(State);
+  
+  
     const [streaming, setStreaming] = React.useState("");
-    console.log(`i am inn auhentdjcj ${context}`)
-    const [la ,setLa]=useState();
+   
     console.log(`i am in dhdhshddhshdh ${language}`);
     // if(language==false){
     //   setLa(false);
     //   console.log(`i am in laaaaa ${la}`);
     // }
   
-    console.log(`i am in laaaaa ${la}`);
+    // console.log(`i am in laaaaa ${la}`);
 // setLa(context);
 // console.log(`i am inauth state ${la}`)
 // console.log(`i am inauth state ${context}`);
@@ -112,7 +112,7 @@ React.useEffect(()=>{
 
       return(
         <div id="streamer">
-        {language ?  <Stream la={la}/>: <Stream2 la={la}/>}
+        {language ?  <Stream />: <Stream2 />}
       
         </div>
       );

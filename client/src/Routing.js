@@ -23,7 +23,7 @@ const Routing = () => {
     console.log(language);
 
   return (
-    <State.Provider value={language}> 
+   
     <>
          <Routes>
          <Route path="/" element={
@@ -81,7 +81,7 @@ const Routing = () => {
         } />
       </Routes>
     </>
-    </State.Provider>
+ 
   )
 }
 
