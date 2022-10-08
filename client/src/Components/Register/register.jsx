@@ -69,6 +69,7 @@ function Register({ language }) {
                     'Seconds': seconds
                 },
                 'LoginCount': logincount,
+                'Language': language,
                 Teacher: teacher
             }).then((res) => {
                 if (res.data.Message === "Success") {

@@ -6,20 +6,22 @@ import logo from "./logo.png";
 import logo2 from "./logo2.png";
 function Home({language,setLanguage}){
    
-    const[s,setS]=useState(false);
+    
   
     const change=(e)=>{
         if (e.target.value==="Swedish"){
             // console.log(language);
-            setS(true)
+            setLanguage(false);
             // console.log(s);
-        }else{
-            setS(false);
-            
         }
-        setLanguage(s);
-        document.cookie="language="+s;
-          console.log(`i am in home ${s}`);
+       else if (e.target.value==="English"){
+            // console.log(language);
+            setLanguage(true);
+            // console.log(s);
+        }
+       
+        // document.cookie="language="+s;
+        //   console.log(`i am in home ${s}`);
        
     //     console.log(language);
     //   

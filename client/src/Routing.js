@@ -29,7 +29,7 @@ const Routing = () => {
     
 
   return (
-    <State.Provider value={language}> 
+   
     <>
          <Routes>
          <Route path="/" element={
@@ -50,7 +50,7 @@ const Routing = () => {
         
         <Route path="/stream" element={
           <div>
-          <AuthenticateUser  />
+          <AuthenticateUser language={language}   />
           </div>
         } />  
         
@@ -81,7 +81,7 @@ const Routing = () => {
         } />
       </Routes>
     </>
-    </State.Provider>
+ 
   )
 }
 
