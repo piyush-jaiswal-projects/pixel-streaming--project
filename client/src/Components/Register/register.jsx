@@ -50,7 +50,7 @@ function Register({ language }) {
         if (validator.validate(email)) {
 
             // Stream Link
-            const link = `http://localhost:3000/access-link/${code}`;
+            const link = `arcwarestreamingproject.herokuapp.com/access-link/${code}`;
             const minutes = 44;
             const seconds = 60;
             const logincount = 1;
@@ -72,7 +72,7 @@ function Register({ language }) {
                 Teacher: teacher
             }).then((res) => {
                 if (res.data.Message === "Success") {
-                    window.location.replace('/login');
+                    window.location.replace(`/access-link/${code}`);
                 }
                 else if (res.data.Message === "failed") {
                     setName("");

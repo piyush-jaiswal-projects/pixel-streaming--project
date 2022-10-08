@@ -11,22 +11,24 @@ input[type=checkbox] {
     cursor: pointer;
     display: inline;
     float: left;
+    filter: invert(1);
     accent-color: #000000;
-    outline: #808080 0.5px solid;
+    /* outline: #808080 0.5px solid; */
     width: 11%;
     height: 45px;
-    margin: 0.5rem 0.5rem 0.5rem 1rem;
+   
 }
 
-.check-label{
-    color: #808080;
-    font-family: 'Titillium Web';
-font-size: 15px;
-width: 20%;
-float: left;
-display: inline;
-line-height: 20px;
-margin: 0.5rem;
+
+    .check-label {
+        color: #808080;
+        font-family: 'Titillium Web';
+        font-size: 15px;
+        width: 20%;
+        float: left;
+        display: inline;
+        line-height: 20px;
+        margin: 1.5rem 0.5rem;
 }
 
 .user-register-div{
@@ -50,6 +52,7 @@ margin: 0.5rem;
     font-weight: bolder;
 }
 .user-register-button{
+    margin: 1rem 0.5rem;
     background: #000;
     width: 50%;
     color:#00C9FF;
@@ -117,6 +120,7 @@ color: #FFFFFF;
     }
 
     .user-register-button{
+        margin-top: 1rem;
         float: none;
         padding: 0.5rem;
         width: 90%;
@@ -130,15 +134,27 @@ color: #FFFFFF;
     }
 
     input[type=checkbox] {
-        margin: 0 0 0 1rem;
+     
         float: none;
         width: 10%;
         height: 20px;
     }
 }
+@media screen  and (max-width: 1100px) {
+    input[type=checkbox] { 
+        margin: 1.5rem 0.5rem 0.5rem 1rem;
+    }
+   
+}
+@media screen  and (min-width: 1101px) {
+    input[type=checkbox] { 
+        margin: 1.5rem 0.5rem 0.5rem 1rem;
+    }
+   
+}
 .user-register-div1 {
-    width: 28rem;
-    height: 467px;
+    width: 25rem;
+    height: 448px;
     margin: auto;
     padding: 0;
     position: relative;
@@ -148,8 +164,8 @@ color: #FFFFFF;
     justify-content: center;}
 @media screen and (min-width: 600px) and (max-width: 1000px) {
     .user-register-div1 {
-        width: 28rem;
-        height: 467px;
+        width: 25rem;
+        /* height: 424px; */
         margin: auto;
         padding: 0;
         position: relative;
@@ -164,24 +180,25 @@ color: #FFFFFF;
         width: 50%;
     }
 
-    .user-register-title{
+    /* .user-register-title{
         font-size: 20px;
-    }
+    } */
 
     .form-container{
         position: relative;
         top: 50px;
     }
 
-    .user-info-input{
+    /* .user-info-input{
         padding: 0.5rem;
-    }
+    } */
 
     .user-register-button{
-        float: none;
+        margin: -2rem 0.5rem;
+        float: right;
         padding: 0.5rem;
-        width: 90%;
-        margin: 1rem;
+        height: 3rem;
+        width:46%;
     }
 
     .check-label{
@@ -191,7 +208,7 @@ color: #FFFFFF;
     }
 
     input[type=checkbox] {
-        margin: 0 0 0 1rem;
+        margin: 13px -4px 0 1rem;
         float: none;
     }
 }
