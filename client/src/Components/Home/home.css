@@ -19,6 +19,9 @@
 }
 
 .footer-tag{
+    margin-left: 35rem;
+    bottom: 40px;
+    position: fixed;
     font-family: 'Titillium Web';
 font-style: normal;
 font-weight: lighter;
