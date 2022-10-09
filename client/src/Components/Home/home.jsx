@@ -6,7 +6,7 @@ import logo from "./logo.png";
 import logo2 from "./logo2.png";
 function Home({language,setLanguage}){
    
-    const [lang, setLang] = useState("Change Language");
+    const [lang, setLang] = useState("CHANGE LANGUAGE");
   
     const change=(e)=>{
         if (e.target.value==="Swedish"){
