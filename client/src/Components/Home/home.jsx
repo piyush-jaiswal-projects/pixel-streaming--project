@@ -6,17 +6,19 @@ import logo from "./logo.png";
 import logo2 from "./logo2.png";
 function Home({language,setLanguage}){
    
-    
+    const [lang, setLang] = useState("Change Language");
   
     const change=(e)=>{
         if (e.target.value==="Swedish"){
             // console.log(language);
             setLanguage(false);
+            setLang("ENGLISH");
             // console.log(s);
         }
        else if (e.target.value==="English"){
             // console.log(language);
             setLanguage(true);
+            setLang("CHANGE LANGUAGE");
             // console.log(s);
         }
        
@@ -31,7 +33,7 @@ function Home({language,setLanguage}){
         <div className="home-section" id="centreDiv">
         <div className="check">
   <select  onChange={change} className="membership" id="membership">
-  <option className="member-value" value="English">CHANGE LANGUAGE</option>
+  <option className="member-value" value="English">{lang}</option>
   <option className="member-value" value="Swedish" >SWEDISH</option>
 </select>
   </div>
@@ -65,7 +67,7 @@ function Home({language,setLanguage}){
         </div>
         <br />
         <hr></hr>
-        <h3 className="section-title" onClick={change}>Ingen tid att förlora </h3>
+        <h3 className="section-title" onClick={change}>No Time to Waste</h3>
         <h3 className="t">Välkommen till en virtuell escape room-upplevelse från Håll Sverige Rent. Skapad för att öka medvetenheten och främja kunskap om den globala plastepidemin.</h3>
         <div className="btn-wrapper-div">
         <Link to="/register">
