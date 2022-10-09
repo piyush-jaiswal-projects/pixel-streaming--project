@@ -115,14 +115,14 @@ function Register({ language }) {
                     <br></br>
                     <div className="form-container">
                         <h3 className="user-register-title" style={{ display: title }}>Your details</h3>
-                        <h3 className="user-register-title email-error-title" style={{ display: emailError }}>Invalid email format</h3>
+                        <h3 className="email-error-title" style={{ display: emailError }}>Invalid email format</h3>
                         <h3 className="user-register-title error-title" style={{ display: invalid }}>Some error occurred</h3>
                         <input type="text" className="user-info-input" placeholder="NAME" value={name} onChange={handleNameChange}></input>
                         <input type="text" className="user-info-input" placeholder="ORG/SCHOOL" value={org} onChange={handleOrgChange}></input>
                         <input id="in-email" type="email" className="user-info-input" placeholder="EMAIL" value={email} onChange={handleEmailChange}></input>
                         <input className="check" type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></input>
                         <label for="vehicle1" className="check-label"> I AM A TEACHER</label><br></br>
-                        <button id="r-btn" className="user-register-button" onClick={handleRegistration}>REQUEST ACCESS</button>
+                        <button id="r-btn" className="user-register-button " onClick={handleRegistration}>REQUEST ACCESS</button>
                     </div>
                 </div>
             </div> : <>
