@@ -53,6 +53,7 @@ color: #FFFFFF;
     background-color: #000;
     border: 1px solid #808080;
     position: relative;
+    border-radius: 5px;
     float: right;
 }
 .info-input1 {

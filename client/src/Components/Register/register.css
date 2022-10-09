@@ -54,6 +54,15 @@ input[type=checkbox] {
     color:#FFFFFF;
     font-weight: bolder;
 }
+
+.back-svg{
+    filter: invert(1);
+    margin:6px 12px;
+    width: 35px;
+    height:35px;
+    position:absolute;
+}
+
 .user-register-button{
     height: 52px;
     margin-top: 1rem;
@@ -67,6 +76,7 @@ input[type=checkbox] {
     background-color: #000;
     border: 1px solid #808080;
     position: relative;
+    border-radius: 5px;
     bottom: 10px;
     float: left;
 }
