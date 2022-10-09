@@ -10,6 +10,7 @@ import { useLocation } from "react-router";
 import Register from "./Components/Register/register.jsx";
 import Access from "./Components/Access/access.jsx";
 import Link from "./Components/Link/link.jsx";
+import LinkSwed from "./Components/LinkSwed/link.jsx";
 import Deny from "./Components/Deny/deny.jsx";
 import End from "./Components/End/end.jsx";
 import AdminPortal from "./Components/AdminPortal/adminPortal.jsx";
@@ -19,14 +20,7 @@ const State =createContext()
 const Routing = () => {
 
     const [language,setLanguage]=useState(true);
-    console.log(`i am in routing ${language}`);
-    // useEffect(()=>{
-    //   updateLanguage(language);
-    // },[language])
-
-    
-    
-    
+    console.log(language);
 
   return (
    
@@ -50,9 +44,15 @@ const Routing = () => {
         
         <Route path="/stream" element={
           <div>
-          <AuthenticateUser language={language}   />
+          <Link  language={language} setLanguage={setLanguage}/>
           </div>
         } />  
+
+<Route path="/streamswed" element={
+          <div>
+          <LinkSwed  language={language} setLanguage={setLanguage}/>
+          </div>
+        } />
         
         <Route path="/access-denied" element={
           <div>

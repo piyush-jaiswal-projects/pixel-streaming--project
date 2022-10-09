@@ -3,8 +3,10 @@ import React ,{useContext,useState}from  "react";
 import "./link.css";
 import intro1 from "./intro1.png";
 // import {state} from "../../../src/Routing"
-function Link({ language }){
+function Link({la}){
 
+    // const context=useContext(state)
+ console.log(`i am in linkk rou  ${la}`)
    
     function getCookie(cname) {
         let name = cname + "=";
@@ -23,27 +25,54 @@ function Link({ language }){
       }
     
       var state=  getCookie("language");
+      console.log(` am in  state ${state}`);
+
+
 
     function handleExit(){
         window.location.replace('/');
     }
+    const stateChange=()=>{
+        console.log(`i am in link ${state}`)
+       
+       
+    }
 
     function handleSkip(){
         window.location.replace('/screentwo');
-      }
-
-      console.log("link "+language);
+    }
     
+    const [code ,setCode] = React.useState("");
+    // console.log(props.value);
+    // const email = props.value;
+    // const condition = props.cond;
+    // if(condition === false){
+    // axios.post('/getcode',{
+    //     Email: email
+    // }).then((res)=>{
+    //     if(res.data.Message === "Success"){
+    //         setCode(res.data.Code);
+    //     }
+    //     else if(res.data.Message === "failed"){
+    //      alert("Error Occurred");
+    //     }
+    // });}
     return(
        
         <div className="register-section">
         <img className="intro-one" alt="Intro Screen 1" src={intro1}></img>
     
+       
+                <>
             <div className="screenOneOverlay">
-        {/* english */}
-        <button id="skipBtn" className="skip-btn" onClick={handleSkip}>SKIP INTRO</button>
+        <button className="skip-btn2" onClick={handleSkip}>HOPPA ÖVER INTRO</button>
         <button className="exit-btn" onClick={handleExit}>X</button>
-        </div>       
+        </div> 
+        </>
+
+      
+     
+       
         </div>
     );
 }

@@ -73,7 +73,8 @@ function Register({ language }) {
                 Teacher: teacher
             }).then((res) => {
                 if (res.data.Message === "Success") {
-                    window.location.replace(`/access-link/${code}`);
+                    // window.location.replace(`/access-link/${code}`);
+                    language? window.location.replace('/stream') : window.location.replace('/streamswed');
                 }
                 else if (res.data.Message === "failed") {
                     setName("");
