@@ -17,7 +17,7 @@ input[type=checkbox] {
     filter: invert(1);
     accent-color: #000000;
     /* outline: #808080 0.5px solid; */
-    width: 11%;
+    width: 13%;
     height: 45px;
    
 }
@@ -56,7 +56,8 @@ input[type=checkbox] {
 }
 .user-register-button{
     height: 52px;
-    margin: 1rem 0.6rem;
+    margin-top: 1rem;
+    margin-left: 2.4rem;
     background: #000;
     width: 50%;
     color:#00C9FF;
@@ -162,7 +163,7 @@ input[type=checkbox] {
 }
 @media screen  and (min-width: 1101px) {
     input[type=checkbox] { 
-        margin: 1.5rem 0.5rem 0.5rem 1rem;
+        margin: 1.5rem 0.5rem 0.5rem -0.5rem;
     }
    
 }
