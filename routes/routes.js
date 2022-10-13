@@ -10,6 +10,9 @@ const DeleteUser = require('../controllers/deleteUser');
 const GetCode = require('../controllers/getcode');
 const CheckUser = require('../controllers/checkuser');
 const StartTimer = require('../controllers/startTimer');
+const SetNewAdmin = require('../controllers/adminPanel/setNewAdmin.js');
+const SetStreamDuration = require('../controllers/adminPanel/setStreamDuration.js');
+const GetStreamDuration = require('../controllers/adminPanel/getStreamDuration.js');
 
 
 router.get('/say-something', controllers.saySomething);
@@ -22,5 +25,8 @@ router.post('/deleteuser',DeleteUser);
 router.post('/getcode',GetCode);
 router.post('/checkuser',CheckUser);
 router.post('/startTimer',StartTimer);
+router.post('/setNewAdmin', SetNewAdmin);
+router.post('/setStreamDuration', SetStreamDuration);
+router.post('/getStreamDuration', GetStreamDuration);
 
 module.exports = router;    
