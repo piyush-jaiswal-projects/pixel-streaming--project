@@ -12,11 +12,13 @@ const sessionSchema = new mongoose.Schema({
 
 const dailyDurationSchema = new mongoose.Schema({
     DailyBudget: Number,
-    TodaysSessions: []
+    Date: Date,
+    TodaySessions: []
 });
 
 const campaignDurationSchema = new mongoose.Schema({
     CampaignBudget: Number,
+    User: String,
     CampaignSessions: []
 });
 

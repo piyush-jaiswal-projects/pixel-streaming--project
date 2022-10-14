@@ -13,6 +13,10 @@ const StartTimer = require('../controllers/startTimer');
 const SetNewAdmin = require('../controllers/adminPanel/setNewAdmin.js');
 const SetStreamDuration = require('../controllers/adminPanel/setStreamDuration.js');
 const GetStreamDuration = require('../controllers/adminPanel/getStreamDuration.js');
+const GetTotalMinutesUsed = require('../controllers/adminPanel/getTotalMinutesUsed.js');
+const GetTotalMinutesBudget = require('../controllers/adminPanel/getTotalMinutesBudget.js');
+const SetTotalMinutesBudget = require('../controllers/adminPanel/setTotalMinutesBudget.js');
+const StreamSwitch = require('../controllers/adminPanel/streamSwitch.js');
 
 
 router.get('/say-something', controllers.saySomething);
@@ -28,5 +32,9 @@ router.post('/startTimer',StartTimer);
 router.post('/setNewAdmin', SetNewAdmin);
 router.post('/setStreamDuration', SetStreamDuration);
 router.post('/getStreamDuration', GetStreamDuration);
+router.post('/getTotalMinutesUsed', GetTotalMinutesUsed);
+router.post('/getTotalMinutesBudget', GetTotalMinutesBudget);
+router.post('/setTotalMinutesBudget', SetTotalMinutesBudget);
+router.post('/streamSwitch', StreamSwitch);
 
 module.exports = router;    
