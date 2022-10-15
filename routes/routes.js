@@ -20,6 +20,7 @@ const StreamSwitch = require('../controllers/adminPanel/streamSwitch.js');
 const GetTodaysTotalMinutesUsed = require('../controllers/adminPanel/getTodaysTotalMinutesUsed.js');
 const GetTodaysTotalMinutesBudget = require('../controllers/adminPanel/getTodaysTotalMinutesBudget.js');
 const SetTodaysTotalMinutesBudget = require('../controllers/adminPanel/setTodaysTotalMinutesBudget.js');
+const AddNewSessionDuration = require('../controllers/adminPanel/addNewSessionDuration.js');
 
 
 router.get('/say-something', controllers.saySomething);
@@ -42,5 +43,6 @@ router.post('/streamSwitch', StreamSwitch);
 router.post('/getTodaysTotalMinutesUsed', GetTodaysTotalMinutesUsed);
 router.post('/getTodaysTotalMinutesBudget', GetTodaysTotalMinutesBudget);
 router.post('/setTodaysTotalMinutesBudget', SetTodaysTotalMinutesBudget);
+router.post('/addNewSessionDuration', AddNewSessionDuration);
 
 module.exports = router;    
