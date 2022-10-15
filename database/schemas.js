@@ -12,6 +12,7 @@ const sessionSchema = new mongoose.Schema({
 
 const dailyDurationSchema = new mongoose.Schema({
     DailyBudget: Number,
+    User: String,
     Date: Date,
     TodaySessions: []
 });
