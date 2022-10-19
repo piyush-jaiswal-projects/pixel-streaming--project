@@ -10,6 +10,17 @@ const DeleteUser = require('../controllers/deleteUser');
 const GetCode = require('../controllers/getcode');
 const CheckUser = require('../controllers/checkuser');
 const StartTimer = require('../controllers/startTimer');
+const SetNewAdmin = require('../controllers/adminPanel/setNewAdmin.js');
+const SetStreamDuration = require('../controllers/adminPanel/setStreamDuration.js');
+const GetStreamDuration = require('../controllers/adminPanel/getStreamDuration.js');
+const GetTotalMinutesUsed = require('../controllers/adminPanel/getTotalMinutesUsed.js');
+const GetTotalMinutesBudget = require('../controllers/adminPanel/getTotalMinutesBudget.js');
+const SetTotalMinutesBudget = require('../controllers/adminPanel/setTotalMinutesBudget.js');
+const StreamSwitch = require('../controllers/adminPanel/streamSwitch.js');
+const GetTodaysTotalMinutesUsed = require('../controllers/adminPanel/getTodaysTotalMinutesUsed.js');
+const GetTodaysTotalMinutesBudget = require('../controllers/adminPanel/getTodaysTotalMinutesBudget.js');
+const SetTodaysTotalMinutesBudget = require('../controllers/adminPanel/setTodaysTotalMinutesBudget.js');
+const AddNewSessionDuration = require('../controllers/adminPanel/addNewSessionDuration.js');
 
 
 router.get('/say-something', controllers.saySomething);
@@ -22,5 +33,16 @@ router.post('/deleteuser',DeleteUser);
 router.post('/getcode',GetCode);
 router.post('/checkuser',CheckUser);
 router.post('/startTimer',StartTimer);
+router.post('/setNewAdmin', SetNewAdmin);
+router.post('/setStreamDuration', SetStreamDuration);
+router.post('/getStreamDuration', GetStreamDuration);
+router.post('/getTotalMinutesUsed', GetTotalMinutesUsed);
+router.post('/getTotalMinutesBudget', GetTotalMinutesBudget);
+router.post('/setTotalMinutesBudget', SetTotalMinutesBudget);
+router.post('/streamSwitch', StreamSwitch);
+router.post('/getTodaysTotalMinutesUsed', GetTodaysTotalMinutesUsed);
+router.post('/getTodaysTotalMinutesBudget', GetTodaysTotalMinutesBudget);
+router.post('/setTodaysTotalMinutesBudget', SetTodaysTotalMinutesBudget);
+router.post('/addNewSessionDuration', AddNewSessionDuration);
 
 module.exports = router;    
