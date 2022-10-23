@@ -20,7 +20,7 @@ function AdminPortal() {
     function handleAdminLogin() {
         if (username === "admin" && password === "12345") {
             alert("Login Success");
-            setPortal();
+            setPortal( <Portal />);
             document.getElementById("form-container").style.display = "none";
 
         }
@@ -29,16 +29,16 @@ function AdminPortal() {
 
     return (
         <div className="admin-auth">
-            {/* <div className="form-container" id="form-container">
+            <div className="form-container-auth" >
                 <h3 className="register-title">Admin Login</h3>
-                <input type="text" className="info-input" placeholder="Username" value={username} name="email" onChange={handleUsernameChange}></input>
-                <input type="text" className="info-input" placeholder="Password" value={password} onChange={handlePasswordChange}></input>
-                <button className="register-button" onClick={handleAdminLogin}>Log in</button>
+                <input type="text" className="info-input-auth" placeholder="Username" value={username} name="email" onChange={handleUsernameChange}></input>
+                <input type="text" className="info-input-auth" placeholder="Password" value={password} onChange={handlePasswordChange}></input>
+                <button className="register-button-auth" onClick={handleAdminLogin}>Log in</button>
             </div>
             <div>
                 {portal}
-            </div> */}
-            <Portal />
+            </div>
+           
         </div>
     );
 }
