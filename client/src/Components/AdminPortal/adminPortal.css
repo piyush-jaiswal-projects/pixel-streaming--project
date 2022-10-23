@@ -5,14 +5,141 @@
     position: relative;
     top: 150px;
 }
+.register-button-admin {
+    height: 3rem;
+    margin: 15px 17px;
+    background: #000;
+    width: 17rem;
+    color: #00C9FF;
+    border-radius: 4px;
+    padding: 1rem;
+    font-weight: lighter;
+    background-color: #000;
+    border: 1px solid #808080;
+    position: relative;
+    float: left;
+}
+.register-button-admin1 {
+    height: 3.5rem;
+    margin: 12px 17px;
+    background: #000;
+    width: 17rem;
+    color: #00C9FF;
+    border-radius: 4px;
+    padding: 1rem;
+    font-weight: lighter;
+    background-color: #000;
+    border: 1px solid #808080;
+    position: relative;
+    float: left;
+}
+.register-button-admin3 {
+    height: 3rem;
+    margin: 12px 17px;
+    background: #000;
+    width: 17rem;
+    color: #00C9FF;
+    border-radius: 4px;
+    padding: 1rem;
+    font-weight: lighter;
+    background-color: #000;
+    border: 1px solid #808080;
+    position: relative;
+    float: left;
+}
+.register-button-admin2 {
+    height: 3.5rem;
+    margin: 12px 17px;
+    background: #000;
+    width: 17rem;
+    color: #00C9FF;
+    border-radius: 4px;
+    padding: 1rem;
+    font-weight: lighter;
+    background-color: #000;
+    border: 1px solid #808080;
+    position: relative;
+    float: left;
+}
+.divone-info-input {
+    height: 1.5rem;
+    background: #fff;
+    display: block;
+    font-weight: lighter;
+    padding: 1rem;
+    margin: 1rem;
+    width: 15rem;
+    border-radius: 4px;
+    border: 1px solid #808080;
+    color: #808080;
+    font-size: 15px;
+}
+.divtwo-info-input {
+    border-radius: 4px;
+    height: 1.2rem;
+    background: #fff;
+    display: block;
+    font-weight: lighter;
+    padding: 1rem;
+    margin: 1rem;
+    width: 15rem;
+    border: 1px solid #808080;
+    color: #808080;
+    font-size: 15px;
+}
+.div-two::before{
+    margin-left: -94px;
+    height: 89vh;
+    content: "";
+    position: absolute;
+    border-left: 2px solid #ffffff24;
+  
 
+}
+.div-three::before{
+    margin-left: -53px;
+    height: 89vh;
+    content: "";
+    position: absolute;
+    border-left: 2px solid #ffffff24;
+  
 
-
-.info-input{
-    width: 90%;
+}
+.divthree-info-input {
+    border-radius: 4px;
+    height: 1.2rem;
+    background: #fff;
+    display: block;
+    font-weight: lighter;
+    padding: 1rem;
+    margin: 1rem;
+    width: 15rem;
+    border: 1px solid #808080;
+    color: #808080;
+    font-size: 15px;
+}
+.register-button {
+    background: #000;
+    width: 50%;
+    color: #00C9FF;
+    padding: 1rem;
+    cursor: pointer;
+    font-weight: lighter;
+    background-color: #000;
+    border: 1px solid #808080;
+    position: relative;
+    float: right;
+}
+.admin {
+    display: flex;
+    margin-top: -21px;
+    height: 98vh;
+    justify-content: space-between;
+    /* justify-content: space-around; */
 }
 
-.admin-header{
+
+/* .admin-header{
     margin: 0;
     padding-top: 10px;
     position: relative;
@@ -24,52 +151,129 @@
     font-size: 30px;
     font-family: sans-serif;
     border-bottom: 1px solid grey;
-}
+} */
 
 .div-one{
-    margin: 10px;
-    height: 570px;
-    background-color: white;
-    width: 40%;
+    /* border-right: 1px solid white; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    justify-content: space-around;
+    /* margin: 10px;
+    height: 570px; */
+    /* background-color: white; */
+    width: 30%;
     display: flexbox;
-    float: left;
+    /* float: left;
     border: 1px solid grey;
-    border-radius: 15px;
+    border-radius: 15px; */
     text-align: center;
-    justify-content: center;
+    /* justify-content: center; */
 }
-
+.duration-set-span{
+    font-size: 23px;
+    float: left;
+    padding: 8px 14px;
+    color: #fff;
+    display:block;
+}
+.duration-set-span2{
+    font-size: 20px;
+    margin-left: 5px;
+    display:block;
+    float: left;
+    padding: 8px 10px;
+    color: #fff;
+}
+.div-two-changetotalbudget{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+.div-three-changedailybudget{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: -2.5rem;
+}
+/*    */
 .div-two{
-    margin: 10px;
-    height: 570px;
-    background-color: white;
-    width: 55%;
+   
+  
+    display: flex;
+    align-content: stretch;
+    /* align-items: center; */
+    /* margin: 10px;
+    height: 570px; */
+    /* background-color: white; */
+  
     display: flexbox;
     float: left;
-    border: 1px solid grey;
-    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* border: 1px solid grey;
+    overflow: scroll; */
 }
-
+.div-three{
+    /* margin: 10px;
+    height: 570px; */
+    /* background-color: white; */
+    /* width: 55%; */
+    padding: 3.5rem;
+    float: left;
+    /* border-left: 1px solid white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* border: 1px solid grey;
+    overflow: scroll; */
+}
+.div-span{
+    color:#fff;
+    margin-left: 11px;
+    font-size: 25px;
+    display: block;
+}
+.div-span-number{
+    padding: 1rem 0rem;
+    margin-left: 11px;
+    color:#fff;
+    font-size: 4rem;
+    display: block;
+}
+.div-two-minutesleft{
+    margin-top: 24px;
+}
 .duration-set{
-    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* width: 90%; */
     height: 150px;
+    margin-top: -8rem;
     /* border: 1px solid grey; */
-    border-radius: 15px;
+    /* border-radius: 15px;
     margin: 1rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
     padding: 5px;
-    background-color: rgb(231, 229, 229);
+    background-color: rgb(231, 229, 229); */
 }
 
 .add-admin{
-    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: -9rem;
+    /* width: 90%; */
     height: 180px;
     /* border: 1px solid grey; */
-    border-radius: 15px;
+    /* border-radius: 15px;
     margin: 1rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
     padding: 5px;
-    background-color: rgb(231, 229, 229);
+    background-color: rgb(231, 229, 229); */
 }
 
 .message-div{
@@ -86,7 +290,15 @@ h3, b, h5 {
     margin: 0;
     padding: 0;
 }
-
+.div-three-minutes{
+    margin-top: -3.1rem;
+}
+.div-two-minutes{
+    /* margin-top: 0.1rem; */
+}
+.div-three-dailyBudget{
+margin-top: 24px;
+}
 h3{
     color: rgb(7, 83, 146);
 }
