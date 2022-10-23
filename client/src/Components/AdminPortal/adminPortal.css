@@ -1,9 +1,24 @@
-#form-container{
-    display: block;
-    width: 50%;
-    border: 2px solid black;
+.form-container-auth{
+    display: flex;
+    width: 100%;
     position: relative;
     top: 150px;
+    flex-direction: column;
+    align-items: center;
+}
+.register-button-auth{
+    height: 3rem;
+    margin: 15px 17px;
+    background: #000;
+    width: 17rem;
+    color: #00C9FF;
+    border-radius: 4px;
+    padding: 1rem;
+    font-weight: lighter;
+    background-color: #000;
+    border: 1px solid #808080;
+    position: relative;
+    float: left;
 }
 .register-button-admin {
     height: 3rem;
@@ -73,6 +88,19 @@
     border: 1px solid #808080;
     color: #808080;
     font-size: 15px;
+}
+.info-input-auth {
+    display: block;
+    font-weight: lighter;
+    /* padding: 1rem; */
+    margin: 1rem;
+    width: 17rem;
+    border: none;
+    color: #808080;
+    font-size: 15px;
+    height: 2.1rem;
+    border-radius: 2.5px;
+    background: #fff;
 }
 .divtwo-info-input {
     border-radius: 4px;
