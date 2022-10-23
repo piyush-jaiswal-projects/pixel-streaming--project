@@ -71,7 +71,7 @@ function Home({language,setLanguage}){
         <h3 className="t">Välkommen till en virtuell escape room-upplevelse från Håll Sverige Rent. Skapad för att öka medvetenheten och främja kunskap om den globala plastepidemin.</h3>
         <div className="btn-wrapper-div">
         <Link to="/register">
-        <button className="section-button">BEGÄRA TILLGÅNG</button>
+        <button className="section-button">BEGÄRA <span></span> åtkomst</button>
         </Link>
         <Link to="/login">
         <button className="section-button">JAG HAR EN KOD</button>

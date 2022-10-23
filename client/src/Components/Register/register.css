@@ -64,6 +64,7 @@ input[type=checkbox] {
 }
 
 .user-register-button{
+    text-transform: uppercase;
     height: 52px;
     margin-top: 1rem;
     margin-left: 2.4rem;
