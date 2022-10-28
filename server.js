@@ -47,7 +47,7 @@ app.use((req, res, next) => {
     console.log(`Request_Endpoint: ${req.method} ${req.db}`);
     next();
 });
-
+console.log(User);
 // Configure the bodyParser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
