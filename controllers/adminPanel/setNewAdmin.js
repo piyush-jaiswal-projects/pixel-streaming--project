@@ -5,8 +5,8 @@ const {adminSchema} = require('../../database/schemas.js');
 const Admin = mongoose.model("Admin", adminSchema);
 
 async function setNewAdmin(req, res){
-    const username = req.body.UserName;
-    const password = req.body.PassWord;
+    const username = req.body.AdminUserName;
+    const password = req.body.AdminPassWord;
     console.log(username+" " +password);
     Admin.findOne({Username: username}, function(err, foundAdmin){
         if(foundAdmin){
