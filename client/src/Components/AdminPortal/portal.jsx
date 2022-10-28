@@ -113,7 +113,7 @@ export default function Portal() {
                 },
             });
             const SD =await res.json();
-            setSd(SD .StreamDuration);
+            setSd(SD.StreamDuration);
             /*** */
             console.log(`i am in  sd effect ${JSON.stringify(SD)}`);
             if(!res.status===200){
@@ -133,17 +133,13 @@ export default function Portal() {
     }, [])
  
  const setAdmin=()=>{
+    console.log(userName+password);
     axios.post('/setNewAdmin', { 
-        'UserName': userName,
-        'PassWord': password
+        'AdminUserName': userName,
+        'AdminPassWord': password
     }).then((res) => {
-        // console.log(res);
-        if (res.data.message === "Success"){
-        
-        }
-       
-        else return "fail";
-       
+        // console.log(res.b);
+        alert(res.data.Message);       
     })
 
 
@@ -152,37 +148,51 @@ export default function Portal() {
     const setStreamDuration=()=> {
         axios.post('/setStreamDuration', { 
         'User': "Admin",
-        'Duration': duration
+        'StreamDuration': duration
     }).then((res) => {
-        if (res.data.message === "Success") return "done";
-       
-        else return "fail";
+        if (res.data.Message === "Duration Update Success") {
+            alert("Stream Duration Update Success");
+            setSd(duration);
+        }       
+        else{
+            alert("Stream Duration Update Failed");
+        }
       
        
     });}
     const setTotalMinutesBudget=()=> {
         axios.post('/setTotalMinutesBudget', {  
-            "newDailyBudget":tbudget,
+            "newCampaignBudget":tbudget,
             "User":"Admin"
         
     }).then((res) => {
         console.log(res);
-        if (res.data.message === "Success") return "done";
+        if (res.data.Message === "Success"){
+            alert("Success");
+            setTmb(tbudget);
+        }
        
-        else return "fail";
+        else {
+            alert("Failed");
+        }
       
        
     });}
     const TodaysTMB=()=> {
         axios.post('/setTodaysTotalMinutesBudget', {  
-            "CampaignBudge":db,
+            "newDailyBudget":db,
             "User":"Admin"
         
     }).then((res) => {
         console.log(res);
-        if (res.data.message === "Success") return "done";
+        if (res.data.Message === "Success"){
+            setTtmb(db);
+            alert("Success");
+        }
        
-        else return "fail";
+        else {
+            alert("Failed");
+        }
       
        
     });}
