@@ -20,7 +20,6 @@ const State =createContext()
 const Routing = () => {
 
     const [language,setLanguage]=useState(true);
-    console.log(language);
 
   return (
    

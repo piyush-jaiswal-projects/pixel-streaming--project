@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const {dailyDurationSchema} = require('../../database/schemas.js')
+const {dailyDurationSchema} = require('../../database/schemas.js');
 
 const DailyDuration = mongoose.model("DailyDuration", dailyDurationSchema);
 

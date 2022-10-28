@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const {campaignDurationSchema} = require('../../database/schemas.js')
+const {campaignDurationSchema} = require('../../database/schemas.js');
 
 const CampaignDuration = mongoose.model("CampaignDuration", campaignDurationSchema);
 
@@ -21,6 +21,7 @@ async function getTotalMinutesBudget(req, res){
             res.status(200).send(jsonContent);
         }
     });
+    // streamSwitch();
 }
 
 module.exports = getTotalMinutesBudget;
