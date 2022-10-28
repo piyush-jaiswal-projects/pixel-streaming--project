@@ -35,13 +35,13 @@ router.post('/checkuser',CheckUser);
 router.post('/startTimer',StartTimer);
 router.post('/setNewAdmin', SetNewAdmin);
 router.post('/setStreamDuration', SetStreamDuration);
-router.post('/getStreamDuration', GetStreamDuration);
-router.post('/getTotalMinutesUsed', GetTotalMinutesUsed);
-router.post('/getTotalMinutesBudget', GetTotalMinutesBudget);
+router.get('/getStreamDuration', GetStreamDuration);
+router.get('/getTotalMinutesUsed', GetTotalMinutesUsed);
+router.get('/getTotalMinutesBudget', GetTotalMinutesBudget);
 router.post('/setTotalMinutesBudget', SetTotalMinutesBudget);
 router.post('/streamSwitch', StreamSwitch);
-router.post('/getTodaysTotalMinutesUsed', GetTodaysTotalMinutesUsed);
-router.post('/getTodaysTotalMinutesBudget', GetTodaysTotalMinutesBudget);
+router.get('/getTodaysTotalMinutesUsed', GetTodaysTotalMinutesUsed);
+router.get('/getTodaysTotalMinutesBudget', GetTodaysTotalMinutesBudget);
 router.post('/setTodaysTotalMinutesBudget', SetTodaysTotalMinutesBudget);
 router.post('/addNewSessionDuration', AddNewSessionDuration);
 
