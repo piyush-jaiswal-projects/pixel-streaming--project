@@ -14,8 +14,10 @@ async function setStreamDuration(req, res){
         }
         else{
             const jsonContent = JSON.stringify({
+                
                 Message: "Duration Update Success"
             });
+           
             res.status(200).send(jsonContent);
         }
     });

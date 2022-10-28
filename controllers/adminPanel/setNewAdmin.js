@@ -5,11 +5,12 @@ const {adminSchema} = require('../../database/schemas.js');
 const Admin = mongoose.model("Admin", adminSchema);
 
 async function setNewAdmin(req, res){
-    const username = req.body.AdminUsername;
-    const password = req.body.AdminPassword;
+    const username = req.body.UserName;
+    const password = req.body.PassWord;
     console.log(username+" " +password);
     Admin.findOne({Username: username}, function(err, foundAdmin){
         if(foundAdmin){
+            console.log(` i am insetAdmin ${foundAdmin}`);
             const jsonContent = JSON.stringify({
                 Message: "Admin Already Exists"
             });
