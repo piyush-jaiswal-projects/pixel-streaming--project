@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userSchema = require("../database/database.js");
 
-
 const User = mongoose.model("User", userSchema);
 
 async function login(req, res){

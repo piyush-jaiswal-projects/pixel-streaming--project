@@ -31,11 +31,10 @@ async function Checkuser(req, res){
                 jsonContent = JSON.stringify({
                     Message: "10 Login Limit Exceeded",
                     // e:foundUser.email;
-                });            }
+                });         }
             res.status(200).send(jsonContent);
         }
     })
-    
 }
 
 module.exports = Checkuser;

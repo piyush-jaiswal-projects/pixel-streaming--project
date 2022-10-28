@@ -26,6 +26,7 @@ async function getTotalMinutesUsed(req, res){
             res.status(200).send(jsonContent);
         }
     });
+    // streamSwitch();
 }
 
 module.exports = getTotalMinutesUsed;

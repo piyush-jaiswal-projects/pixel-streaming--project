@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const userSchema = require("../database/database.js");
+const {streamSwitch} = require('./adminPanel/switching.js');
 
 
 const User = mongoose.model("User", userSchema);

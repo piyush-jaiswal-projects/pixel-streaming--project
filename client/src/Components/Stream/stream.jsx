@@ -34,6 +34,17 @@ const videoRef = React.useRef();
 
 window.onbeforeunload = confirmExit;
 function confirmExit(){
+    const newDuration=minutes;
+    axios.post('/addNewSessionDuration',{
+        NewDuration: newDuration
+    }).then((res)=>{
+        if(res.data.Message === "Success"){
+            console.log("SUCCESS + Stream Closed");
+        }
+        else{
+            console.log("FAILED + Error Occurred");
+        }
+    });
     axios.post('/updateduration',{
                 Email: address,
                 Duration: {
