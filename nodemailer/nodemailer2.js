@@ -1,8 +1,11 @@
-
+const express = require("express");
+const mongoose = require("mongoose");
 const nodemailer = require("nodemailer");
+const {Admin}= require("../controllers/adminPanel/setNewAdmin.js")
 
 module.exports.mail= async (str,data, minutes, seconds) => {
-    console.log(str);
+  const admin=  await Admin.find();
+    console.log(admin);
     console.log(data);
     console.log("nod");
   const transporter = nodemailer.createTransport({

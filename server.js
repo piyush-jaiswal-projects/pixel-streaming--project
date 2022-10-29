@@ -7,9 +7,8 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const User = require("./database/database.js");
+const Use = require("./database/schemas.js");
 const cookieParser = require('cookie-parser');
-
-
 // Create a new express application named 'app'
 const app = express();
 
@@ -47,7 +46,7 @@ app.use((req, res, next) => {
     console.log(`Request_Endpoint: ${req.method} ${req.db}`);
     next();
 });
-console.log(User);
+
 // Configure the bodyParser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

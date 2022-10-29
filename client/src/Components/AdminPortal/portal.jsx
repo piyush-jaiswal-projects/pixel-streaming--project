@@ -1,7 +1,7 @@
 import React ,{useEffect,useState} from "react";
 import "./adminPortal.css";
 import axios from "axios";
-
+var validator = require("email-validator");
 export default function Portal() {
     const [tmut, setTmut]= useState("");
     const [ttmb, setTtmb]= useState();
@@ -13,9 +13,11 @@ export default function Portal() {
     const [password ,setPassword]= useState("Password")
     const [tbudget ,setTBudget]= useState();
     const [db ,setDB]= useState();
+    const inEmail = document.getElementById("in-email");
     const handledurationset=(e)=>{
         setDuration(e.target.value)
     }
+    
     // console.log(password);
     // console.log(userName);
     // console.log(ttmb);
@@ -95,7 +97,7 @@ export default function Portal() {
             const TMU =await res.json();
             setTmu(JSON.stringify(TMU.TotalMinutesUsed));
             /*** */
-            // console.log(`i am in  effect ${TTMB.TotalMinutesBudgetToday}`);
+            console.log(`i am in  effect ${TMU.TotalMinutesUsed}`);
             if(!res.status===200){
                 const error =new Error(res.error);
                 throw error;
@@ -134,6 +136,7 @@ export default function Portal() {
  
  const setAdmin=()=>{
     console.log(userName+password);
+    if (validator.validate(userName)) {
     axios.post('/setNewAdmin', { 
         'AdminUserName': userName,
         'AdminPassWord': password
@@ -142,7 +145,15 @@ export default function Portal() {
         alert(res.data.Message);       
     })
 
-
+    } else {
+        // setTitle("none");
+        // setInvalid("none");
+        // // setEmailError("block");
+        // rBtn.style.backgroundColor = "red";
+        inEmail.style.color = "red";
+        inEmail.style.borderColor = "red";
+        window.alert("Email is invalid")
+    }
  }
  
     const setStreamDuration=()=> {
@@ -215,7 +226,7 @@ export default function Portal() {
                 <div className="add-admin">
                 <span className="duration-set-span"> Add admin</span>
                    
-                    <input type="text" className="divone-info-input"  onChange={(e)=>setUserName(e.target.value)} placeholder={userName} name="Username"></input>
+                    <input type="email"  id="in-email" className="divone-info-input"  onChange={(e)=>setUserName(e.target.value)} placeholder={userName} name="email"></input>
                     <input type="text" className="divone-info-input" onChange={(e)=>setPassword(e.target.value)} placeholder={password} name="Password"></input>
                     <button className="register-button-admin2" onClick={setAdmin} >SET</button>
                 </div>
