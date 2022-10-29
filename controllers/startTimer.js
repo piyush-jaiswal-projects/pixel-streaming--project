@@ -16,10 +16,15 @@ async function StartServer(req, res){
         timerDuration = timer*60*1000;
     });
     console.log(timerDuration);
-    console.log("Timer Started");
-    setInterval(function() {
-        res.send('Timer Ended');
-    },timerDuration);
+    // console.log("Timer Started");
+    // setInterval(function() {
+    //     res.send('Timer Ended');
+    // },timerDuration);
+    const responseData ={
+        Duration: timerDuration
+    };
+    const jsonContent = JSON.stringify(responseData);
+    res.status(200).send(jsonContent);
     }
 
 module.exports = StartServer;

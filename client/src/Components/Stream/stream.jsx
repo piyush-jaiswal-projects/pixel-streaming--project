@@ -26,6 +26,7 @@ function Stream(props,{language}){
     const address = getCookie("email");
     const [seconds, setSeconds] =useState(0);
     const [minutes, setMinutes] =useState(0);
+    var [timerDuration, setTimerDuration] = useState(30);
     var timer;
 
     const sizeContainerRef = React.useRef();
@@ -54,40 +55,39 @@ function confirmExit(){
             }).then((res)=>{
                 if(res.data.Message === "Success"){
                     console.log("Stream Closed");
-                    alert("Stream Closed !!!");
                 }
                 else{
                     alert("Error Occurred");
                 }
             });
-    return "Want to leave page ?";
 }
-
-const standby = "standby";
+const state = "standby";
 
 useEffect(()=>{
-    axios.post('/startTimer').then((res)=>{
-        console.log(res.data);
-        window.location.replace('/login');
+    axios.post('/startTimer')
+    .then((res)=>{
+        setTimerDuration(res.data.Duration);
+        // window.location.replace('/login');
     });
-},[standby]);
+    const args = {
+        address: "wss://share.ragnarok.arcware.cloud/12c0cfd9-8f8f-41b7-a21d-e10e1019e8d5",
+        packageId: "Name of the package (if there are multiple applications)",
+        settings: {},
+        sizeContainer: sizeContainerRef.current,
+        container: containerRef.current,
+        videoRef: videoRef.current,
+        playOverlay: true, // Set default overlay with play button. Make it false and use loader
+        loader: (val) => {}, // Callback for loading screen, etc. Once stream is ready, the function will be triggered with false value.
+        applicationResponse: (response) => {}, // Callback for Unreal Engine application messages.
+      };
+      const webrtc_client = new WebRTCClient(args);
+    const emitUIInteraction = webrtc_client.emitUIInteraction;
+}, [])
+
+
 
 useEffect(()=>{
-            const args = {
-            address: "wss://share.ragnarok.arcware.cloud/12c0cfd9-8f8f-41b7-a21d-e10e1019e8d5",
-            packageId: "Name of the package (if there are multiple applications)",
-            settings: {},
-            sizeContainer: sizeContainerRef.current,
-            container: containerRef.current,
-            videoRef: videoRef.current,
-            playOverlay: true, // Set default overlay with play button. Make it false and use loader
-            loader: (val) => {}, // Callback for loading screen, etc. Once stream is ready, the function will be triggered with false value.
-            applicationResponse: (response) => {}, // Callback for Unreal Engine application messages.
-          };
-          const webrtc_client = new WebRTCClient(args);
-const emitUIInteraction = webrtc_client.emitUIInteraction;
-
-    
+    console.log(timerDuration);
         timer = setInterval(()=>{
             setSeconds(seconds+1);
             if(seconds===59){
@@ -97,11 +97,11 @@ const emitUIInteraction = webrtc_client.emitUIInteraction;
         },1000)
         return ()=>clearInterval(timer)
     },[seconds])
-    if(minutes===45 && seconds===59){
+    if(minutes===(timerDuration/60000) && seconds===0){
         console.log("time exceed");
         clearInterval(timer)
         alert("Stream Time Exceeded");
-        window.close();
+        window.location.replace('/login');
     }
 
     return(
