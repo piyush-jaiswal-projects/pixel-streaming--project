@@ -135,6 +135,9 @@ function Access({ language }) {
                 document.getElementById("log-btn").style.backgroundColor = "red";
 
             }
+            else{
+                alert(res.data.Message);
+            }
         });
 
     }

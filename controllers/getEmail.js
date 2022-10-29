@@ -26,7 +26,7 @@ async function getEmail(req, res){
                             message="OK";
                         }
                         else{
-                            message = "Error";
+                            message = "Stream Not Available(Budget Exceeded)";
                         }
                     });
                 }
