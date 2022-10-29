@@ -1,24 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React ,{useContext,useState}from  "react";
+import {useParams} from 'react-router-dom';
 import axios from 'axios';
 import Stream from '../Link/link.jsx';
 import Stream2 from '../Link/linkswedish';
 // import {State} from "../../../src/Routing"
-export default function Authenticate({language}){
+export default async function Authenticate({language}){
   
-  
-    const [streaming, setStreaming] = React.useState("");
-   
-    console.log(`i am in dhdhshddhshdh ${language}`);
-    // if(language==false){
-    //   setLa(false);
-    //   console.log(`i am in laaaaa ${la}`);
-    // }
-  
-    // console.log(`i am in laaaaa ${la}`);
-// setLa(context);
-// console.log(`i am inauth state ${la}`)
-// console.log(`i am inauth state ${context}`);
+    const [email, setEmail] = React.useState("");
+    const [streaming, setStreaming] = React.useState();
+    const params = useParams();
+    const userCode = params.id;
+
     function updateLoginCount(email, logincount){
       const mail = email;
       const loginCount = logincount;
@@ -41,78 +34,28 @@ export default function Authenticate({language}){
         else return "fail";
     });
 }
-
-    function getCookie(cname) {
-        let name = cname + "=";
-        let decodedCookie = decodeURIComponent(document.cookie);
-        let ca = decodedCookie.split(';');
-        for(let i = 0; i <ca.length; i++) {
-          let c = ca[i];
-          while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-          }
-          if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-          }
-        }
-        return "";
+    
+    axios.post('/getEmail',{
+      Code: userCode
+    }).then((res)=>{
+      console.log(res.data.Message);
+      if(res.data.Message === "OK"){
+        updateLoginCount(res.data.Email, res.data.LoginCount);
+        // setStreaming(<Stream />);
+        window.location.replace('/stream');
       }
-
-      const email = getCookie("email");
-      console.log("Email from cookie: "+email);
-
-      // window.onbeforeunload = confirmExit;
-// function confirmExit(){
-//     axios.post('/updateduration2',{
-//                 Email: email
-//             }).then((res)=>{
-//                 if(res.data.Message === "Success"){
-//                     console.log("Stream Closed");
-//                     alert("Stream Closed !!!");
-//                 }
-//                 else{
-//                     alert("Error Occurred");
-//                 }
-//             });
-//     return "Want to leave page ?";
-// }
-const standing = "standing";
-React.useEffect(()=>{
-  
-  // if(email === "" || email === " "){
-  //   alert("Email Not Found OR LOGIN Again");
-  //   window.location.replace('/login');
-  // }
-  // else{
-  //   axios.post('/checkuser', {
-  //       'Email': email
-  //   }).then((res) => {
-  //       if(res.data.Message === "Success"){
-  //       // rendering stream component
-  //       const stat = updateLoginCount(email, res.data.LoginCount);
-  //       setStreaming(<Stream />);
-  //       }
-  //       else if(res.data.Message === "No"){
-  //           alert("You are not registered");
-  //           window.location.replace('/register');
-  //       }
-  //       else if(res.data.Message === "10 Login Limit Exceeded"){
-  //         deleteUser(email);
-  //         alert("10 Login Limit Exceeded");
-  //         window.location.replace('/register');
-  //     }
-  //       else{
-  //           alert("ERROR OCCURRED");
-  //           window.location.replace('/');
-  //       }
-  //   });
-  // }
-},[standing])
-      
+      else if(res.data.Message === "Login Limit Exceeded"){
+        deleteUser(res.data.Email);
+        alert(res.data.Message);
+      }
+      else{
+        alert(res.data.Message);
+      }
+    });
 
       return(
         <div id="streamer">
-      <Stream />
+      {streaming}
         </div>
       );
 }

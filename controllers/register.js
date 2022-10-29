@@ -2,7 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userSchema = require("../database/database.js");
 const {mail} = require("../nodemailer/nodemailer");
+const {streamSwitchSchema} = require('../database/schemas.js');
 
+const StreamSwitch = mongoose.model("StreamSwitch", streamSwitchSchema);
 
 const User = mongoose.model("User", userSchema);
 
@@ -14,7 +16,7 @@ async function register(req, res){
             console.log("User not found");
             const newUser = new User(req.body);
             console.log(req.body.RegisterDate);
-            newUser.save(function(errors){
+            newUser.save(async function(errors){
                 if(errors) {
                     console.log(errors);
                     const message="failed";
@@ -26,7 +28,17 @@ async function register(req, res){
                 }
                 else if(!errors) {
                     console.log("Login Success");
-                    const message="Success";
+                    var message="";
+                    const promise2 = await StreamSwitch.findOne({User: "Admin"})
+                    .then(function(foundUser){
+                        console.log(foundUser.Stream);
+                        if(foundUser.Stream === "ON"){
+                            message="Success";
+                        }
+                        else{
+                            message = "Stream Not Available(Budget Exceeded)";
+                        }
+                    });
                     const responseData ={
                         Message: message
                     };

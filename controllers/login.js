@@ -1,7 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const userSchema = require("../database/database.js");
+const {streamSwitchSchema} = require('../database/schemas.js');
 
+const StreamSwitch = mongoose.model("StreamSwitch", streamSwitchSchema);
 
 const User = mongoose.model("User", userSchema);
 
@@ -20,10 +22,19 @@ async function login(req, res){
     else {
 
         //checking if user already registered 
-        User.findOne({ Code: code }, function (err, foundUser) {
-
+        const promise = await User.findOne({ Code: code })
+        .then(async function(foundUser) {
             if (foundUser) {
-                    message="Success"; 
+                const promise2 = await StreamSwitch.findOne({User: "Admin"})
+                    .then(function(foundUser){
+                        console.log(foundUser.Stream);
+                        if(foundUser.Stream === "ON"){
+                            message="Success";
+                        }
+                        else{
+                            message = "Stream Not Available(Budget Exceeded)";
+                        }
+                    }); 
                     const responseData ={
                         Message: message,
                         RegisterDate: foundUser.RegisterDate,

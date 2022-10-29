@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const {dailyDurationSchema} = require('../../database/schemas.js')
+const {dailyDurationSchema} = require('../../database/schemas.js');
 
 const DailyDuration = mongoose.model("DailyDuration", dailyDurationSchema);
 
@@ -42,6 +42,7 @@ async function getTodaysTotalMinutesUsed(req, res){
             res.status(200).send(jsonContent);
         }
     });
+    // streamSwitch();
 }
 
 
