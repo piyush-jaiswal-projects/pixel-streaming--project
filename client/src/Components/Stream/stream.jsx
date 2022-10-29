@@ -34,7 +34,7 @@ const videoRef = React.useRef();
 
 window.onbeforeunload = confirmExit;
 function confirmExit(){
-    const newDuration=minutes;
+    const newDuration=(minutes*60)+seconds;
     axios.post('/addNewSessionDuration',{
         NewDuration: newDuration
     }).then((res)=>{

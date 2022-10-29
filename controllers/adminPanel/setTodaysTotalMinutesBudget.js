@@ -75,7 +75,7 @@ async function compareTotal(){
                 used += item;
             });
     });
-    if(used > budget) return true;
+    if((used/60) >= budget) return true;
     else return false;
 
 }
@@ -94,7 +94,7 @@ async function compareToday(){
             });
     });
     console.log(used+" ---- "+budget);
-    if(used > budget) return true;
+    if((used/60) >= budget) return true;
     else return false;
 }
 

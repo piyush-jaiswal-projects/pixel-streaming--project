@@ -224,13 +224,13 @@ export default function Portal() {
             <div className="div-two messages">
               <div className="div-two-minutes">
               <span className="div-span"> Total minutes used</span>
-              <span className="div-span-number">   {tmu} </span>
+              <span className="div-span-number">   {(tmu/60).toFixed(2)} </span>
                
               
               </div>
               <div className="div-two-minutesleft">
               <span className="div-span">Total minutes left</span>
-              <span className="div-span-number">  {tmb}</span>
+              <span className="div-span-number">  {(tmb-(tmu/60)).toFixed(2)}</span>
               
                
               </div>
@@ -243,13 +243,13 @@ export default function Portal() {
             <div className="div-three messages">
             <div className="div-three-minutes">
             <span className="div-span">Minutes used today</span>
-              <span className="div-span-number">     {tmut}</span>
+              <span className="div-span-number">{(tmut/60).toFixed(2)}</span>
              
               </div>
               <div className="div-three-dailyBudget">
               
               <span className="div-span">Daily Budget(mins)</span>
-              <span className="div-span-number"> {ttmb} </span>
+              <span className="div-span-number"> {(ttmb-(tmut/60)).toFixed(2)} </span>
                
               </div>
               <div className="div-three-changedailybudget">

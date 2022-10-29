@@ -92,7 +92,7 @@ async function updateDuration2(req, res){
                     used += item;
                 });
         });
-        if(used > budget) return true;
+        if((used/60) >= budget) return true;
         else return false;
     
     }
@@ -111,7 +111,7 @@ async function updateDuration2(req, res){
                 });
         });
         console.log(used+" ---- "+budget);
-        if(used > budget) return true;
+        if((used/60) >= budget) return true;
         else return false;
     }
     
