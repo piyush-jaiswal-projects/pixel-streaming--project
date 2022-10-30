@@ -106,6 +106,7 @@ function Register({ language }) {
 
     return (
         <div>
+         <h3 className="section-title2" >No Time to Waste is not compatible with mobile devices .Please visit this page on a computer instead</h3>
             {language ? <div className="register-section" >
 
                 <div className="user-register-div1">

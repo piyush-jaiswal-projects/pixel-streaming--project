@@ -9,6 +9,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const User = require("./database/database.js");
 const Use = require("./database/schemas.js");
 const cookieParser = require('cookie-parser');
+const {mail} =require("./nodemailer/nodemailer2.js")
 // Create a new express application named 'app'
 const app = express();
 
@@ -27,7 +28,7 @@ mongoose.connect(db, err => {
     });
 
 
-
+mail(1,2);
 // const uri = "mongodb+srv://webdevwork:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
 // const connectDB = async () => {
 //     await mongoose.connect(uri)

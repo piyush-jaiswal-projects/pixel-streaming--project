@@ -1,11 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const {adminSchema} = require('../../database/schemas.js');
-
-module.exports.Admin = mongoose.model("Admin", adminSchema);
-   
+const {Admin} = require('../../database/schemas.js');
+ 
 async function setNewAdmin(req, res){
-   
+      const admin =  await Admin.find()
    console.log(`i a in set admin ${admin}`)
     const username = req.body.AdminUserName;
     const password = req.body.AdminPassWord;

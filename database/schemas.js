@@ -4,7 +4,7 @@ const adminSchema = new mongoose.Schema({
     Username: String,
     Password: String
 });
-
+const  Admin = mongoose.model("Admin", adminSchema);
 const sessionSchema = new mongoose.Schema({
     User: String,
     Duration: Number
@@ -29,7 +29,7 @@ const streamSwitchSchema = new mongoose.Schema({
 });
 
 module.exports = {
-    adminSchema,
+    Admin,
     sessionSchema,
     dailyDurationSchema,
     campaignDurationSchema,
