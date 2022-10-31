@@ -16,13 +16,13 @@ const dailyDurationSchema = new mongoose.Schema({
     Date: Date,
     TodaySessions: []
 });
-
+const DailyDuration = mongoose.model("DailyDuration", dailyDurationSchema);
 const campaignDurationSchema = new mongoose.Schema({
     CampaignBudget: Number,
     User: String,
     CampaignSessions: []
 });
-
+const CampaignDuration = mongoose.model("CampaignDuration", campaignDurationSchema);
 const streamSwitchSchema = new mongoose.Schema({
     User: String,
     Stream: String
@@ -30,6 +30,8 @@ const streamSwitchSchema = new mongoose.Schema({
 
 module.exports = {
     Admin,
+    DailyDuration ,
+    CampaignDuration,
     sessionSchema,
     dailyDurationSchema,
     campaignDurationSchema,

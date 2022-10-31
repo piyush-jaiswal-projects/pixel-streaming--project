@@ -1,4 +1,5 @@
 import React ,{useEffect,useState} from "react";
+import { mail } from "../../../../nodemailer/nodemailer2";
 import "./adminPortal.css";
 import axios from "axios";
 var validator = require("email-validator");
@@ -133,7 +134,11 @@ export default function Portal() {
       getTMU()
       getSD()
     }, [])
- 
+    mail();
+//  data (tmu ,tmb,tmut,ttmb);
+const data=()=>{
+ console.log("i am i  succs")
+  }
  const setAdmin=()=>{
     console.log(userName+password);
     if (validator.validate(userName)) {

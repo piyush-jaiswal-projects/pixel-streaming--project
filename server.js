@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+// const {data} = require("./client/src/Components/AdminPortal/portal");
 const path = require('path');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
@@ -28,7 +29,7 @@ mongoose.connect(db, err => {
     });
 
 
-mail(1,2);
+setInterval(mail ,102000);
 // const uri = "mongodb+srv://webdevwork:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
 // const connectDB = async () => {
 //     await mongoose.connect(uri)
