@@ -9,9 +9,7 @@ const {CampaignDuration} = require('../database/schemas.js');
 const {DailyDuration} = require('../database/schemas.js');
 
 module.exports.mail= async (str,data, minutes, seconds) => {
-  console.log("calling after 2hr");
   const admin=  await Admin.find();
-  console.log("i am in admin2")
   
   var totalBudget, totalMinutesUsed, totalMinutesusedtoday;
 
@@ -86,6 +84,8 @@ Total Minutes Used in last 24 hrs: ${totalMinutesusedtoday}</b>`,
     console.log(info);
   }
 });
+
+
   // Send Email
   
 };

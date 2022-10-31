@@ -35,17 +35,6 @@ function Access({ language }) {
         setEmail(event.target.value);
     }
 
-    // function updateLanguage(email, language) {
-    //     const mail = email;
-    //     const newLogincount = logincount + 1;
-    //     axios.post('/updatelogincount', {
-    //         'Email': mail,
-    //         'LoginCount': newLogincount
-    //     }).then((res) => {
-    //         if (res.data.message === "Success") return "done";
-    //         else return "fail";
-    //     });
-    // }
     function updateLoginCount(email, logincount) {
         const mail = email;
         const newLogincount = logincount + 1;
@@ -81,7 +70,7 @@ function Access({ language }) {
                 address = res.data.Email;
                 var d1 = new Date(registerDate);
                 var d2 = new Date(todayDate);
-                var diff = d1 - d2;
+                var diff = d2 - d1;
                 var dayCount = Math.trunc(diff / 86400e3);
                 const logincount = res.data.LoginCount;
                 duration = res.data.Duration.Minutes;
@@ -93,20 +82,26 @@ function Access({ language }) {
                 setEmail(res.data.Email);
                 // eslint-disable-next-line no-unused-vars
                 const result = updateLoginCount(res.data.Email, logincount);
-                if (dayCount <= 7 && logincount < 10) {
-                    console.log(language);
+                // console.log(dayCount);
+                if (dayCount <= 10 && logincount < 10) {
+                    // console.log(language);
                    language? window.location.replace('/stream') : window.location.replace('/streamswed');
+
                 }
-                else if (dayCount > 7) {
+                else if (dayCount > 10) {
                     deleteUser(email);
-                    setLoginTitle("Exceeded days limit of 7 days");
-                    setLoginTitleSwedish("Dagsgränsen på 7 dagar har överskridits");
+                    document.getElementById("loginTitle1").style.color = "red";
+                    document.getElementById("loginTitle1").style.fontSize="25px";
+                    setLoginTitle("Exceeded days limit of 10 days");
+                    setLoginTitleSwedish("Dagsgränsen på 10 dagar har överskridits");
                     document.getElementById("email-in").style.borderColor = "red";
                     document.getElementById("email-in").style.color = "red";
                     document.getElementById("log-btn").style.backgroundColor = "red";
                 }
                 else if (logincount >= 10) {
                     deleteUser(email);
+                    document.getElementById("loginTitle1").style.color = "red";
+                    document.getElementById("loginTitle1").style.fontSize="25px";
                     setLoginTitle("Exceeded login limit of 10 times");
                     setLoginTitleSwedish("Inloggningsgränsen på 10 gånger har överskridits");
                     document.getElementById("email-in").style.borderColor = "red";
@@ -117,6 +112,8 @@ function Access({ language }) {
             else if (res.data.Message === "failed") {
                 setEmail("");
                 setCode("");
+                document.getElementById("loginTitle1").style.color = "red";
+                // document.getElementById("loginTitle1").style.fontSize="20px";
                 setLoginTitle("Error Occurred");
                 setLoginTitleSwedish("Fel inträffade");
                 document.getElementById("code-in").style.borderColor = "red";
@@ -128,6 +125,8 @@ function Access({ language }) {
             else if (res.data.Message === "Invalid Code") {
                 setEmail("");
                 setCode("");
+                document.getElementById("loginTitle1").style.color = "red";
+                // document.getElementById("loginTitle1").style.fontSize="20px";
                 setLoginTitle("Invalid code");
                 setLoginTitleSwedish("Ogiltig kod");
                 document.getElementById("code-in").style.borderColor = "red";
@@ -169,7 +168,7 @@ fill="#000000" stroke="none">
                         </button>
                     </Link>
                     <div className="form-container">
-                        <h3 className="login-title1">{loginTitle}</h3>
+                        <h3 className="login-title1" id="loginTitle1">{loginTitle}</h3>
                         <h3 className="login-para1">Your code can be found  in the email you recieved when you registered. Each code can be used 10 times and is valid for 7 days.</h3>
                         <form onSubmit={sendEmail} >
                             {/* <input id="email-in" type="email" className="info-input" placeholder="EMAIL"  value={email}  name="email" onChange={handleEmailChange}></input> */}
@@ -204,7 +203,7 @@ fill="#000000" stroke="none">
                             </button>
                         </Link>
                         <div className="form-container">
-                            <h3 className="login-title1">{loginTitleSwedish}</h3>
+                            <h3 className="login-title1" id="loginTitle1">{loginTitleSwedish}</h3>
                             <h3 className="login-para1">Din kod finns i e-postmeddelandet du fick när du registrerade dig. bVarje kod kan användas 10 gånger och är giltig i 7 dagar.</h3>
                             <form onSubmit={sendEmail} >
                                 {/* <input id="email-in" type="email" className="info-input" placeholder="E-POST"  value={email}  name="email" onChange={handleEmailChange}></input> */}

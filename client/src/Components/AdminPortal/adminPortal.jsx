@@ -37,15 +37,6 @@ function AdminPortal() {
         })
      
     
-    
-        
-            //***/ */
-        // if (username === "admin" && password === "12345") {
-        //     alert("Login Success");
-        //     setPortal( <Portal />);
-        //     document.getElementById("form-container").style.display = "none";
-
-        // }
     }
 
 

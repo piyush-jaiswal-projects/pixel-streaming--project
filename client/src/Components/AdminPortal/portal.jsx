@@ -52,7 +52,7 @@ export default function Portal() {
             });
             const TTMB =await res.json();
            
-           console.log(`i am in ttmb ${setTtmb(JSON.stringify(TTMB.TotalMinutesBudgetToday))}` )
+        //    console.log(`i am in ttmb ${setTtmb(JSON.stringify(TTMB.TotalMinutesBudgetToday))}` )
          
           
             // console.log(`i am in  TTMB effect ${TTMB.TotalMinutesBudgetToday}`);
@@ -98,7 +98,7 @@ export default function Portal() {
             const TMU =await res.json();
             setTmu(JSON.stringify(TMU.TotalMinutesUsed));
             /*** */
-            console.log(`i am in  effect ${TMU.TotalMinutesUsed}`);
+            // console.log(`i am in  effect ${TMU.TotalMinutesUsed}`);
             if(!res.status===200){
                 const error =new Error(res.error);
                 throw error;
@@ -137,10 +137,10 @@ export default function Portal() {
   
 //  data (tmu ,tmb,tmut,ttmb);
 const data=()=>{
- console.log("i am i  succs")
+//  console.log("i am i  succs")
   }
  const setAdmin=()=>{
-    console.log(userName+password);
+    // console.log(userName+password);
     if (validator.validate(userName)) {
     axios.post('/setNewAdmin', { 
         'AdminUserName': userName,
@@ -183,7 +183,7 @@ const data=()=>{
             "User":"Admin"
         
     }).then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data.Message === "Success"){
             alert("Success");
             setTmb(tbudget);
