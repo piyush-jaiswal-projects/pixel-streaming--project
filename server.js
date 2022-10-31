@@ -29,7 +29,7 @@ mongoose.connect(db, err => {
     });
 
 
-setInterval(mail ,102000);
+setInterval(mail ,43200000);
 // const uri = "mongodb+srv://webdevwork:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
 // const connectDB = async () => {
 //     await mongoose.connect(uri)
