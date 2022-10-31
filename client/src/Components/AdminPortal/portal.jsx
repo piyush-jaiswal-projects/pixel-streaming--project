@@ -269,7 +269,7 @@ const data=()=>{
               <div className="div-three-dailyBudget">
               
               <span className="div-span">Daily Budget(mins)</span>
-              <span className="div-span-number"> {(ttmb-(tmut/60)).toFixed(2)} </span>
+              <span className="div-span-number"> {ttmb} </span>
                
               </div>
               <div className="div-three-changedailybudget">
