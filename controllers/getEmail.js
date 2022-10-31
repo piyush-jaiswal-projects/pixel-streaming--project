@@ -16,6 +16,7 @@ async function getEmail(req, res){
         const promise = await User.findOne({ Code: code })
         .then(async function (foundUser) {
             console.log(foundUser);
+            if(foundUser!=null){
                 if(foundUser.LoginCount >= 10){
                     message="Login Limit Exceeded";
                 }
@@ -38,6 +39,23 @@ async function getEmail(req, res){
                 };
                 const jsonContent = JSON.stringify(responseData);
                 res.status(200).send(jsonContent);
+            }
+            else{
+                const responseData ={
+                    Message: "Invalid Code"
+                };
+                const jsonContent = JSON.stringify(responseData);
+                res.status(200).send(jsonContent);
+            }
+
+                // console.log(message);
+                // const responseData ={
+                //     Email: foundUser.Email,
+                //     LoginCount: foundUser.LoginCount,
+                //     Message: message
+                // };
+                // const jsonContent = JSON.stringify(responseData);
+                // res.status(200).send(jsonContent);
         });
     }
     
