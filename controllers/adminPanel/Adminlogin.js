@@ -10,21 +10,21 @@ async function Adminlogin(req, res){
     const password = req.body.AdminPassWord;
     console.log(`i am in adminlogin ${username + '' + password}`);
     if(!username || !password){
-        return res.status(400).json({message:"Plz fill the dta"}).send();
+        return res.status(200).json({message:false}).send();
     }
   
     const Adminlogin = await Admin.findOne({Username:username});
     if (Adminlogin){
         if(password===Adminlogin.Password){
-            res.status(200).json({message:"user Signin Successsfully"}).send();
+            res.status(200).json({message:true}).send();
 
         }else{
             // res.status(400).json({error:"Invalid password"});
-            res.status(400).json({message:"Invalid credential"}).send();
+            res.status(200).json({message:false}).send();
         }
     }else{
         // res.status(400).json({error:"no mail found"})
-        res.status(400).json({error:"Invalid credential"}).send();
+        res.status(200).json({error:false}).send();
     }
     // Admin.findOne({Username: username}, function(err, foundAdmin){
     //     if(foundAdmin){

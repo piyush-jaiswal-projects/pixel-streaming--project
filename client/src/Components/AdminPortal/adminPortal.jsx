@@ -25,17 +25,14 @@ function AdminPortal() {
             'AdminUserName': username,
             'AdminPassWord': password
         }).then((res) => {
-            console.log(">>>>>>>>>>>>>>>>>>>>"+res);
-            if(res.json.status===200){
+            if(res.data.message){
                 alert("Login Success");
                 setPortal( false);
                 document.getElementById("form-container").style.display = "none";
-                setValid(true)
+                setValid(true);
               }
-              if(res.json.status===400){
-                inEmail.style.color = "red";
-                inEmail.style.borderColor = "red";
-                window.alert("Invalid credential");
+              else{
+                alert("Invalid Login");
               }
         })
      

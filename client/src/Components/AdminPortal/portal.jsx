@@ -187,7 +187,7 @@ const data=()=>{
         if (res.data.Message === "Success"){
             alert("Success");
             setTmb(tbudget);
-            setTBudget("");
+            setTBudget(0);
         }
        
         else {
@@ -205,7 +205,7 @@ const data=()=>{
         console.log(res);
         if (res.data.Message === "Success"){
             setTtmb(db);
-            setDB("");
+            setDB(0);
             alert("Success");
         }
        
