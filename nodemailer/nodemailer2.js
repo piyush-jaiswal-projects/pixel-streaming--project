@@ -15,7 +15,7 @@ module.exports.mail= async (str,data, minutes, seconds) => {
   const Campaignduration=  await CampaignDuration.find();
   console.log("i am in admin2")
   const dailyduration= JSON.stringify(Dailyduration[0].DailyBudget);
-  const campaignDuration= JSON.stringify(CampaignDuration[0].CampaignBudget);
+  const campaignDuration= JSON.stringify(Campaignduration[0].CampaignBudget);
     console.log(dailyduration);
     console.log(Campaignduration);
   //   console.log(data);
