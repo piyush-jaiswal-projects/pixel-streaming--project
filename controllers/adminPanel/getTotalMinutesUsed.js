@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const {campaignDurationSchema} = require('../../database/schemas.js')
+const {CampaignDuration} = require('../../database/schemas.js')
 
-const CampaignDuration = mongoose.model("CampaignDuration", campaignDurationSchema);
+// const CampaignDuration = mongoose.model("CampaignDuration", campaignDurationSchema);
 
 async function getTotalMinutesUsed(req, res){
     CampaignDuration.findOne({User:"Admin"}, function(err, foundData){

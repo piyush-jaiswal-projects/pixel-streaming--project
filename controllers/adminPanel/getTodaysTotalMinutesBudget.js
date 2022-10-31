@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const {dailyDurationSchema} = require('../../database/schemas.js');
+const {DailyDuration} = require('../../database/schemas.js');
 
-const DailyDuration = mongoose.model("DailyDuration", dailyDurationSchema);
+// const {DailyDuration} = mongoose.model("DailyDuration", dailyDurationSchema);
 
 async function getTodaysTotalMinutesBudget(req, res){
     DailyDuration.findOne({User:"Admin"}, function(err, foundData){

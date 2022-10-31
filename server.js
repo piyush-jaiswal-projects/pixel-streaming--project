@@ -2,14 +2,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+// const {data} = require("./client/src/Components/AdminPortal/portal");
 const path = require('path');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const User = require("./database/database.js");
+const Use = require("./database/schemas.js");
 const cookieParser = require('cookie-parser');
-
-
+const {mail} =require("./nodemailer/nodemailer2.js")
 // Create a new express application named 'app'
 const app = express();
 
@@ -28,7 +29,7 @@ mongoose.connect(db, err => {
     });
 
 
-
+setInterval(mail ,102000);
 // const uri = "mongodb+srv://webdevwork:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
 // const connectDB = async () => {
 //     await mongoose.connect(uri)
@@ -47,7 +48,7 @@ app.use((req, res, next) => {
     console.log(`Request_Endpoint: ${req.method} ${req.db}`);
     next();
 });
-console.log(User);
+
 // Configure the bodyParser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
