@@ -36,32 +36,33 @@ function ScreenTwo(props,{language}){
     return(
        
         <div className="register-section">
-        <div id="non-streamer" style={{display:Display}}>
-        <img className="intro-one" alt="Intro Screen 2" src={intro2}></img>
-        {language ? <div className="screenTwoOverlay">
-        {/* english */}
-        <button className="exit-btn" onClick={handleExit}>X</button>
-        <div className="screen-two-div">
-        <button className="lang-button one" onClick={handleButton}>English</button>
-        <button className="lang-button two" onClick={handleButton}>Svenska</button>
-        </div>  
-        </div>  
-        :<>
-        {/* belgium */}
-        <div className="screenTwoOverlay">
+        <h3 className="section-title2" >No Time to Waste is not compatible with mobile devices .Please visit this page on a computer instead</h3>
+        {/* <div id="non-streamer" style={{display:Display}}> */}
+        {/* <img className="intro-one" alt="Intro Screen 2" src={intro2}></img> */}
+        {/* {language ? <div className="screenTwoOverlay"> */}
+        
+        {/* <button className="exit-btn" onClick={handleExit}>X</button> */}
+        {/* <div className="screen-two-div"> */}
+        {/* <button className="lang-button one" onClick={handleButton}>English</button> */}
+        {/* <button className="lang-button two" onClick={handleButton}>Svenska</button> */}
+        {/* </div>   */}
+        {/* </div>   */}
+        
+        
+        {/* <div className="screenTwoOverlay"> */}
       
-        <button className="exit-btn" onClick={handleExit}>X</button>
-        <div className="screen-two-div">
-        <button className="lang-button one" onClick={handleButton}>English</button>
-        <button className="lang-button two" onClick={handleButton}>Svenska</button>
-        </div>  
-        </div>  
+        {/* <button className="exit-btn" onClick={handleExit}>X</button> */}
+        {/* <div className="screen-two-div"> */}
+        {/* <button className="lang-button one" onClick={handleButton}>English</button> */}
+        {/* <button className="lang-button two" onClick={handleButton}>Svenska</button> */}
+        {/* </div>   */}
+        {/* </div>   */}
 
-        </>}
-        </div>
-        <div id="streamer">
-        {streamComponent}
-        </div>
+        
+        {/* </div> */}
+        {/* <div id="streamer"> */}
+        <Stream />
+        {/* </div> */}
         </div>
     );
 }
