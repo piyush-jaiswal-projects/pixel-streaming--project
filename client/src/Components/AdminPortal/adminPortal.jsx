@@ -20,21 +20,22 @@ function AdminPortal() {
     }
 
     const handleAdminLogin=async(res)=> {
-        axios.post('/adminlogin', { 
+    
+        await axios.post('/adminlogin', { 
             'AdminUserName': username,
             'AdminPassWord': password
         }).then((res) => {
-          const status = res.json;
-            if(res.status===200){
+            console.log(">>>>>>>>>>>>>>>>>>>>"+res);
+            if(res.json.status===200){
                 alert("Login Success");
                 setPortal( false);
                 document.getElementById("form-container").style.display = "none";
                 setValid(true)
               }
-             else if(valid!=true){
+              if(res.json.status===400){
                 inEmail.style.color = "red";
                 inEmail.style.borderColor = "red";
-                window.alert("Invalid credential")
+                window.alert("Invalid credential");
               }
         })
      

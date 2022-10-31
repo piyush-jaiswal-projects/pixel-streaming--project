@@ -5,21 +5,50 @@ const mongoose = require("mongoose");
 
 const nodemailer = require("nodemailer");
 const {Admin} = require('../database/schemas.js');
-const {DailyDuration} = require('../database/schemas.js');
 const {CampaignDuration} = require('../database/schemas.js');
+const {DailyDuration} = require('../database/schemas.js');
 
 module.exports.mail= async (str,data, minutes, seconds) => {
   console.log("calling after 2hr");
   const admin=  await Admin.find();
-  const Dailyduration=  await DailyDuration.find();
-  const Campaignduration=  await CampaignDuration.find();
   console.log("i am in admin2")
-  const dailyduration= JSON.stringify(Dailyduration[0].DailyBudget);
-  const campaignDuration= JSON.stringify(Campaignduration[0].CampaignBudget);
-    console.log(dailyduration);
-    console.log(Campaignduration);
-  //   console.log(data);
-  //   console.log("nod");
+  
+  var totalBudget, totalMinutesUsed, totalMinutesusedtoday;
+
+  const promise = await CampaignDuration.findOne({User:"Admin"})
+  .then(function(foundData){
+    totalBudget = foundData.CampaignBudget;
+});
+
+const promise2 = await CampaignDuration.findOne({User:"Admin"})
+  .then(function(foundData){
+    // totalBudget = foundData.Budget;
+    // total minutes used
+    const durationsArray = foundData.CampaignSessions;
+            var totalMinutes = 0;
+            durationsArray.forEach((item)=>{
+                totalMinutes += item;
+            });
+
+            totalMinutesUsed = ((totalMinutes)/60).toFixed(2);
+});
+
+const promise3 = await DailyDuration.findOne({User:"Admin"})
+  .then(function(foundData){
+    // totalBudget = foundData.CampaignBudget;
+    // total minutes used today
+    var durationsArray = [];
+    durationsArray = foundData.TodaySessions;
+    var totalMinutesUsedToday = 0;
+            durationsArray.forEach((item)=>{
+                totalMinutesUsedToday += item;
+            });
+
+            totalMinutesusedtoday = ((totalMinutesUsedToday)/60).toFixed(2);
+});
+
+console.log("Data: "+totalBudget+" "+totalMinutesUsed+" "+totalMinutesusedtoday);
+
     const total = await Admin.countDocuments({});
     var maillist=[total];         
      var n = total; 
@@ -45,7 +74,9 @@ module.exports.mail= async (str,data, minutes, seconds) => {
   const options = {
 from:"Anirudh465@outlook.com",
 to:maillist,
-html: `<b>User: ${data}<br> Watched Stream for ${dailyduration} minutes and ${campaignDuration} seconds</b>`,
+html: `<b>Total Stream Budget: ${totalBudget} minutes<br> 
+Total Minutes Used in entire campaign: ${totalMinutesUsed} minutes<br>
+Total Minutes Used in last 24 hrs: ${totalMinutesusedtoday}</b>`,
   };
  
  transporter.sendMail(options, function (err, info) {

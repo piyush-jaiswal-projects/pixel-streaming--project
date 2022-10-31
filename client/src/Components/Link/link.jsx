@@ -5,6 +5,8 @@ import intro1 from "./intro1.png";
 // import {state} from "../../../src/Routing"
 function Link({ language }){
 
+  window.location.replace('/screentwo');
+
    
     function getCookie(cname) {
         let name = cname + "=";
@@ -37,13 +39,13 @@ function Link({ language }){
     return(
        
         <div className="register-section">
-        <img className="intro-one" alt="Intro Screen 1" src={intro1}></img>
+        {/* <img className="intro-one" alt="Intro Screen 1" src={intro1}></img> */}
     
-            <div className="screenOneOverlay">
+            {/* <div className="screenOneOverlay"> */}
         {/* english */}
-        <button id="skipBtn" className="skip-btn" onClick={handleSkip}>SKIP INTRO</button>
-        <button className="exit-btn" onClick={handleExit}>X</button>
-        </div>       
+        {/* <button id="skipBtn" className="skip-btn" onClick={handleSkip}>SKIP INTRO</button> */}
+        {/* <button className="exit-btn" onClick={handleExit}>X</button> */}
+        {/* </div>        */}
         </div>
     );
 }
