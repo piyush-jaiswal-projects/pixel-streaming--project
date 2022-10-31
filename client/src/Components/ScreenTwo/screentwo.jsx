@@ -36,6 +36,7 @@ function ScreenTwo(props,{language}){
     return(
        
         <div className="register-section">
+          <h3 className="section-title2" >No Time to Waste is not compatible with mobile devices .Please visit this page on a computer instead</h3>
         <div id="non-streamer" style={{display:Display}}>
         <img className="intro-one" alt="Intro Screen 2" src={intro2}></img>
         {language ? <div className="screenTwoOverlay">
