@@ -70,8 +70,8 @@ useEffect(()=>{
         // window.location.replace('/login');
     });
     const args = {
-        address: "wss://share.ragnarok.arcware.cloud/12c0cfd9-8f8f-41b7-a21d-e10e1019e8d5",
-        packageId: "Name of the package (if there are multiple applications)",
+        address: "wss://signalling-client.ragnarok.arcware.cloud/",
+        packageId: "ff41fd0c-cac9-4e4c-abe5-3ada402f57cc",
         settings: {},
         sizeContainer: sizeContainerRef.current,
         container: containerRef.current,
