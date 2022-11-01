@@ -83,12 +83,12 @@ function Access({ language }) {
                 // eslint-disable-next-line no-unused-vars
                 const result = updateLoginCount(res.data.Email, logincount);
                 // console.log(dayCount);
-                if (dayCount <= 10 && logincount < 10) {
+                if (dayCount <= 7 && logincount < 10) {
                     // console.log(language);
                    language? window.location.replace('/stream') : window.location.replace('/streamswed');
 
                 }
-                else if (dayCount > 10) {
+                else if (dayCount > 7) {
                     deleteUser(email);
                     document.getElementById("loginTitle1").style.color = "red";
                     document.getElementById("loginTitle1").style.fontSize="25px";

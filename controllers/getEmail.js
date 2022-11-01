@@ -23,10 +23,10 @@ async function getEmail(req, res){
                 var d2 = new Date(todayDate);
                 var diff = d2 - d1;
                 var dayCount = Math.trunc(diff / 86400e3);
-                if(foundUser.LoginCount >= 10 || dayCount >= 10){
+                if(foundUser.LoginCount >= 10 || dayCount >= 7){
                     message="Login Limit Exceeded";
                 }
-                else if(foundUser.LoginCount < 10 && dayCount < 10){
+                else if(foundUser.LoginCount < 10 && dayCount < 7){
                     const promise2 = await StreamSwitch.findOne({User: "Admin"})
                     .then(function(foundUser){
                         if(foundUser.Stream === "ON"){
