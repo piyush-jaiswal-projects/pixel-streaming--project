@@ -92,8 +92,8 @@ function Access({ language }) {
                     deleteUser(email);
                     document.getElementById("loginTitle1").style.color = "red";
                     document.getElementById("loginTitle1").style.fontSize="25px";
-                    setLoginTitle("Exceeded days limit of 10 days");
-                    setLoginTitleSwedish("Dagsgränsen på 10 dagar har överskridits");
+                    setLoginTitle("Exceeded days limit of 7 days");
+                    setLoginTitleSwedish("Dagsgränsen på 7 dagar har överskridits");
                     document.getElementById("email-in").style.borderColor = "red";
                     document.getElementById("email-in").style.color = "red";
                     document.getElementById("log-btn").style.backgroundColor = "red";

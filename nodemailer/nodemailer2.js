@@ -1,12 +1,18 @@
 const express = require("express");
 const cron = require('node-cron');
 const mongoose = require("mongoose");
+const userSchema = require("../database/database.js");
 
 
 const nodemailer = require("nodemailer");
 const {Admin} = require('../database/schemas.js');
+const {campaignDurationSchema} = require('../database/schemas.js');
 const {CampaignDuration} = require('../database/schemas.js');
 const {DailyDuration} = require('../database/schemas.js');
+const {dailyDurationSchema} = require('../database/schemas.js');
+
+const dailyDuration = mongoose.model("DailyDuration", dailyDurationSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports.mail= async (str,data, minutes, seconds) => {
   const admin=  await Admin.find();
@@ -85,7 +91,47 @@ Total Minutes Used in last 24 hrs: ${totalMinutesusedtoday}</b>`,
   }
 });
 
+const date = new Date();
 
-  // Send Email
+dailyDuration.updateOne({User:"Admin"},{
+  Date: date
+}, function(err){
+  if(err){
+    console.log(err);
+  }
+  else if(!err){
+    console.log("Date Updated");
+  }
+});
+
+// const registerDate = Date.parse(foundUser.RegisterDate);
+//                 const todayDate = new Date().toISOString();
+//                 var d1 = new Date(registerDate);
+//                 var d2 = new Date(todayDate);
+//                 var diff = d2 - d1;
+//                 var dayCount = Math.trunc(diff / 86400e3);
+
+// User.deleteMany({RegisterDate})
+User.find({}, function(err, foundData){
+  console.log(foundData);
+  var usersArray = foundData;
+  const todayDate = new Date().toISOString();
+  var d2 = new Date(todayDate);
+  for(var i = 0; i<usersArray.length; i++){
+    const registerDate = Date.parse(usersArray[i].RegisterDate);
+    var d1 = new Date(registerDate);
+    var diff = d2-d1;
+    const dayCount = Math.trunc(diff / 86400e3);
+    if(dayCount >= 7){
+      console.log(dayCount);
+      console.log(usersArray[i].Email);
+      User.deleteOne({Email: usersArray[i].Email}, function(err){
+        if(err) console.log(err);
+        else console.log("1 user deleted");
+      })
+    }
+  }
+});
+
   
 };
