@@ -1166,3 +1166,11 @@
         font-size: 15px;
     }
 } 
+@media screen and (min-width: 1149px) {
+.div-span-number {
+    padding: 1rem 0rem;
+    margin-left: 11px;
+    color: #fff;
+    font-size: 4rem;
+    display: block;
+}}
