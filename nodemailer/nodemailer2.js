@@ -67,8 +67,8 @@ console.log("Data: "+totalBudget+" "+totalMinutesUsed+" "+totalMinutesusedtoday)
     host: "smtp-mail.outlook.com",
     port: "587",
     auth: {
-      user: "Anirudh465@outlook.com",
-      pass: "Anirudh25@",
+      user: "notimetowastedeveloper@outlook.com",
+      pass: "#Notimetowaste123",
     },
     tls: {
       rejectUnauthorized: false,
@@ -76,11 +76,13 @@ console.log("Data: "+totalBudget+" "+totalMinutesUsed+" "+totalMinutesusedtoday)
   });
 
   const options = {
-from:"Anirudh465@outlook.com",
+from:"notimetowastedeveloper@outlook.com",
 to:maillist,
-html: `<b>Total Stream Budget: ${totalBudget} minutes<br> 
-Total Minutes Used in entire campaign: ${totalMinutesUsed} minutes<br>
-Total Minutes Used in last 24 hrs: ${totalMinutesusedtoday}</b>`,
+subject: "<b>NoTimeToWaste - Summary <br><br> </b>", 
+html: `
+Total Stream Budget: <b>${totalBudget} minutes</b><br> 
+Total Minutes Used in entire campaign: <b>${totalMinutesUsed} minutes</b><br>
+Total Minutes Used in last 24 hrs:<b> ${totalMinutesusedtoday}</b>`,
   };
  
  transporter.sendMail(options, function (err, info) {

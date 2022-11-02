@@ -21,20 +21,24 @@ function AdminPortal() {
 
     const handleAdminLogin=async(res)=> {
     
-        await axios.post('/adminlogin', { 
+         axios.post('/adminlogin', { 
             'AdminUserName': username,
             'AdminPassWord': password
         }).then((res) => {
+          console.log(res.data.message);
             if(res.data.message){
+                console.log("me yha tha ")
                 alert("Login Success");
                 setPortal( false);
                 document.getElementById("form-container").style.display = "none";
                 setValid(true);
               }
-              else{
-                alert("Invalid Login");
+              else if(!res.data.message){
+                alert("Invalid login");
               }
+            
         })
+
      
     
     }
@@ -52,7 +56,7 @@ function AdminPortal() {
             : <div>
                 <Portal />
             </div>}
-            
+           
            
            
         </div>

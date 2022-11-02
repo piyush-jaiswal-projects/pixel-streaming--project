@@ -30,6 +30,7 @@ function Home({language,setLanguage}){
     //    console.log(language);
     }
     return(
+        <> <h3 className="section-title2" >No Time to Waste is not compatible with mobile devices .Please visit this page on a computer instead</h3>
         <div className="home-section" id="centreDiv">
         <div className="check">
   <select  onChange={change} className="membership" id="membership">
@@ -50,8 +51,8 @@ function Home({language,setLanguage}){
         <br />
         <hr></hr>
         <h3 className="section-title" onClick={change}>No Time to Waste</h3>
-        <h3 className="section-title2" >No Time to Waste is not compatible with mobile devices .Please visit this page on a computer instead</h3>
-        <h3 className="t">Welcome to a virtual escape room experience from Håll <br /> Sverige Rent. Created to raise awareness and promote <br /> knowledge about the global plastic epidemic.</h3>
+       
+        <h3 className="t">Welcome to a virtual escape room experience from Keep <br />Sweden Tidy. Created to raise awareness and promote  <br /> knowledge about the global plastic epidemic.</h3>
         <div className="btn-wrapper-div">
         <Link to="/register">
         <button className="section-button">REQUEST ACCESS</button>
@@ -69,7 +70,7 @@ function Home({language,setLanguage}){
         <br />
         <hr></hr>
         <h3 className="section-title" onClick={change}>No Time to Waste</h3>
-        <h3 className="t">Välkommen till en virtuell escape room-upplevelse från Håll Sverige Rent. Skapad för att öka medvetenheten och främja kunskap om den globala plastepidemin.</h3>
+        <h3 className="t">Välkommen till en virtuell escape room-upplevelse från Keep <br />Sweden Tidy. Skapad för att öka medvetenheten och främja <br /> kunskap om den globala plastepidemin</h3>
         <div className="btn-wrapper-div">
         <Link to="/register">
         <button className="section-button">BEGÄRA <span></span> åtkomst</button>
@@ -83,6 +84,7 @@ function Home({language,setLanguage}){
         </div>
         
         </div>
+        </>
     );
 }
 

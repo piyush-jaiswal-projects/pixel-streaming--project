@@ -239,7 +239,7 @@ const data=()=>{
 
     return (
         <div className="admin-bg">
-          <h3 className="section-title2" >No Time to Waste is not compatible with mobile devices .Please visit this page on a computer instead</h3>
+          {/* <h3 className="section-title2" >No Time to Waste is not compatible with mobile devices .Please visit this page on a computer instead</h3> */}
             <div className="admin-header">
                 ADMIN PORTAL
             </div>
