@@ -33,7 +33,7 @@ function Link({ language }){
         window.location.replace('/screentwo');
       }
 
-      console.log("link "+language);
+      // console.log("link "+language);
     
     return(
        

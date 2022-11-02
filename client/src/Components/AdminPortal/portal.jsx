@@ -8,7 +8,7 @@ export default function Portal() {
     const [ttmb, setTtmb]= useState();
     const [tmb, setTmb]= useState();
     const [tmu, setTmu]= useState();
-    const [duration, setDuration]= useState("");
+    const [duration, setDuration]= useState();
     const [sd, setSd]= useState();
     const [userName ,setUserName]= useState("Username")
     const [password ,setPassword]= useState("Password")
@@ -51,8 +51,9 @@ export default function Portal() {
                 },
             });
             const TTMB =await res.json();
-           
-           console.log(`i am in ttmb ${setTtmb(JSON.stringify(TTMB.TotalMinutesBudgetToday))}` )
+        //    console.log(TTMB.TotalMinutesBudgetToday);
+           setTtmb(TTMB.TotalMinutesBudgetToday);
+        //    console.log(`i am in ttmb ${setTtmb(JSON.stringify(TTMB.TotalMinutesBudgetToday))}` )
          
           
             // console.log(`i am in  TTMB effect ${TTMB.TotalMinutesBudgetToday}`);
@@ -98,7 +99,7 @@ export default function Portal() {
             const TMU =await res.json();
             setTmu(JSON.stringify(TMU.TotalMinutesUsed));
             /*** */
-            console.log(`i am in  effect ${TMU.TotalMinutesUsed}`);
+            // console.log(`i am in  effect ${TMU.TotalMinutesUsed}`);
             if(!res.status===200){
                 const error =new Error(res.error);
                 throw error;
@@ -118,7 +119,7 @@ export default function Portal() {
             const SD =await res.json();
             setSd(SD.StreamDuration);
             /*** */
-            console.log(`i am in  sd effect ${JSON.stringify(SD)}`);
+            // console.log(`i am in  sd effect ${JSON.stringify(SD)}`);
             if(!res.status===200){
                 const error =new Error(res.error);
                 throw error;
@@ -137,10 +138,10 @@ export default function Portal() {
   
 //  data (tmu ,tmb,tmut,ttmb);
 const data=()=>{
- console.log("i am i  succs")
+//  console.log("i am i  succs")
   }
  const setAdmin=()=>{
-    console.log(userName+password);
+    // console.log(userName+password);
     if (validator.validate(userName)) {
     axios.post('/setNewAdmin', { 
         'AdminUserName': userName,
@@ -163,6 +164,11 @@ const data=()=>{
  }
  
     const setStreamDuration=()=> {
+        console.log(duration);
+        if(duration===null || duration === "" || duration === " "){
+            alert("Please enter valid duration!");
+        }
+        else{
         axios.post('/setStreamDuration', { 
         'User': "Admin",
         'StreamDuration': duration
@@ -176,14 +182,22 @@ const data=()=>{
         }
       
        
-    });}
+    });
+        }}
+
+
     const setTotalMinutesBudget=()=> {
+        console.log(tbudget);
+        if(tbudget===null || tbudget === "" || tbudget === " " || tbudget===undefined){
+            alert("Please enter valid input!")
+        }
+        else{
         axios.post('/setTotalMinutesBudget', {  
             "newCampaignBudget":tbudget,
             "User":"Admin"
         
     }).then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data.Message === "Success"){
             alert("Success");
             setTmb(tbudget);
@@ -194,16 +208,23 @@ const data=()=>{
         }
       
        
-    });}
+    });}}
+
+
     const TodaysTMB=()=> {
+        if(db===null || db === "" || db === " " || db===undefined){
+            alert("Please enter valid input!");
+        }
+        else{
         axios.post('/setTodaysTotalMinutesBudget', {  
             "newDailyBudget":db,
             "User":"Admin"
         
     }).then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.data.Message === "Success"){
             setTtmb(db);
+            // setDB(0);
             alert("Success");
         }
        
@@ -212,13 +233,13 @@ const data=()=>{
         }
       
        
-    });}
+    });}}
     // setNewAdmin
    
 
     return (
         <div className="admin-bg">
-          <h3 className="section-title2" >No Time to Waste is not compatible with mobile devices .Please visit this page on a computer instead</h3>
+          {/* <h3 className="section-title2" >No Time to Waste is not compatible with mobile devices .Please visit this page on a computer instead</h3> */}
             <div className="admin-header">
                 ADMIN PORTAL
             </div>
@@ -227,7 +248,7 @@ const data=()=>{
                 <div className="duration-set">
                    <span className="duration-set-span"> Set stream duration</span>
                    <span className="duration-set-span2"> (currently {sd} mins)</span>
-                    <input type="text" className="divone-info-input" placeholder="Enter Duration(mins)" onChange={handledurationset} name="email"></input>
+                    <input type="Number" className="divone-info-input" placeholder="Enter Duration(mins)" onChange={handledurationset} name="email"></input>
                     <button className="register-button-admin1" onClick={setStreamDuration}>SET</button>
                 </div>
                 <div className="add-admin">
@@ -254,7 +275,7 @@ const data=()=>{
               </div>
               <div className="div-two-changetotalbudget">
               <span className="duration-set-span"> Change total budget(mins)</span>
-              <input type="text" className="divtwo-info-input" placeholder="New total budget(mins)" name="tbudget" onChange={(e)=>setTBudget(e.target.value)}></input>
+              <input id="tbudget" type="text" className="divtwo-info-input" placeholder="New total budget(mins)" name="tbudget" onChange={(e)=>setTBudget(e.target.value)}></input>
                     <button className="register-button-admin3" onClick={setTotalMinutesBudget}>SET</button>
               </div>
             </div>
@@ -267,7 +288,7 @@ const data=()=>{
               <div className="div-three-dailyBudget">
               
               <span className="div-span">Daily Budget(mins)</span>
-              <span className="div-span-number"> {(ttmb-(tmut/60)).toFixed(2)} </span>
+              <span className="div-span-number"> {ttmb} </span>
                
               </div>
               <div className="div-three-changedailybudget">

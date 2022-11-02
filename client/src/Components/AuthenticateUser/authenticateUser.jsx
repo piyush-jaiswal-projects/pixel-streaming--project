@@ -38,7 +38,7 @@ export default async function Authenticate({language}){
     axios.post('/getEmail',{
       Code: userCode
     }).then((res)=>{
-      console.log(res.data.Message);
+      // console.log(res.data.Message);
       if(res.data.Message === "OK"){
         updateLoginCount(res.data.Email, res.data.LoginCount);
         // setStreaming(<Stream />);

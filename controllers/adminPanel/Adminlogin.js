@@ -24,7 +24,7 @@ async function Adminlogin(req, res){
         }
     }else{
         // res.status(400).json({error:"no mail found"})
-        res.status(200).json({error:"Invalid credential"}).send();
+        res.status(200).json({error:false}).send();
     }
     // Admin.findOne({Username: username}, function(err, foundAdmin){
     //     if(foundAdmin){

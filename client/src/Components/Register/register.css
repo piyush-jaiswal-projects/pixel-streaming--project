@@ -1,10 +1,5 @@
 
-@media screen and (max-width:1149px) {
-    .register-section{
-        display:none;
-    }
-    
-}
+
 @media screen and (min-width:1150px) {
     .register-section{
 
@@ -248,3 +243,253 @@
     
 }
 
+
+.register-section{
+
+    background: #000000;
+}
+.back-image{
+    filter: invert(1);
+    margin:6px 12px;
+    height:44px;
+    position:absolute;
+}
+/*  */
+input[type=checkbox] {
+    cursor: pointer;
+    display: inline;
+    float: left;
+    filter: invert(1);
+    accent-color: #000000;
+    /* outline: #808080 0.5px solid; */
+    width: 13%;
+    height: 45px;
+   
+}
+
+
+    .check-label {
+        color: #808080;
+        font-family: 'Titillium Web';
+        font-size: 14px;
+        width: 20%;
+        float: left;
+        display: inline;
+        line-height: 20px;
+        margin: 1.5rem 0.5rem;
+}
+
+.user-register-div{
+    width: 40%;
+    height: 400px;
+    margin: auto;
+    padding: 0;
+    position: relative;
+    top: 15vh;
+    border: 1px solid rgb(190, 190, 190);
+    background: #000000;
+    justify-content: center;
+}
+.register-section{
+    background-color: #000;
+    height: 97vh;
+}
+.user-register-button:hover{
+    background-color: #00C9FF;
+    color:#FFFFFF;
+    font-weight: 100;
+}
+
+.back-svg{
+    filter: invert(1);
+    margin:6px 12px;
+    width: 35px;
+    height:35px;
+    position:absolute;
+}
+
+.user-register-button{
+    text-transform: uppercase;
+    height: 52px;
+    margin-top: 1rem;
+    margin-left: 2.4rem;
+    background: #000;
+    width: 50%;
+    color:#00C9FF;
+    padding: 1rem;
+    cursor: pointer;
+    font-weight: lighter;
+    background-color: #000;
+    border: 1px solid #808080;
+    position: relative;
+    border-radius: 5px;
+    bottom: 10px;
+    float: left;
+}
+.user-info-input{
+    background: #000;
+    display: block;
+    font-weight: lighter;
+    padding: 1rem;
+    margin: 1rem -0.5rem;
+    width: 93%;
+    border: 1px solid #808080;
+    color: #808080;
+    font-size: 15px;
+    height: 11px;
+}
+
+.form-container{
+    margin: auto;
+    padding: 0;
+    position: relative;
+    top: 20px;
+    width: 80%;
+}
+
+.back{
+    margin: 11px 10px;
+    border: none;
+    background: none;
+    float: left;
+    cursor: pointer;
+}
+
+.back-image{
+    color: white;
+}
+
+.email-error-title{
+    font-size: 29px;
+    text-align: left;
+    font-family: 'Titillium Web';
+    font-weight: lighter;
+    color: #FFFFFF;
+    margin: 24px 4px;
+}
+
+@media screen and (min-width: 600px) and (max-width:1149px) {
+    .user-register-title {
+        font-size: 37px;
+        text-align: left;
+        font-family: 'Titillium Web';
+        font-weight: lighter;
+        color: #FFFFFF;
+        margin-top: -1rem;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .user-register-div{
+        width: 90%;
+    }
+
+    .user-register-title{
+        font-size: 20px;
+    }
+
+    .user-info-input{
+        padding: 0.5rem;
+    }
+
+    .user-register-button{
+        margin-top: 1rem;
+        float: none;
+        padding: 0.5rem;
+        width: 90%;
+        margin: 1rem;
+    }
+
+    .check-label{
+        font-size: 15px;
+        width: 80%;
+        float: none;
+    }
+
+    input[type=checkbox] {
+     
+        float: none;
+        width: 10%;
+        height: 20px;
+    }
+}
+@media screen  and (max-width: 1100px) {
+    input[type=checkbox] { 
+        margin: 1.5rem 0.5rem 0.5rem 1rem;
+    }
+   
+}
+@media screen  and (min-width: 1101px) {
+    input[type=checkbox] { 
+        margin: 1.5rem 0.5rem 0.5rem -0.5rem;
+    }
+   
+}
+.user-register-div1 {
+    width: 25rem;
+    height: 424px;
+    margin: auto;
+    padding: 0;
+    position: relative;
+    top: 15vh;
+    border: 1px solid rgb(190, 190, 190);
+    background: #000000;
+    justify-content: center;}
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+    .user-register-div1 {
+        width: 25rem;
+        /* height: 424px; */
+        margin: auto;
+        padding: 0;
+        position: relative;
+        top: 15vh;
+        border: 1px solid rgb(190, 190, 190);
+        background: #000000;
+        justify-content: center;
+    
+    }}
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+    .user-register-div{
+        width: 50%;
+    }
+
+    /* .user-register-title{
+        font-size: 20px;
+    } */
+
+    .form-container{
+        position: relative;
+        top: 50px;
+    }
+
+
+
+  
+
+  
+}
+
+@media screen and (min-width: 600px) and (max-width: 1149px){
+    input[type=checkbox] {
+        margin: 13px -6px 0px -5px;
+        float: none;
+    }
+    .check-label{
+        position: absolute;
+        font-size: 15px;
+        width: 80%;
+        float: none;
+        margin: 1.5rem 1rem;
+    
+    
+    
+    }
+    .user-register-button {
+        margin: -2.3rem -0.5rem;
+        float: right;
+        padding: 0.5rem;
+        height: 3rem;
+        width: 46%;
+    }
+}

@@ -7,6 +7,10 @@
         flex-direction: column;
         align-items: center;
     }
+    .register-button-auth:hover{
+        background-color: #00C9FF;
+        color:#FFFFFF;
+    }
     .register-button-auth{
         cursor:pointer;
         height: 3rem;
@@ -36,6 +40,22 @@
         border: 1px solid #808080;
         position: relative;
         float: left;
+    }
+    .register-button-admin:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
+    }
+    .register-button-admin1:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
+    }
+    .register-button-admin2:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
+    }
+    .register-button-admin3:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
     }
     .register-button-admin1 {
         height: 3.5rem;
@@ -276,13 +296,7 @@
         font-size: 25px;
         display: block;
     }
-    .div-span-number{
-        padding: 1rem 0rem;
-        margin-left: 11px;
-        color:#fff;
-        font-size: 4rem;
-        display: block;
-    }
+ 
     .div-two-minutesleft{
         margin-top: 24px;
     }
@@ -343,13 +357,812 @@
         color: rgb(7, 83, 146);
     }
 }
-@media screen and (max-width:1149px){
+@media screen and (min-width:1001px) and (max-width:1148px) {
+    .div-span-number{
+        padding: 1rem 0rem;
+        margin-left: 11px;
+        color:#fff;
+        font-size: 4rem;
+        display: block;
+    }
+}
+@media screen and (min-width:600px) and (max-width:1149px) {
+    .form-container-auth{
+        display: flex;
+        width: 100%;
+        position: relative;
+        top: 150px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .register-button-auth:hover{
+        background-color: #00C9FF;
+        color:#FFFFFF;
+    }
+    .register-button-auth{
+        cursor:pointer;
+        height: 3rem;
+        margin: 15px 17px;
+        background: #000;
+        width: 17rem;
+        color: #00C9FF;
+        border-radius: 4px;
+        padding: 1rem;
+        font-weight: lighter;
+        background-color: #000;
+        border: 1px solid #808080;
+        position: relative;
+        float: left;
+    }
+    
+   
+    .info-input-auth {
+        display: block;
+        font-weight: bolder;
+        /* padding: 1rem; */
+        margin: 1rem;
+        width: 17rem;
+        border: none;
+        color: #808080;
+        font-size: 15px;
+        height: 2.6rem;
+        border-radius: 2.5px;
+        background: #fff;
+    }
+   
+    .register-button {
+        background: #000;
+        width: 50%;
+        color: #00C9FF;
+        padding: 1rem;
+        cursor: pointer;
+        font-weight: lighter;
+        background-color: #000;
+        border: 1px solid #808080;
+        position: relative;
+        float: right;
+    }
+    .admin {
+        display: flex;
+        margin-top: -21px;
+        height: 98vh;
+        justify-content: space-between;
+        /* justify-content: space-around; */
+    }
+    
+    .div-two{
+       
+        display: flex;
+        align-content: stretch;  
+        display: flexbox;
+        float: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      
+    }
+    .div-three{
+     
+        padding: 3.2rem 0rem;
+        float: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        /* border: 1px solid grey;
+        overflow: scroll; */
+    }
+   
+    .div-span-number{
+        padding: 1rem 0rem;
+        margin-left: 11px;
+        color:#fff;
+        font-size: 4rem;
+        display: block;
+    }
+    .div-two-minutesleft{
+        margin-top: 24px;
+    }
+    .duration-set{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        /* width: 90%; */
+        height: 150px;
+        margin-top: -8rem;
+        /* border: 1px solid grey; */
+        /* border-radius: 15px;
+        margin: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 8px;
+        padding: 5px;
+        background-color: rgb(231, 229, 229); */
+    }
+    
+   
+    
+    .message-div{
+        background-color: rgb(233, 247, 250);
+        height: 50px;
+        width: 93%;    
+        margin: 5px 1rem 5px 1rem;
+        display: block;
+        padding: 5px;
+        font-family: sans-serif;
+    }
+    
+    h3, b, h5 {
+        margin: 0;
+        padding: 0;
+    }
+  
+    h3{
+        color: rgb(7, 83, 146);
+    }
+    
+}
+@media screen and (max-width:599px){
     .form-container-auth{
         display:none;
     }
+    /* jaiswalpiyushaerospacex@gmail.com */
+    .admin{
+        display: none;
+    }
 }
+@media screen and (max-width: 850px) and (min-width: 800px){
+.div-two::before {
+    margin-left: -9px;
+    height: 89vh;
+    content: "";
+    position: absolute;
+    border-left: 2px solid #ffffff24;
+}}
+@media screen and (max-width: 1000px) and (min-width: 851px){
+.div-two::before {
+    margin-left: -22px;
+    height: 89vh;
+    content: "";
+    position: absolute;
+    border-left: 2px solid #ffffff24;
+}}
+
  @media screen and (max-width:424px){
     .section-title2 {
             color: #FFFFFF;
+    }
+} 
+/* admin portal */
+ @media screen and (max-width:1149px)and (min-width:1000px){
+     .div-span{
+        color:#fff;
+        margin-left: 11px;
+        font-size: 25px;
+        display: block;
+    }
+    .register-button-admin {
+        height: 3rem;
+        margin: 15px 17px;
+        background: #000;
+        width: 17rem;
+        color: #00C9FF;
+        cursor: pointer;
+        border-radius: 4px;
+        padding: 1rem;
+        font-weight: lighter;
+        background-color: #000;
+        border: 1px solid #808080;
+        position: relative;
+        float: left;
+    }
+    .register-button-admin:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
+    }
+    .register-button-admin1:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
+    }
+    .register-button-admin2:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
+    }
+    .register-button-admin3:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
+    }
+    .div-three-minutes{
+        margin-top: -3.1rem;
+    }
+    .div-two-minutes{
+        /* margin-top: 0.1rem; */
+    }
+    .div-three-dailyBudget{
+    margin-top: 24px;
+    }
+    .register-button-admin1 {
+        height: 3.5rem;
+        margin: 12px 17px;
+        background: #000;
+        cursor: pointer;
+        width: 17rem;
+        color: #00C9FF;
+        border-radius: 4px;
+        padding: 1rem;
+        font-weight: lighter;
+        background-color: #000;
+        border: 1px solid #808080;
+        position: relative;
+        float: left;
+    }
+    .register-button-admin3 {
+        height: 3rem;
+        margin: 12px 17px;
+        background: #000;
+        cursor: pointer;
+        width: 17rem;
+        color: #00C9FF;
+        border-radius: 4px;
+        padding: 1rem;
+        font-weight: lighter;
+        background-color: #000;
+        border: 1px solid #808080;
+        position: relative;
+        float: left;
+    }
+    .register-button-admin2:hover{
+        cursor: pointer;
+    }
+    .register-button-admin2 {
+        height: 3.5rem;
+        margin: 12px 17px;
+        background: #000;
+       
+        width: 17rem;
+        color: #00C9FF;
+        border-radius: 4px;
+        padding: 1rem;
+        font-weight: lighter;
+        background-color: #000;
+        border: 1px solid #808080;
+        position: relative;
+        float: left;
+    }
+    .add-admin{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: -9rem;
+        height: 180px;
+       
+    }
+    .div-one{
+        /* border-right: 1px solid white; */
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-evenly; */
+        justify-content: space-around;
+        /* margin: 10px;
+        height: 570px; */
+        /* background-color: white; */
+        width: 30%;
+        display: flexbox;
+        /* float: left;
+        border: 1px solid grey;
+        border-radius: 15px; */
+        text-align: center;
+        /* justify-content: center; */
+    }
+    .duration-set-span{
+        font-size: 23px;
+        float: left;
+        padding: 8px 14px;
+        color: #fff;
+        display:block;
+    }
+    .duration-set-span2{
+        font-size: 20px;
+        margin-left: 5px;
+        display:block;
+        float: left;
+        padding: 8px 10px;
+        color: #fff;
+    }
+    .div-two-changetotalbudget{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 1.25rem;
+    }
+    .div-three-changedailybudget{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: -2.5rem;
+    }
+    .divone-info-input {
+        font-weight: bold;
+        height: 1.5rem;
+        background: #fff;
+        display: block;
+        /* font-weight: lighter; */
+        padding: 1rem;
+        margin: 1rem;
+        width: 15rem;
+        border-radius: 4px;
+        border: 1px solid #808080;
+        color: #808080;
+        font-size: 15px;
+    }
+    .divtwo-info-input {
+        font-weight: bold;
+        border-radius: 4px;
+        height: 1.2rem;
+        background: #fff;
+        display: block;
+        /* font-weight: lighter; */
+        padding: 1rem;
+        margin: 1rem;
+        width: 15rem;
+        border: 1px solid #808080;
+        color: #808080;
+        font-size: 15px;
+    }
+    .div-two::before{
+        margin-left: -22px;
+        height: 89vh;
+        content: "";
+        position: absolute;
+        border-left: 2px solid #ffffff24;
+      
+    
+    }
+    .div-three::before{
+        margin-left: -30px;
+        height: 89vh;
+        content: "";
+        position: absolute;
+        border-left: 2px solid #ffffff24;
+      
+    
+    }
+    .divthree-info-input {
+        font-weight: bold;
+        border-radius: 4px;
+        height: 1.2rem;
+        background: #fff;
+        display: block;
+        /* font-weight: lighter; */
+        padding: 1rem;
+        margin: 1rem;
+        width: 15rem;
+        border: 1px solid #808080;
+        color: #808080;
+        font-size: 15px;
+    }
+} 
+
+@media screen and (max-width:1000px)and (min-width:800px){
+    .register-button-admin {
+        height: 3rem;
+        margin: 15px 17px;
+        background: #000;
+        width: 13rem;
+        color: #00C9FF;
+        cursor: pointer;
+        border-radius: 4px;
+        padding: 1rem;
+        font-weight: lighter;
+        background-color: #000;
+        border: 1px solid #808080;
+        position: relative;
+        float: left;
+    }
+    .div-span-number {
+        padding: 1rem 0rem;
+        margin-left: 11px;
+        color: #fff;
+        font-size: 2.8rem;
+        display: block;
+    }
+    .register-button-admin:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
+    }
+    .register-button-admin1:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
+    }
+    .register-button-admin2:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
+    }
+    .register-button-admin3:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
+    }
+    .div-three-minutes{
+        margin-top: -3.1rem;
+    }
+    .div-two-minutes{
+        /* margin-top: 0.1rem; */
+    }
+    .div-three-dailyBudget{
+    margin-top: 24px;
+    }
+    .register-button-admin1 {
+        height: 3.5rem;
+        margin: 12px 17px;
+        background: #000;
+        cursor: pointer;
+        width: 13rem;
+        color: #00C9FF;
+        border-radius: 4px;
+        padding: 1rem;
+        font-weight: lighter;
+        background-color: #000;
+        border: 1px solid #808080;
+        position: relative;
+        float: left;
+    }
+    .register-button-admin3 {
+        height: 3rem;
+        margin: 12px 17px;
+        background: #000;
+        cursor: pointer;
+        width: 13rem;
+        color: #00C9FF;
+        border-radius: 4px;
+        padding: 1rem;
+        font-weight: lighter;
+        background-color: #000;
+        border: 1px solid #808080;
+        position: relative;
+        float: left;
+    }
+    .register-button-admin2:hover{
+        cursor: pointer;
+    }
+    .register-button-admin2 {
+        height: 3.5rem;
+        margin: 12px 17px;
+        background: #000;
+        width: 13rem;
+        color: #00C9FF;
+        border-radius: 4px;
+        padding: 1rem;
+        font-weight: lighter;
+        background-color: #000;
+        border: 1px solid #808080;
+        position: relative;
+        float: left;
+    }
+    .add-admin{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: -11rem;
+        height: 180px;
+       
+    }
+    .div-one{
+        /* border-right: 1px solid white; */
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-evenly; */
+        justify-content: space-around;
+        /* margin: 10px;
+        height: 570px; */
+        /* background-color: white; */
+        width: 30%;
+        display: flexbox;
+        /* float: left;
+        border: 1px solid grey;
+        border-radius: 15px; */
+        text-align: center;
+        /* justify-content: center; */
+    }
+    .duration-set-span {
+        font-size: 21px;
+        float: left;
+        padding: 8px 14px;
+        color: #fff;
+        display: block;
+    }
+   .duration-set-span2 {
+    font-size: 17px;
+    margin-left: 5px;
+    display: block;
+    float: left;
+    padding: 8px 10px;
+    color: #fff;
+}
+    .div-two-changetotalbudget{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 1.25rem;
+    }
+    .div-three-changedailybudget{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: -2.5rem;
+    }
+    .divone-info-input {
+        font-weight: bold;
+        height: 1.5rem;
+        background: #fff;
+        display: block;
+        /* font-weight: lighter; */
+        padding: 1rem;
+        margin: 1rem;
+        width: 11rem;
+        border-radius: 4px;
+        border: 1px solid #808080;
+        color: #808080;
+        font-size: 15px;
+    }
+    .divtwo-info-input {
+        font-weight: bold;
+        border-radius: 4px;
+        height: 1.2rem;
+        background: #fff;
+        display: block;
+        /* font-weight: lighter; */
+        padding: 1rem;
+        margin: 1rem;
+        width: 11rem;
+        border: 1px solid #808080;
+        color: #808080;
+        font-size: 15px;
+    }
+  
+    .div-three::before{
+        margin-left: -30px;
+        height: 89vh;
+        content: "";
+        position: absolute;
+        border-left: 2px solid #ffffff24;
+      
+    
+    }
+    .div-span{
+        color:#fff;
+        margin-left: 11px;
+        font-size: 20px;
+        display: block;
+    }
+    .divthree-info-input {
+        font-weight: bold;
+        border-radius: 4px;
+        height: 1.2rem;
+        background: #fff;
+        display: block;
+        /* font-weight: lighter; */
+        padding: 1rem;
+        margin: 1rem;
+        width: 11rem;
+        border: 1px solid #808080;
+        color: #808080;
+        font-size: 15px;
+    }
+} 
+@media screen and (min-width: 600px) and (max-width: 799px){
+.admin {  
+    min-width: 800px;
+}
+
+}
+@media screen and (max-width: 799px) and (min-width: 500px){
+.div-two::before {
+    margin-left: -9px;
+    height: 89vh;
+    content: "";
+    position: absolute;
+    border-left: 2px solid #ffffff24;}
+}
+@media screen and (max-width:799px)and (min-width:600px){
+    .register-button-admin {
+        height: 3rem;
+        margin: 15px 17px;
+        background: #000;
+        width: 13rem;
+        color: #00C9FF;
+        cursor: pointer;
+        border-radius: 4px;
+        padding: 1rem;
+        font-weight: lighter;
+        background-color: #000;
+        border: 1px solid #808080;
+        position: relative;
+        float: left;
+    }
+    .div-span-number {
+        padding: 1rem 0rem;
+        margin-left: 11px;
+        color: #fff;
+        font-size: 2.8rem;
+        display: block;
+    }
+    .register-button-admin:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
+    }
+    .register-button-admin1:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
+    }
+    .register-button-admin2:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
+    }
+    .register-button-admin3:hover {
+        background-color: #00C9FF;
+         color:#FFFFFF;
+    }
+    .div-three-minutes{
+        margin-top: -3.1rem;
+    }
+    .div-two-minutes{
+        /* margin-top: 0.1rem; */
+    }
+    .div-three-dailyBudget{
+    margin-top: 24px;
+    }
+    .register-button-admin1 {
+        height: 3.5rem;
+        margin: 12px 17px;
+        background: #000;
+        cursor: pointer;
+        width: 13rem;
+        color: #00C9FF;
+        border-radius: 4px;
+        padding: 1rem;
+        font-weight: lighter;
+        background-color: #000;
+        border: 1px solid #808080;
+        position: relative;
+        float: left;
+    }
+    .register-button-admin3 {
+        height: 3rem;
+        margin: 12px 17px;
+        background: #000;
+        cursor: pointer;
+        width: 13rem;
+        color: #00C9FF;
+        border-radius: 4px;
+        padding: 1rem;
+        font-weight: lighter;
+        background-color: #000;
+        border: 1px solid #808080;
+        position: relative;
+        float: left;
+    }
+    .register-button-admin2:hover{
+        cursor: pointer;
+    }
+    .register-button-admin2 {
+        height: 3.5rem;
+        margin: 12px 17px;
+        background: #000;
+        width: 13rem;
+        color: #00C9FF;
+        border-radius: 4px;
+        padding: 1rem;
+        font-weight: lighter;
+        background-color: #000;
+        border: 1px solid #808080;
+        position: relative;
+        float: left;
+    }
+    .add-admin{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: -11rem;
+        height: 180px;
+       
+    }
+    .div-one{
+        /* border-right: 1px solid white; */
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-evenly; */
+        justify-content: space-around;
+        /* margin: 10px;
+        height: 570px; */
+        /* background-color: white; */
+        width: 30%;
+        display: flexbox;
+        /* float: left;
+        border: 1px solid grey;
+        border-radius: 15px; */
+        text-align: center;
+        /* justify-content: center; */
+    }
+    .duration-set-span {
+        font-size: 21px;
+        float: left;
+        padding: 8px 14px;
+        color: #fff;
+        display: block;
+    }
+   .duration-set-span2 {
+    font-size: 17px;
+    margin-left: 5px;
+    display: block;
+    float: left;
+    padding: 8px 10px;
+    color: #fff;
+}
+    .div-two-changetotalbudget{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 1.25rem;
+    }
+    .div-three-changedailybudget{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: -2.5rem;
+    }
+    .divone-info-input {
+        font-weight: bold;
+        height: 1.5rem;
+        background: #fff;
+        display: block;
+        /* font-weight: lighter; */
+        padding: 1rem;
+        margin: 1rem;
+        width: 11rem;
+        border-radius: 4px;
+        border: 1px solid #808080;
+        color: #808080;
+        font-size: 15px;
+    }
+    .divtwo-info-input {
+        font-weight: bold;
+        border-radius: 4px;
+        height: 1.2rem;
+        background: #fff;
+        display: block;
+        /* font-weight: lighter; */
+        padding: 1rem;
+        margin: 1rem;
+        width: 11rem;
+        border: 1px solid #808080;
+        color: #808080;
+        font-size: 15px;
+    }
+  
+    .div-three::before{
+        margin-left: -30px;
+        height: 89vh;
+        content: "";
+        position: absolute;
+        border-left: 2px solid #ffffff24;
+      
+    
+    }
+    .div-span{
+        color:#fff;
+        margin-left: 11px;
+        font-size: 20px;
+        display: block;
+    }
+    .divthree-info-input {
+        font-weight: bold;
+        border-radius: 4px;
+        height: 1.2rem;
+        background: #fff;
+        display: block;
+        /* font-weight: lighter; */
+        padding: 1rem;
+        margin: 1rem;
+        width: 11rem;
+        border: 1px solid #808080;
+        color: #808080;
+        font-size: 15px;
     }
 } 

@@ -31,7 +31,7 @@ function AdminPortal() {
                 alert("Login Success");
                 setPortal( false);
                 document.getElementById("form-container").style.display = "none";
-                setValid(true)
+                setValid(true);
               }
               else if(!res.data.message){
                 alert("Invalid login");
@@ -41,15 +41,6 @@ function AdminPortal() {
 
      
     
-    
-        
-            //***/ */
-        // if (username === "admin" && password === "12345") {
-        //     alert("Login Success");
-        //     setPortal( <Portal />);
-        //     document.getElementById("form-container").style.display = "none";
-
-        // }
     }
 
 
@@ -65,7 +56,7 @@ function AdminPortal() {
             : <div>
                 <Portal />
             </div>}
-            
+           
            
            
         </div>

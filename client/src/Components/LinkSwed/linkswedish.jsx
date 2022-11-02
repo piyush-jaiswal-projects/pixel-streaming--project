@@ -6,7 +6,7 @@ import intro1 from "./intro1.png";
 function Link({la}){
 
     // const context=useContext(state)
- console.log(`i am in linkk rou  ${la}`)
+//  console.log(`i am in linkk rou  ${la}`)
    
     function getCookie(cname) {
         let name = cname + "=";
@@ -25,7 +25,7 @@ function Link({la}){
       }
     
       var state=  getCookie("language");
-      console.log(` am in  state ${state}`);
+      // console.log(` am in  state ${state}`);
 
 
 
@@ -33,7 +33,7 @@ function Link({la}){
         window.location.replace('/');
     }
     const stateChange=()=>{
-        console.log(`i am in link ${state}`)
+        // console.log(`i am in link ${state}`)
        
        
     }

@@ -15,6 +15,8 @@ function Register({ language }) {
     const [name, setName] = useState("");
     const [org, setOrg] = useState("");
     const [email, setEmail] = useState("");
+    const [registerTitle, setRegisterTitle] = useState("Your details");
+    const [registerTitleSweden, setRegisterTitleSweden] = useState("Dina detaljer");
     // const [registerHidden, setRegisterHidden] = useState(false);
     const [title, setTitle] = useState("block");
     const [emailError, setEmailError] = useState("none");
@@ -56,7 +58,7 @@ function Register({ language }) {
             const logincount = 1;
             const date = new Date();
             const teacher = document.getElementById("vehicle1").checked;
-            console.log(teacher);
+            // console.log(teacher);
             axios.post('/signup', {
                 'Name': name,
                 'Email': email,
@@ -74,7 +76,8 @@ function Register({ language }) {
             }).then((res) => {
                 if (res.data.Message === "Success") {
                     // window.location.replace(`/access-link/${code}`);
-                    language? window.location.replace('/stream') : window.location.replace('/streamswed');
+                    document.getElementById("Title").style.color="Green";
+                    language? setRegisterTitle("Check Email") : setRegisterTitleSweden("Kolla mailen");
                 }
                 else if (res.data.Message === "failed") {
                     setName("");
@@ -133,7 +136,7 @@ fill="#000000" stroke="none">
                     </Link>
                     <br></br>
                     <div className="form-container">
-                        <h3 className="user-register-title" style={{ display: title }}>Your details</h3>
+                        <h3 className="user-register-title" id="Title" style={{ display: title }}>{registerTitle}</h3>
                         <h3 className="email-error-title" style={{ display: emailError }}>Invalid email format</h3>
                         <h3 className="user-register-title error-title" style={{ display: invalid }}>Some error occurred</h3>
                         <input type="text" className="user-info-input" placeholder="NAME" value={name} onChange={handleNameChange}></input>
@@ -171,7 +174,7 @@ fill="#000000" stroke="none">
                         </Link>
                         <br></br>
                         <div className="form-container">
-                            <h3 className="user-register-title" style={{ display: title }}>Dina detaljer</h3>
+                            <h3 className="user-register-title" id="Title" style={{ display: title }}>{registerTitleSweden}</h3>
                             <h3 className="user-register-title email-error-title" style={{ display: emailError }}>Ogiltigt e-postformat</h3>
                             <h3 className="user-register-title error-title" style={{ display: invalid }}>Något fel uppstod</h3>
                             <input type="text" className="user-info-input" placeholder="NAMN" value={name} onChange={handleNameChange}></input>
