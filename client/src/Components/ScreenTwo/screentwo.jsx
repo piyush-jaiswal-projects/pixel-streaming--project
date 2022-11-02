@@ -62,9 +62,9 @@ function ScreenTwo(props,{language}){
 
         
         {/* </div> */}
-        {/* <div id="streamer"> */}
+        <div className="streamer">
         <Stream />
-        {/* </div> */}
+        </div>
         </div>
     );
 }
