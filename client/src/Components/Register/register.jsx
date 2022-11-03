@@ -55,7 +55,7 @@ function Register({ language }) {
             const link = `arcwarestreamingproject.herokuapp.com/access-link/${code}`;
             const minutes = 44;
             const seconds = 60;
-            const logincount = 1;
+            const logincount = 0;
             const date = new Date();
             const teacher = document.getElementById("vehicle1").checked;
             // console.log(teacher);

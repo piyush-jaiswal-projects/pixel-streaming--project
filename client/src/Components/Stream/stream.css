@@ -1,5 +1,6 @@
 .stream-section{
     border: 2px solid black;
+    height: 100vh !important;
 }
 @media (max-width:599px) {
     .streamer{
