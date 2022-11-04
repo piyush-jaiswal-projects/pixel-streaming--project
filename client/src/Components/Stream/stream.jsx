@@ -71,7 +71,7 @@ useEffect(()=>{
     });
     const args = {
         address: "wss://signalling-client.ragnarok.arcware.cloud/",
-        packageId: "ff41fd0c-cac9-4e4c-abe5-3ada402f57cc",
+        packageId: "12c0cfd9-8f8f-41b7-a21d-e10e1019e8d5",
         settings: {},
         sizeContainer: sizeContainerRef.current,
         container: containerRef.current,
