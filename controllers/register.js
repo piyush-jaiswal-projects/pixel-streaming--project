@@ -9,6 +9,10 @@ const StreamSwitch = mongoose.model("StreamSwitch", streamSwitchSchema);
 const User = mongoose.model("User", userSchema);
 
 async function register(req, res){
+//     const user = await User.find();
+// console.log(`i amin user ${user}  remove ho gya`)
+const ruser= await User.deleteMany({});
+// console.log(` i am in delet user ${ruser}`);
     console.log("inside register function");
     const email = req.body.Email;
     User.findOne({ Email: email }, function (err, foundUser) {
