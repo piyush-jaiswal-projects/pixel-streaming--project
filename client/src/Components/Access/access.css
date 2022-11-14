@@ -9,6 +9,62 @@
     background: #000000;
     justify-content: center;
 }
+@media screen and (min-width:600px){
+    .daily {
+        margin: 19px auto;
+        color: red;
+        font-weight: 300;
+        font-size: 26px;
+        text-align: left;
+        font-family: 'Titillium Web';}
+        .daily1 {
+            color: #fff;
+            font-weight: 100;
+            font-size: 17px;
+            text-align: left;
+            font-family: 'Titillium Web';
+            line-height: 2rem;
+            margin: 33px auto;
+        }
+    .daily2{
+        color: #fff;
+        font-weight: 100;
+  
+    font-size: 18px;
+    text-align: left;
+    font-family: 'Titillium Web';
+  
+    line-height: 2rem;
+    }
+}
+@media screen and (min-width:1100px){
+    .daily {
+        margin: 43px auto;
+        color: red;
+        font-weight: 300;
+        font-size: 26px;
+        text-align: left;
+        font-family: 'Titillium Web';}
+        .daily1 {
+            color: #fff;
+            font-weight: 100;
+            font-size: 17px;
+            text-align: left;
+            font-family: 'Titillium Web';
+            line-height: 2rem;
+            margin: 43px auto;
+        }
+    .daily2{
+        color: #fff;
+        font-weight: 100;
+  
+    font-size: 18px;
+    text-align: left;
+    font-family: 'Titillium Web';
+  
+    line-height: 2rem;
+    }
+}
 .register-div1{
         width: 26rem;
         height: 434px;

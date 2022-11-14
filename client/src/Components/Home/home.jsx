@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 // import {handleAccessClick} from "../../App.js";
 import logo from "./logo.png";
 import logo2 from "./logo2.png";
+import Mobileview from "../Home/mobileview"
 function Home({language,setLanguage}){
    
     const [lang, setLang] = useState("CHANGE LANGUAGE");
@@ -13,24 +14,14 @@ function Home({language,setLanguage}){
             // console.log(language);
             setLanguage(false);
             setLang("ENGLISH");
-            // console.log(s);
         }
        else if (e.target.value==="English"){
-            // console.log(language);
             setLanguage(true);
             setLang("CHANGE LANGUAGE");
-            // console.log(s);
-        }
-       
-        // document.cookie="language="+s;
-        //   console.log(`i am in home ${s}`);
-       
-    //     console.log(language);
-    //   
-    //    console.log(language);
+        } 
     }
     return(
-        <> <h3 className="section-title2" >No Time to Waste is not compatible with mobile devices .Please visit this page on a computer instead</h3>
+        <> <Mobileview />
         <div className="home-section" id="centreDiv">
         <div className="check">
   <select  onChange={change} className="membership" id="membership">
@@ -39,12 +30,7 @@ function Home({language,setLanguage}){
 </select>
   </div>
         <div className="home-div">
-       
-        
-
-  
- 
-   { language? (<> {/* 1=English  */}
+   { language? (<> 
    <div  className="logo">
             <img  className="img" src={logo2} alt="" srcset="" />
         </div>
@@ -62,6 +48,7 @@ function Home({language,setLanguage}){
         </Link>
         </div>
         <p className="footer-tag">Created by Interesting Time Gang</p>
+        <p className="footer-tag1"><a href=" https://hsr.se/privacy-policy" >READ MORE ABOUT OUR PRIVACY POLICY </a></p>
         </>) 
         :<> {/* belgium*/}
         <div  className="logo">
@@ -80,6 +67,7 @@ function Home({language,setLanguage}){
         </Link>
         </div>
         <p className="footer-tag">Skapad av Interesting Time Gang</p>
+        <p className="footer-tag1"><a href=" https://hsr.se/privacy-policy" >READ MORE ABOUT OUR PRIVACY POLICY </a></p>
         </> }
         </div>
         

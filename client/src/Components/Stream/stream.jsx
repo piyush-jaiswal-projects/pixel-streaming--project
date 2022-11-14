@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect ,useState} from "react";
 import { WebRTCClient } from "@arcware/webrtc-plugin";
 import "./stream.css";
-
+import Mobileview from "../Home/mobileview"
 function Stream(props,{language}){
 
     function getCookie(cname) {
@@ -110,7 +110,7 @@ useEffect(()=>{
 
     return(
         <div>
-        <h3 className="section-title2" >No Time to Waste is not compatible with mobile devices .Please visit this page on a computer instead</h3>
+        <Mobileview />
         {/* use code 
         {language ? english :belgium} */}
         <div ref={sizeContainerRef} className="stream-section" id="streamSection">

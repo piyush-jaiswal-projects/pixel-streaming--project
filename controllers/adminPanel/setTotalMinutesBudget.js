@@ -49,7 +49,12 @@ async function streamSwitch(){
     }
     else{
         //Stream ON
-        message = Switch("OFF");
+        // message = Switch("OFF");
+        if(today === true)
+        message = Switch("OFF", "Today");
+
+        if(total === true)
+        message = Switch("OFF", "Total");
     }
     // const jsonContent = JSON.stringify({
     //     Message: message
@@ -93,9 +98,9 @@ async function compareToday(){
     else return false;
 }
 
-function Switch(Switch){
-    console.log("inside compare switch");
-    StreamSwitch.updateOne({User: "Admin"},{Stream: Switch}, function(err){
+function Switch(Switch, Res){
+    console.log("inside compare switch total" + Res);
+    StreamSwitch.updateOne({User: "Admin"},{Stream: Switch, Reason: Res}, function(err){
         if(err){
             console.log(err);
             return "Switching Failed";

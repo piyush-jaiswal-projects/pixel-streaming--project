@@ -1,0 +1,129 @@
+
+@media screen and (min-width:600px){
+.home-section-mobile{
+    display: none;
+    min-width: 320px;
+}
+}
+@media screen and (max-width:440px){
+    .section-title-mobile {
+        margin-top: 0rem;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        color: #FFFFFF;
+        font-family: Titillium Web;
+        font-size: 32px;
+        font-weight: 300;
+        line-height: 84px;
+        letter-spacing: 0em;
+        text-align: center;
+    }
+    .t-mobile {
+        font-family: 'Titillium Web';
+        font-style: normal;
+        font-weight: lighter;
+        font-size: 20px;
+        text-align: center;
+        color: #FFFFFF;
+        width: 100%;
+        margin: 2rem auto;}
+}
+@media screen and (min-width:441px) and (max-width:599px){
+    .section-title-mobile {
+        margin-top: 0rem;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        color: #FFFFFF;
+        font-family: Titillium Web;
+        font-size: 33px;
+        font-weight: 300;
+        line-height: 84px;
+        letter-spacing: 0em;
+        text-align: center;}
+        .t-mobile {
+            font-family: 'Titillium Web';
+            font-style: normal;
+            font-weight: lighter;
+            font-size: 22px;
+            text-align: center;
+            color: #FFFFFF;
+            width: 100%;
+            margin: 2rem auto;
+            letter-spacing: 1px;
+        }
+}
+@media screen and (max-width:599px){
+.home-section-mobile{
+        background: #000;
+        min-width: 320px;
+}
+.section-title2{
+    display: none;
+}
+.home-div-mobile {
+    height: 91vh;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    position: relative;
+    top: 7vh;
+    background-color: #000;
+}
+.logo-mobile{
+        display: flex;
+        justify-content: center;
+}
+
+.footer-tag-mobile {
+    margin: 84px -2px;
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 15px;
+    line-height: 37px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.membership{
+    background: #000000;
+    font-family: 'Titillium Web';
+font-style: normal;
+font-weight: 300;
+font-size: 20px;
+line-height: 61px;
+text-align: right;
+padding: 0.2rem;
+color: #FFFFFF;
+position: absolute;
+right: 20px;
+}
+
+option{
+    text-align: center;
+}
+
+
+.btn-wrapper-div{
+    margin: auto;
+    padding: auto;
+    width: 50%;
+}
+
+
+
+
+
+hr{
+    width: 8rem;
+}
+.img-mobile{
+    height: 101px;
+    width: 180px;
+}
+
+
+}
+
