@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./access.css";
 import axios from "axios";
 // import updatelanguage from "../../../../controllers/updatelangage";
-
+import Mobileview from "../Home/mobileview"
 function Access({ language }) {
 
     const [email, setEmail] = useState("");
@@ -63,7 +63,7 @@ function Access({ language }) {
         axios.post('/login', {
             'Code': code
         }).then((res) => {
-            console.log(res.data);
+            console.log(res.data.Message);
             if (res.data.Message === "Success") {
                 const registerDate = Date.parse(res.data.RegisterDate);
                 const todayDate = new Date().toISOString();
@@ -134,6 +134,12 @@ function Access({ language }) {
                 document.getElementById("log-btn").style.backgroundColor = "red";
 
             }
+            else if(res.data.Message === "OFF Today"){
+                window.location.replace('/session');
+            }
+            else if(res.data.Message === "OFF Total"){
+                window.location.replace('/campaign');
+            }
             else{
                 alert(res.data.Message);
             }
@@ -143,7 +149,7 @@ function Access({ language }) {
 
     return (
         <div>
-         <h3 className="section-title2" >No Time to Waste is not compatible with mobile devices .Please visit this page on a computer instead</h3>
+        <Mobileview />
             {language ? <div className="register-section" hidden={accessHidden}>
                 <div className="register-div1">
                     <Link to="/">

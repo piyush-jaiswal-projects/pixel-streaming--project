@@ -16,6 +16,9 @@ import End from "./Components/End/end.jsx";
 import AdminPortal from "./Components/AdminPortal/adminPortal.jsx";
 import AuthenticateUser from "./Components/AuthenticateUser/authenticateUser.jsx";
 import ScreenTwo from "./Components/ScreenTwo/screentwo.jsx";
+import Session from './Components/errors/session';
+import Campaign from './Components/errors/Campaign';
+import Dailysessionexceed from './Components/errors/dailysessionexceed';
 const State =createContext()
 const Routing = () => {
 
@@ -44,6 +47,22 @@ const Routing = () => {
         <Route path="/stream" element={
           <div>
           <Link  language={language} setLanguage={setLanguage}/>
+          </div>
+        } />  
+        <Route path="/session" element={
+          <div>
+           <Dailysessionexceed />
+        
+          </div>
+        } />  
+        <Route path="/campaign" element={
+          <div>
+          <Campaign />
+          </div>
+        } />  
+        <Route path="/dailysessionexceed" element={
+          <div>
+           <Session />
           </div>
         } />  
 

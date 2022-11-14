@@ -3,7 +3,7 @@ import React from "react";
 import "./screentwo.css";
 import intro2 from "./intro2.png";
 import Stream from "../Stream/stream.jsx";
-
+import Mobileview from "../Home/mobileview"
 function ScreenTwo(props,{language}){
 
     const [streamComponent, setStreamComponent] = React.useState("");
@@ -37,7 +37,7 @@ function ScreenTwo(props,{language}){
        
         <div className="register-section">
 
-        <h3 className="section-title2" >No Time to Waste is not compatible with mobile devices .Please visit this page on a computer instead</h3>
+ <Mobileview />
         {/* <div id="non-streamer" style={{display:Display}}> */}
         {/* <img className="intro-one" alt="Intro Screen 2" src={intro2}></img> */}
         {/* {language ? <div className="screenTwoOverlay"> */}

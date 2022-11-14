@@ -31,10 +31,15 @@ async function login(req, res){
                         if(foundUser.Stream === "ON"){
                             message="Success";
                         }
-                        else{
-                            message = "Stream Not Available(Budget Exceeded)";
+                        else if(foundUser.Reason === "Today" && foundUser.Stream === "OFF"){
+                            message = "OFF Today";
+                        }
+
+                        else if(foundUser.Reason === "Total" && foundUser.Stream === "OFF"){
+                            message = "OFF Total";
                         }
                     }); 
+                    console.log(message);
                     const responseData ={
                         Message: message,
                         RegisterDate: foundUser.RegisterDate,

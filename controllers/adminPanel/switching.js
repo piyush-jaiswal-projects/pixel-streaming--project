@@ -26,6 +26,12 @@ function streamSwitch(){
     if(today === true || total === true){
         //Stream OFF
         message = Switch("OFF");
+        if(today === true){
+            message = Switch("OFF", "Today");
+        }
+        else if(total === true){
+            message = Switch("OFF", "Total");
+        }
     }
     else{
         //Stream ON
@@ -69,8 +75,8 @@ function compareToday(){
     });
 }
 
-function Switch(Switch){
-    StreamSwitch.updateOne({User: "Admin"},{Stream: Switch}, function(err){
+function Switch(Switch, Res){
+    StreamSwitch.updateOne({User: "Admin"},{Stream: Switch, Reason: Res}, function(err){
         if(err){
             console.log(err);
             return "Switching Failed";

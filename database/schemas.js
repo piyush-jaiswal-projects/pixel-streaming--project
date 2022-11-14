@@ -25,7 +25,8 @@ const campaignDurationSchema = new mongoose.Schema({
 const CampaignDuration = mongoose.model("CampaignDuration", campaignDurationSchema);
 const streamSwitchSchema = new mongoose.Schema({
     User: String,
-    Stream: String
+    Stream: String,
+    Reason: String
 });
 
 module.exports = {

@@ -2,6 +2,7 @@ import React from "react";
 import Portal from "./portal.jsx";
 import axios from "axios";
 import "./adminPortal.css";
+import Mobileview from "../Home/mobileview"
 const inEmail = document.getElementById("in-email");
 
 function AdminPortal() {
@@ -46,7 +47,7 @@ function AdminPortal() {
 
     return (
         <div className="admin-auth">
-          <h3 className="section-title2" >No Time to Waste is not compatible with mobile devices .Please visit this page on a computer instead</h3>
+          <Mobileview />
         {portal ?  <div className="form-container-auth" >
                 <h3 className="register-title">Admin Login</h3>
                 <input type="text" id="in-email" className="info-input-auth" placeholder="Username" value={username} name="email" onChange={handleUsernameChange}></input>

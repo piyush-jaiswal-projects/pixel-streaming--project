@@ -1,4 +1,20 @@
 
+@media screen and (min-width:600px){
+    .footer-tag1{
+      
+        font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 11px;
+    text-align: center;
+    color: #FFFFFF;
+    }
+    a{
+      
+     text-decoration:none;
+    color: #FFFFFF;
+    }
+}
 @media screen and (min-width:1150px){
     .home-section{
         background: #000;
@@ -23,14 +39,12 @@
 }
 
 .footer-tag{
-    margin-left: 35rem;
-    bottom: 40px;
-    position: fixed;
+    margin-top: -5px;
     font-family: 'Titillium Web';
 font-style: normal;
 font-weight: lighter;
 font-size: 15px;
-line-height: 37px;
+
 text-align: center;
 color: #FFFFFF;
 }
@@ -248,14 +262,12 @@ hr{
     }
     
     .footer-tag{
-    margin-left: 39%;
-    bottom: 40px;
-    position: fixed;
+        margin-top: -5px;
     font-family: 'Titillium Web';
     font-style: normal;
     font-weight: lighter;
     font-size: 15px;
-    line-height: 37px;
+  
     text-align: center;
     color: #FFFFFF;
     }
@@ -363,14 +375,12 @@ hr{
     }
     
     .footer-tag{
-    margin-left: 39%;
-    bottom: 40px;
-    position: fixed;
+        margin-top: -5px;
     font-family: 'Titillium Web';
     font-style: normal;
     font-weight: lighter;
     font-size: 15px;
-    line-height: 37px;
+   
     text-align: center;
     color: #FFFFFF;
     }
@@ -488,7 +498,7 @@ hr{
     }
     }
     /* 881 */
-    @media screen and (min-width:881px) and (max-width:899px){
+    /* @media screen and (min-width:881px) and (max-width:899px){
         .footer-tag {
             margin-left: 39%;
         }
@@ -502,7 +512,7 @@ hr{
         .footer-tag {
             margin-left: 32%;
         }
-    }
+    } */
 /* section button */
 @media screen and (min-width: 972px) {
     .section-button {

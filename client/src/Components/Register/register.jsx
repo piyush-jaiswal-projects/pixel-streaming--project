@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import "./register.css";
 import axios from "axios";
-
+import Mobileview from "../Home/mobileview"
 var validator = require("email-validator");
 
 
@@ -109,7 +109,7 @@ function Register({ language }) {
 
     return (
         <div>
-         <h3 className="section-title2" >No Time to Waste is not compatible with mobile devices .Please visit this page on a computer instead</h3>
+      <Mobileview />
             {language ? <div className="register-section" >
 
                 <div className="user-register-div1">
