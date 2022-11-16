@@ -1,5 +1,11 @@
 
 
+@media screen and (min-width:600px) {
+   .footer-tag-re{
+    display: block;
+    margin: -22px auto;
+   }
+    }
 @media screen and (min-width:1150px) {
     .register-section{
 

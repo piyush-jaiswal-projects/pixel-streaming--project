@@ -67,7 +67,7 @@ function Home({language,setLanguage}){
         </Link>
         </div>
         <p className="footer-tag">Skapad av Interesting Time Gang</p>
-        <p className="footer-tag1"><a href=" https://hsr.se/privacy-policy" >READ MORE ABOUT OUR PRIVACY POLICY </a></p>
+        <p className="footer-tag1"><a href=" https://hsr.se/personuppgiftspolicy" >LAS GARNA MER OM HUR VI HANTERAR PERSONUPPGIFTER VÅR PERSONUPPGIFTSPOLICY. </a></p>
         </> }
         </div>
         

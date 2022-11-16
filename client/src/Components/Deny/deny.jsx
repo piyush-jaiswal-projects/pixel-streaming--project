@@ -29,6 +29,7 @@ function Deny({language}){
         </Link>
         </div>
         </div>}
+        
         </div>
     );
 }
