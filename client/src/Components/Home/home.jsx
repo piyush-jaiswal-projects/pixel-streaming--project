@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 // import {handleAccessClick} from "../../App.js";
 import logo from "./logo.png";
 import logo2 from "./logo2.png";
+import image from "./logo.svg";
 import Mobileview from "../Home/mobileview"
 function Home({language,setLanguage}){
    
@@ -47,6 +48,9 @@ function Home({language,setLanguage}){
         <button className="section-button">I HAVE A CODE</button>
         </Link>
         </div>
+        <div  className="logo">
+            <img  className="img-svg" src={image} alt="" srcset="" />
+        </div>
         <p className="footer-tag">Created by Interesting Time Gang</p>
         <p className="footer-tag1"><a href=" https://hsr.se/privacy-policy" >READ MORE ABOUT OUR PRIVACY POLICY </a></p>
         </>) 
@@ -57,17 +61,20 @@ function Home({language,setLanguage}){
         <br />
         <hr></hr>
         <h3 className="section-title" onClick={change}>No Time to Waste</h3>
-        <h3 className="t">Välkommen till en virtuell escape room-upplevelse från Keep <br />Sweden Tidy. Skapad för att öka medvetenheten och främja <br /> kunskap om den globala plastepidemin</h3>
+        <h3 className="t">Välkommen till en virtuell escape room-upplevelse från Håll  <br />Sverige Rent. Skapad för att öka medvetenheten och främja <br /> kunskap om den globala plastepidemin</h3>
         <div className="btn-wrapper-div">
         <Link to="/register">
-        <button className="section-button">BEGÄRA <span></span> åtkomst</button>
+        <button className="section-button">BEGÄR <span></span> ÅTKOMST</button>
         </Link>
         <Link to="/login">
         <button className="section-button">JAG HAR EN KOD</button>
         </Link>
         </div>
+        <div  className="logo">
+            <img  className="img-svg" src={image} alt="" srcset="" />
+        </div>
         <p className="footer-tag">Skapad av Interesting Time Gang</p>
-        <p className="footer-tag1"><a href=" https://hsr.se/personuppgiftspolicy" >LAS GARNA MER OM HUR VI HANTERAR PERSONUPPGIFTER VÅR PERSONUPPGIFTSPOLICY. </a></p>
+        <p className="footer-tag1"><a href=" https://hsr.se/personuppgiftspolicy" >LAS GARNA MER OM HUR VI HANTERAR PERSONUPPGIFTER I VÅR PERSONUPPGIFTSPOLICY. </a></p>
         </> }
         </div>
         

@@ -9,6 +9,11 @@
     text-align: center;
     color: #FFFFFF;
     }
+    .img-svg{
+        height: 26px;
+        width: 14rem;
+        margin: -30px 0rem;
+    }
     a{
       
      text-decoration:none;
