@@ -1,4 +1,12 @@
-
+.img-svg{
+    height: 26px;
+    width: 14rem;
+    margin: -30px 0rem;
+}
+.logo{
+    justify-content: center;
+    display: flex;
+}
 @media screen and (min-width:600px){
 .home-section-mobile{
     display: none;
@@ -54,7 +62,14 @@
             letter-spacing: 1px;
         }
 }
+
 @media screen and (max-width:599px){
+    .img-svg {
+        height: 26px;
+        width: 14rem;
+        position: absolute;
+        margin: 42px 0rem;}
+    
 .home-section-mobile{
         background: #000;
         min-width: 320px;
@@ -77,7 +92,7 @@
 }
 
 .footer-tag-mobile {
-    margin: 84px -2px;
+    margin: 61px -2px;
     font-family: 'Titillium Web';
     font-style: normal;
     font-weight: lighter;

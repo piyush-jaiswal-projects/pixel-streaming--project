@@ -210,7 +210,7 @@ fill="#000000" stroke="none">
                         </Link>
                         <div className="form-container">
                             <h3 className="login-title1" id="loginTitle1">{loginTitleSwedish}</h3>
-                            <h3 className="login-para1">Din kod finns i e-postmeddelandet du fick när du registrerade dig. bVarje kod kan användas 10 gånger och är giltig i 7 dagar.</h3>
+                            <h3 className="login-para1">Din kod finns i e-postmeddelandet du fick när du registrerade dig. Varje kod kan användas 10 gånger och är giltig i 7 dagar.</h3>
                             <form onSubmit={sendEmail} >
                                 {/* <input id="email-in" type="email" className="info-input" placeholder="E-POST"  value={email}  name="email" onChange={handleEmailChange}></input> */}
                                 <input id="code-in" type="text" className="info-input1" placeholder="PERSONLIG KOD" value={code} onChange={handleCodeChange}></input>
@@ -221,7 +221,7 @@ fill="#000000" stroke="none">
                     </div>
                 </div>}
                 {language ? <p className="footer-tag1"><a className="footer-tag-re" href=" https://hsr.se/privacy-policy" >READ MORE ABOUT OUR PRIVACY POLICY </a></p>  :
-            <p className="footer-tag1"><a  className="footer-tag-re" href=" https://hsr.se/personuppgiftspolicy" >LAS GARNA MER OM HUR VI HANTERAR PERSONUPPGIFTER VÅR PERSONUPPGIFTSPOLICY. </a></p>} 
+            <p className="footer-tag1"><a  className="footer-tag-re" href=" https://hsr.se/personuppgiftspolicy" >LAS GARNA MER OM HUR VI HANTERAR PERSONUPPGIFTER I VÅR PERSONUPPGIFTSPOLICY. </a></p>} 
         </div>
     );
 }

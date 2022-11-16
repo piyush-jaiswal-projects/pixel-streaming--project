@@ -185,13 +185,13 @@ fill="#000000" stroke="none">
                             <input id="in-email" type="email" className="user-info-input" placeholder="E-POST" value={email} onChange={handleEmailChange}></input>
                             <input className="check" type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></input>
                             <label for="vehicle1" className="check-label">JAG ÄR EN LÄRARE</label><br></br>
-                            <button id="r-btn" className="user-register-button" onClick={handleRegistration}>BEGÄRA åtkomst</button>
+                            <button id="r-btn" className="user-register-button" onClick={handleRegistration}>BEGÄR ÅTKOMST</button>
                         </div>
                     </div>
                 </div>
             </>}
           {language ? <p className="footer-tag1"><a className="footer-tag-re" href=" https://hsr.se/privacy-policy" >READ MORE ABOUT OUR PRIVACY POLICY </a></p>  :
-            <p className="footer-tag1"><a  className="footer-tag-re" href=" https://hsr.se/personuppgiftspolicy" >LAS GARNA MER OM HUR VI HANTERAR PERSONUPPGIFTER VÅR PERSONUPPGIFTSPOLICY. </a></p>}  
+            <p className="footer-tag1"><a  className="footer-tag-re" href=" https://hsr.se/personuppgiftspolicy" >LAS GARNA MER OM HUR VI HANTERAR PERSONUPPGIFTER I VÅR PERSONUPPGIFTSPOLICY. </a></p>}  
         </div>
     );
 }
