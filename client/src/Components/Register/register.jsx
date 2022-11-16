@@ -146,7 +146,10 @@ fill="#000000" stroke="none">
                         <label for="vehicle1" className="check-label"> I AM A TEACHER</label><br></br>
                         <button id="r-btn" className="user-register-button " onClick={handleRegistration}>REQUEST ACCESS</button>
                     </div>
+                  
                 </div>
+                
+                
             </div> : <>
                 {/* belgium */}
                 <div className="register-section" >
@@ -187,7 +190,8 @@ fill="#000000" stroke="none">
                     </div>
                 </div>
             </>}
-
+          {language ? <p className="footer-tag1"><a className="footer-tag-re" href=" https://hsr.se/privacy-policy" >READ MORE ABOUT OUR PRIVACY POLICY </a></p>  :
+            <p className="footer-tag1"><a  className="footer-tag-re" href=" https://hsr.se/personuppgiftspolicy" >LAS GARNA MER OM HUR VI HANTERAR PERSONUPPGIFTER VÅR PERSONUPPGIFTSPOLICY. </a></p>}  
         </div>
     );
 }

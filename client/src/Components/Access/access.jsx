@@ -220,7 +220,8 @@ fill="#000000" stroke="none">
                         </div>
                     </div>
                 </div>}
-
+                {language ? <p className="footer-tag1"><a className="footer-tag-re" href=" https://hsr.se/privacy-policy" >READ MORE ABOUT OUR PRIVACY POLICY </a></p>  :
+            <p className="footer-tag1"><a  className="footer-tag-re" href=" https://hsr.se/personuppgiftspolicy" >LAS GARNA MER OM HUR VI HANTERAR PERSONUPPGIFTER VÅR PERSONUPPGIFTSPOLICY. </a></p>} 
         </div>
     );
 }
