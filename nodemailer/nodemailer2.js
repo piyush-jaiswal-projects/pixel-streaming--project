@@ -61,7 +61,7 @@ console.log("Data: "+totalBudget+" "+totalMinutesUsed+" "+totalMinutesusedtoday)
 
     }
    
-    console.log(maillist);
+    // console.log(maillist);
 
   const transporter = nodemailer.createTransport({
     host: "smtp-mail.outlook.com",
@@ -96,7 +96,8 @@ Total Minutes Used in last 24 hrs:<b> ${totalMinutesusedtoday}</b>`,
 const date = new Date();
 
 dailyDuration.updateOne({User:"Admin"},{
-  Date: date
+  Date: date,
+  TodaySessions: [0]
 }, function(err){
   if(err){
     console.log(err);
@@ -115,7 +116,7 @@ dailyDuration.updateOne({User:"Admin"},{
 
 // User.deleteMany({RegisterDate})
 User.find({}, function(err, foundData){
-  console.log(foundData);
+  // console.log(foundData);
   var usersArray = foundData;
   const todayDate = new Date().toISOString();
   var d2 = new Date(todayDate);
