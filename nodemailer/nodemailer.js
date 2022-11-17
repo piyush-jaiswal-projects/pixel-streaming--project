@@ -19,7 +19,7 @@ module.exports.mail= async (str,data) => {
   const options = {
 from:"notimetowastedeveloper@outlook.com",
 to:data.Email,
-subject: "<b>NoTimeToWaste - Access Code </b>", 
+subject: "NoTimeToWaste - Access Code ", 
 html: `
 Stream Link: <b>${data.Link} </b>
 <br>
