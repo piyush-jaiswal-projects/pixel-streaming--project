@@ -78,7 +78,7 @@ console.log("Data: "+totalBudget+" "+totalMinutesUsed+" "+totalMinutesusedtoday)
   const options = {
 from:"notimetowastedeveloper@outlook.com",
 to:maillist,
-subject: "<b>NoTimeToWaste - Summary <br><br> </b>", 
+subject: "NoTimeToWaste - Summary ", 
 html: `
 Total Stream Budget: <b>${totalBudget} minutes</b><br> 
 Total Minutes Used in entire campaign: <b>${totalMinutesUsed} minutes</b><br>

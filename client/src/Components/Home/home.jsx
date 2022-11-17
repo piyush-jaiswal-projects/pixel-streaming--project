@@ -48,11 +48,14 @@ function Home({language,setLanguage}){
         <button className="section-button">I HAVE A CODE</button>
         </Link>
         </div>
-        <div  className="logo">
+       <div className="logo-div">
+       <div  className="logo">
             <img  className="img-svg" src={image} alt="" srcset="" />
         </div>
         <p className="footer-tag">Created by Interesting Time Gang</p>
         <p className="footer-tag1"><a href=" https://hsr.se/privacy-policy" >READ MORE ABOUT OUR PRIVACY POLICY </a></p>
+       </div>
+       
         </>) 
         :<> {/* belgium*/}
         <div  className="logo">
