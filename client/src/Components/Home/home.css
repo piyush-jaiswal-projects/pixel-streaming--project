@@ -2,7 +2,7 @@
 @media screen and (min-width:600px){
     .footer-tag1{
       
-        font-family: 'Titillium Web';
+     font-family: 'Titillium Web';
     font-style: normal;
     font-weight: lighter;
     font-size: 11px;
@@ -44,7 +44,7 @@
 }
 
 .footer-tag{
-    margin-top: -5px;
+    margin: -5px;
     font-family: 'Titillium Web';
 font-style: normal;
 font-weight: lighter;
