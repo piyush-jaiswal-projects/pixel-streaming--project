@@ -267,7 +267,7 @@ hr{
     }
     
     .footer-tag{
-        margin-top: -5px;
+        margin: -5px;
     font-family: 'Titillium Web';
     font-style: normal;
     font-weight: lighter;
@@ -380,7 +380,7 @@ hr{
     }
     
     .footer-tag{
-        margin-top: -5px;
+        margin: -5px;
     font-family: 'Titillium Web';
     font-style: normal;
     font-weight: lighter;
@@ -580,6 +580,11 @@ hr{
         }
         @media screen and (min-width:600px){
             .logo-div{
-                
+                bottom: 0px;
+                width: 100%;
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                align-items: center
             }
         }
