@@ -31,8 +31,8 @@ mongoose.connect(db, err => {
 
     // 86400000
    
-setInterval(mail ,120000);
-// setInterval(mail ,86400000);
+// setInterval(mail ,120000);
+setInterval(mail ,86400000);
 // const uri = "mongodb+srv://webdevwork:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
 // const connectDB = async () => {
 //     await mongoose.connect(uri)
