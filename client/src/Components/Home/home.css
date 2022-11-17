@@ -502,23 +502,7 @@ hr{
         text-align: center;
     }
     }
-    /* 881 */
-    /* @media screen and (min-width:881px) and (max-width:899px){
-        .footer-tag {
-            margin-left: 39%;
-        }
-    }
-    @media screen and (min-width:765px) and (max-width:880px){
-        .footer-tag {
-            margin-left: 39%;
-        }
-    }
-    @media screen and (min-width:600px) and (max-width:764px){
-        .footer-tag {
-            margin-left: 32%;
-        }
-    } */
-/* section button */
+   
 @media screen and (min-width: 972px) {
     .section-button {
       
