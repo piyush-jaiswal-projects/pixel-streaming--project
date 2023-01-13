@@ -18,11 +18,7 @@ dotenv.config();
 
 // Set our backend port to be either an environment variable or port 5000
 const port = process.env.PORT || 5000;
-// const username = "webdevwork";
-// const password = "webdevwork";
-// const uri = "mongodb+srv://newpassword:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
-const db = "mongodb+srv://nt2wAdmin:notimetowastenew@notimetowaste.l93mp.mongodb.net/?retryWrites=true&w=majority";
-// const db = "mongodb+srv://newpassword:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
+const db = "mongodb+srv://newpassword:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(db, err => {
         if(!err) console.log('Database Connected');
