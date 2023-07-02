@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const {sessionSchema} = require('../../database/schemas.js');
+
 const {streamSwitchSchema} = require('../../database/schemas.js');
 const {campaignDurationSchema} = require('../../database/schemas.js')
 const {dailyDurationSchema} = require('../../database/schemas.js')
@@ -11,28 +11,66 @@ const CampaignDuration = mongoose.model("CampaignDuration", campaignDurationSche
 
 const StreamSwitch = mongoose.model("StreamSwitch", streamSwitchSchema);
 
-const Session = mongoose.model("Session", sessionSchema);
+async function addNewSessionDuration(req, res){
 
-async function setStreamDuration(req, res){
-    Session.updateOne({User: "Admin"},{Duration: req.body.StreamDuration}, function(err){
+    // var campaignArray = [];
+    // var dailyArray = [];
+
+    const NewDuration = req.body.NewDuration;
+
+    CampaignDuration.findOne({ User: "admin" }, function (err, foundData) {
+        console.log(foundData);
+        campaignArray = foundData.CampaignSessions;
+    });
+
+    DailyDuration.findOne({User:"admin"}, function(err, foundData){
+        dailyArray = foundData.TodaySessions;
+    });
+
+    // campaignArray.push(req.body.NewDuration);
+    // dailyArray.push(req.body.NewDuration);
+
+    CampaignDuration.updateOne({User: "admin"},{
+        $push: {CampaignSessions:NewDuration}
+    },
+    function(err){
         if(err){
+            console.log(err);
             const jsonContent = JSON.stringify({
-                Message: "Duration Update Failed"
+                Message: "Some Error Occurred"
+            });
+            console.log(jsonContent);
+        }
+        else{
+            const jsonContent = JSON.stringify({
+                Message: "Success"
+            });
+            console.log(jsonContent);
+        }
+    });
+
+
+    DailyDuration.updateOne({User: "admin"},{
+        $push: {TodaySessions: NewDuration}
+    },
+    function(err){
+        if(err){
+            console.log(err);
+            const jsonContent = JSON.stringify({
+                Message: "Some Error Occurred"
+            });
+            streamSwitch();
+            res.status(400).send(jsonContent);
+        }
+        else{
+            const jsonContent = JSON.stringify({
+                Message: "Success"
             });
             streamSwitch();
             res.status(200).send(jsonContent);
         }
-        else{
-            const jsonContent = JSON.stringify({
-                
-                Message: "Duration Update Success"
-            });
-           
-    streamSwitch();
-            res.status(200).send(jsonContent);
-        }
     });
-    // streamSwitch();
+
 }
 
 async function streamSwitch(){
@@ -67,7 +105,7 @@ async function compareTotal(){
     console.log("inside compare total");
     var budget;
     var used;
-    const promise = await CampaignDuration.findOne({User:"Admin"})
+    const promise = await CampaignDuration.findOne({User:"admin"})
     .then(function(foundData){
         budget = foundData.CampaignBudget;
         const durationsArray = foundData.CampaignSessions;
@@ -85,7 +123,7 @@ async function compareToday(){
     console.log("inside compare today");
     var budget;
     var used;
-    const promise = await DailyDuration.findOne({User:"Admin"})
+    const promise = await DailyDuration.findOne({User:"admin"})
     .then(function(foundData){
        budget = foundData.DailyBudget;
         const durationsArray = foundData.TodaySessions;
@@ -101,7 +139,7 @@ async function compareToday(){
 
 function Switch(Switch){
     console.log("inside compare switch");
-    StreamSwitch.updateOne({User: "Admin"},{Stream: Switch}, function(err){
+    StreamSwitch.updateOne({User: "admin"},{Stream: Switch}, function(err){
         if(err){
             console.log(err);
             return "Switching Failed";
@@ -118,4 +156,4 @@ function Switch(Switch){
     });
 }
 
-module.exports = setStreamDuration;
+module.exports = addNewSessionDuration;

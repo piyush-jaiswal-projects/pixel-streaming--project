@@ -16,7 +16,7 @@ export default async function Authenticate({language}){
       const mail = email;
       const loginCount = logincount;
       const newLogincount = logincount + 1;
-      axios.post('/updatelogincount',{
+      axios.post(`${process.env.REACT_APP_API_URL}/updatelogincount`,{
           'Email': mail,
           'LoginCount': newLogincount
       }).then((res)=>{
@@ -27,7 +27,7 @@ export default async function Authenticate({language}){
 
   function deleteUser(email){
     const mail = email;
-    axios.post('/deleteuser',{
+    axios.post(`${process.env.REACT_APP_API_URL}/deleteuser`,{
         'Email': mail
     }).then((res)=>{
         if(res.data.message === "Success") return "done";
@@ -35,7 +35,7 @@ export default async function Authenticate({language}){
     });
 }
     
-    axios.post('/getEmail',{
+    axios.post(`${process.env.REACT_APP_API_URL}/getEmail`,{
       Code: userCode
     }).then((res)=>{
       // console.log(res.data.Message);

@@ -25,7 +25,7 @@ async function login(req, res){
         const promise = await User.findOne({ Code: code })
         .then(async function(foundUser) {
             if (foundUser) {
-                const promise2 = await StreamSwitch.findOne({User: "Admin"})
+                const promise2 = await StreamSwitch.findOne({User: "admin"})
                     .then(function(foundUser){
                         console.log(foundUser.Stream);
                         if(foundUser.Stream === "ON"){

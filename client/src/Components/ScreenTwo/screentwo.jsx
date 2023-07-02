@@ -23,7 +23,7 @@ function ScreenTwo(props,{language}){
     const email = props.value;
     const condition = props.cond;
     if(condition === false){
-    axios.post('/getcode',{
+    axios.post(`${process.env.REACT_APP_API_URL}/getcode`,{
         Email: email
     }).then((res)=>{
         if(res.data.Message === "Success"){

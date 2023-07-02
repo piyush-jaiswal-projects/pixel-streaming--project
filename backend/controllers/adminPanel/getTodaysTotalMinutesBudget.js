@@ -5,7 +5,7 @@ const {DailyDuration} = require('../../database/schemas.js');
 // const {DailyDuration} = mongoose.model("DailyDuration", dailyDurationSchema);
 
 async function getTodaysTotalMinutesBudget(req, res){
-    DailyDuration.findOne({User:"Admin"}, function(err, foundData){
+    DailyDuration.findOne({User:"admin"}, function(err, foundData){
         if(!foundData){
             console.log(err);
             const jsonContent = JSON.stringify({

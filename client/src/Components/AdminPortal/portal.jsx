@@ -24,7 +24,7 @@ export default function Portal() {
     // console.log(ttmb);
     const getData = async() =>{
         try{
-            const res = await fetch("/getTodaysTotalMinutesUsed",{
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/getTodaysTotalMinutesUsed`,{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
@@ -44,7 +44,7 @@ export default function Portal() {
   
     const getTTMB = async() =>{
         try{
-            const res = await fetch("/getTodaysTotalMinutesBudget",{
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/getTodaysTotalMinutesBudget`,{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
@@ -70,7 +70,7 @@ export default function Portal() {
     const getTMB = async() =>{
         try{
             /*** getTotalMinutesBudget*/
-            const res = await fetch("/getTotalMinutesBudget",{
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/getTotalMinutesBudget`,{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
@@ -90,7 +90,7 @@ export default function Portal() {
     }
     const getTMU= async() =>{
         try{
-            const res = await fetch("/getTotalMinutesUsed",{
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/getTotalMinutesUsed`,{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
@@ -110,7 +110,7 @@ export default function Portal() {
     }
     const getSD = async() =>{
         try{
-            const res = await fetch("/getStreamDuration",{
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/getStreamDuration`,{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"
@@ -143,7 +143,7 @@ const data=()=>{
  const setAdmin=()=>{
     // console.log(userName+password);
     if (validator.validate(userName)) {
-    axios.post('/setNewAdmin', { 
+    axios.post(`${process.env.REACT_APP_API_URL}/setNewAdmin`, { 
         'AdminUserName': userName,
         'AdminPassWord': password
     }).then((res) => {
@@ -169,7 +169,7 @@ const data=()=>{
             alert("Please enter valid duration!");
         }
         else{
-        axios.post('/setStreamDuration', { 
+        axios.post(`${process.env.REACT_APP_API_URL}/setStreamDuration`, { 
         'User': "Admin",
         'StreamDuration': duration
     }).then((res) => {
@@ -192,7 +192,7 @@ const data=()=>{
             alert("Please enter valid input!")
         }
         else{
-        axios.post('/setTotalMinutesBudget', {  
+        axios.post(`${process.env.REACT_APP_API_URL}/setTotalMinutesBudget`, {  
             "newCampaignBudget":tbudget,
             "User":"Admin"
         
@@ -216,7 +216,7 @@ const data=()=>{
             alert("Please enter valid input!");
         }
         else{
-        axios.post('/setTodaysTotalMinutesBudget', {  
+        axios.post(`${process.env.REACT_APP_API_URL}/setTodaysTotalMinutesBudget`, {  
             "newDailyBudget":db,
             "User":"Admin"
         

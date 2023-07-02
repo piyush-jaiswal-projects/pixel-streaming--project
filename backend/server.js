@@ -17,29 +17,13 @@ const app = express();
 dotenv.config(); 
 
 // Set our backend port to be either an environment variable or port 5000
-const port = process.env.PORT || 5000;
-const db = "mongodb+srv://newpassword:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
+const port = process.env.PORT || 3000;
+const db = process.env.DB_URI
 
 mongoose.connect(db, err => {
         if(!err) console.log('Database Connected');
         else if(err) console.log(err);
     });
-
-    // 86400000
-   
-// setInterval(mail ,120000);
-setInterval(mail ,86400000);
-// const uri = "mongodb+srv://webdevwork:newpassword@webdevwork.vqqw5cl.mongodb.net/?retryWrites=true&w=majority";
-// const connectDB = async () => {
-//     await mongoose.connect(uri)
-//         .catch(function (error) {
-//             console.log(`Unable to connect to the Mongo db  ${error} `);
-//         });
-// //...rest of code
-// };  
-
-// // use as a function        
-// connectDB();
 
 
 // This application level middleware prints incoming requests to the servers console, useful to see incoming requests

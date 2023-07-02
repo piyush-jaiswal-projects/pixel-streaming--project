@@ -48,6 +48,7 @@ function Register({ language }) {
         return (result);
     }
     var code = generateCode();
+    
     function handleRegistration() {
         if (validator.validate(email)) {
 
@@ -59,7 +60,8 @@ function Register({ language }) {
             const date = new Date();
             const teacher = document.getElementById("vehicle1").checked;
             // console.log(teacher);
-            axios.post('/signup', {
+            console.log(process.env.REACT_APP_API_URL);
+            axios.post(process.env.REACT_APP_API_URL+'/signup', {
                 'Name': name,
                 'Email': email,
                 'Organization': org,

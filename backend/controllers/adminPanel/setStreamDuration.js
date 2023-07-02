@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const {sessionSchema} = require('../../database/schemas.js')
+const {sessionSchema} = require('../../database/schemas.js');
 const {streamSwitchSchema} = require('../../database/schemas.js');
 const {campaignDurationSchema} = require('../../database/schemas.js')
 const {dailyDurationSchema} = require('../../database/schemas.js')
@@ -13,26 +13,27 @@ const StreamSwitch = mongoose.model("StreamSwitch", streamSwitchSchema);
 
 const Session = mongoose.model("Session", sessionSchema);
 
-async function getTotalMinutesBudget(req, res){
-    CampaignDuration.updateOne({User:"Admin"},{CampaignBudget: req.body.newCampaignBudget}, function(err){
+async function setStreamDuration(req, res){
+    Session.updateOne({User: "admin"},{Duration: req.body.StreamDuration}, function(err){
         if(err){
-            console.log(err);
             const jsonContent = JSON.stringify({
-                Message: "Some Error Occurred"
-            });
-            streamSwitch();
-            res.status(400).send(jsonContent);
-        }
-        else{
-            const jsonContent = JSON.stringify({
-                Message: "Success"
+                Message: "Duration Update Failed"
             });
             streamSwitch();
             res.status(200).send(jsonContent);
         }
+        else{
+            const jsonContent = JSON.stringify({
+                
+                Message: "Duration Update Success"
+            });
+           
+    streamSwitch();
+            res.status(200).send(jsonContent);
+        }
     });
+    // streamSwitch();
 }
-
 
 async function streamSwitch(){
     console.log("Inside main function");
@@ -48,15 +49,11 @@ async function streamSwitch(){
     console.log("Switching-total: "+total);
     //compare and accordingly set ON and OFF
     if(today === false && total === false){
+        //Stream OFF
         message = Switch("ON");
     }
-    else if(today === true && total === false){
-        message = Switch("OFF");
-    }
-    else if(today === false && total === true){
-        message = Switch("OFF");
-    }
-    else if(today === true && total === true){
+    else{
+        //Stream ON
         message = Switch("OFF");
     }
 
@@ -70,7 +67,7 @@ async function compareTotal(){
     console.log("inside compare total");
     var budget;
     var used;
-    const promise = await CampaignDuration.findOne({User:"Admin"})
+    const promise = await CampaignDuration.findOne({User:"admin"})
     .then(function(foundData){
         budget = foundData.CampaignBudget;
         const durationsArray = foundData.CampaignSessions;
@@ -79,7 +76,6 @@ async function compareTotal(){
                 used += item;
             });
     });
-    console.log(used+" ---- "+budget);
     if((used/60) >= budget) return true;
     else return false;
 
@@ -89,7 +85,7 @@ async function compareToday(){
     console.log("inside compare today");
     var budget;
     var used;
-    const promise = await DailyDuration.findOne({User:"Admin"})
+    const promise = await DailyDuration.findOne({User:"admin"})
     .then(function(foundData){
        budget = foundData.DailyBudget;
         const durationsArray = foundData.TodaySessions;
@@ -105,7 +101,7 @@ async function compareToday(){
 
 function Switch(Switch){
     console.log("inside compare switch");
-    StreamSwitch.updateOne({User: "Admin"},{Stream: Switch}, function(err){
+    StreamSwitch.updateOne({User: "admin"},{Stream: Switch}, function(err){
         if(err){
             console.log(err);
             return "Switching Failed";
@@ -122,4 +118,4 @@ function Switch(Switch){
     });
 }
 
-module.exports = getTotalMinutesBudget;
+module.exports = setStreamDuration;

@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
+const {sessionSchema} = require('../../database/schemas.js')
 const {streamSwitchSchema} = require('../../database/schemas.js');
 const {campaignDurationSchema} = require('../../database/schemas.js')
 const {dailyDurationSchema} = require('../../database/schemas.js')
@@ -11,48 +11,10 @@ const CampaignDuration = mongoose.model("CampaignDuration", campaignDurationSche
 
 const StreamSwitch = mongoose.model("StreamSwitch", streamSwitchSchema);
 
-async function addNewSessionDuration(req, res){
+const Session = mongoose.model("Session", sessionSchema);
 
-    // var campaignArray = [];
-    // var dailyArray = [];
-
-    const NewDuration = req.body.NewDuration;
-
-    CampaignDuration.findOne({User:"Admin"}, function(err, foundData){
-        campaignArray = foundData.CampaignSessions;
-    });
-
-    DailyDuration.findOne({User:"Admin"}, function(err, foundData){
-        dailyArray = foundData.TodaySessions;
-    });
-
-    // campaignArray.push(req.body.NewDuration);
-    // dailyArray.push(req.body.NewDuration);
-
-    CampaignDuration.updateOne({User: "Admin"},{
-        $push: {CampaignSessions:NewDuration}
-    },
-    function(err){
-        if(err){
-            console.log(err);
-            const jsonContent = JSON.stringify({
-                Message: "Some Error Occurred"
-            });
-            console.log(jsonContent);
-        }
-        else{
-            const jsonContent = JSON.stringify({
-                Message: "Success"
-            });
-            console.log(jsonContent);
-        }
-    });
-
-
-    DailyDuration.updateOne({User: "Admin"},{
-        $push: {TodaySessions: NewDuration}
-    },
-    function(err){
+async function getTotalMinutesBudget(req, res){
+    CampaignDuration.updateOne({User:"admin"},{CampaignBudget: req.body.newCampaignBudget}, function(err){
         if(err){
             console.log(err);
             const jsonContent = JSON.stringify({
@@ -69,8 +31,8 @@ async function addNewSessionDuration(req, res){
             res.status(200).send(jsonContent);
         }
     });
-
 }
+
 
 async function streamSwitch(){
     console.log("Inside main function");
@@ -86,11 +48,15 @@ async function streamSwitch(){
     console.log("Switching-total: "+total);
     //compare and accordingly set ON and OFF
     if(today === false && total === false){
-        //Stream OFF
         message = Switch("ON");
     }
-    else{
-        //Stream ON
+    else if(today === true && total === false){
+        message = Switch("OFF");
+    }
+    else if(today === false && total === true){
+        message = Switch("OFF");
+    }
+    else if(today === true && total === true){
         message = Switch("OFF");
     }
 
@@ -104,7 +70,7 @@ async function compareTotal(){
     console.log("inside compare total");
     var budget;
     var used;
-    const promise = await CampaignDuration.findOne({User:"Admin"})
+    const promise = await CampaignDuration.findOne({User:"admin"})
     .then(function(foundData){
         budget = foundData.CampaignBudget;
         const durationsArray = foundData.CampaignSessions;
@@ -113,6 +79,7 @@ async function compareTotal(){
                 used += item;
             });
     });
+    console.log(used+" ---- "+budget);
     if((used/60) >= budget) return true;
     else return false;
 
@@ -122,7 +89,7 @@ async function compareToday(){
     console.log("inside compare today");
     var budget;
     var used;
-    const promise = await DailyDuration.findOne({User:"Admin"})
+    const promise = await DailyDuration.findOne({User:"admin"})
     .then(function(foundData){
        budget = foundData.DailyBudget;
         const durationsArray = foundData.TodaySessions;
@@ -138,7 +105,7 @@ async function compareToday(){
 
 function Switch(Switch){
     console.log("inside compare switch");
-    StreamSwitch.updateOne({User: "Admin"},{Stream: Switch}, function(err){
+    StreamSwitch.updateOne({User: "admin"},{Stream: Switch}, function(err){
         if(err){
             console.log(err);
             return "Switching Failed";
@@ -155,4 +122,4 @@ function Switch(Switch){
     });
 }
 
-module.exports = addNewSessionDuration;
+module.exports = getTotalMinutesBudget;

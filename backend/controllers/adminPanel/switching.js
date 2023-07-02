@@ -47,7 +47,7 @@ function streamSwitch(){
 function compareTotal(){
     var budget;
     var used;
-    CampaignDuration.findOne({User:"Admin"}, function(err, foundData){
+    CampaignDuration.findOne({User:"admin"}, function(err, foundData){
         budget = foundData.CampaignBudget;
         const durationsArray = foundData.CampaignSessions;
         used = 0;
@@ -63,7 +63,7 @@ function compareTotal(){
 function compareToday(){
     var budget;
     var used;
-    DailyDuration.findOne({User:"Admin"}, function(err, foundData){
+    DailyDuration.findOne({User:"admin"}, function(err, foundData){
         budget = foundData.DailyBudget;
         const durationsArray = foundData.TodaySessions;
         used = 0;
@@ -76,7 +76,7 @@ function compareToday(){
 }
 
 function Switch(Switch, Res){
-    StreamSwitch.updateOne({User: "Admin"},{Stream: Switch, Reason: Res}, function(err){
+    StreamSwitch.updateOne({User: "admin"},{Stream: Switch, Reason: Res}, function(err){
         if(err){
             console.log(err);
             return "Switching Failed";

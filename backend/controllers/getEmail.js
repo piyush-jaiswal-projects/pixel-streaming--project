@@ -27,7 +27,7 @@ async function getEmail(req, res){
                     message="Login Limit Exceeded";
                 }
                 else if(foundUser.LoginCount < 10 && dayCount < 7){
-                    const promise2 = await StreamSwitch.findOne({User: "Admin"})
+                    const promise2 = await StreamSwitch.findOne({User: "admin"})
                     .then(function(foundUser){
                         if(foundUser.Stream === "ON"){
                             message="OK";

@@ -11,7 +11,7 @@ const StreamSwitch = mongoose.model("StreamSwitch", streamSwitchSchema);
 const CampaignDuration = mongoose.model("CampaignDuration", campaignDurationSchema);
 
 async function setTotalMinutesBudget(req, res){
-    CampaignDuration.updateOne({User:"Admin"},{CampaignBudget: req.body.newCampaignBudget}, function(err){
+    CampaignDuration.updateOne({User:"admin"},{CampaignBudget: req.body.newCampaignBudget}, function(err){
         if(err){
             console.log(err);
             const jsonContent = JSON.stringify({
@@ -66,7 +66,7 @@ async function compareTotal(){
     console.log("inside compare total");
     var budget;
     var used;
-    const promise = await CampaignDuration.findOne({User:"Admin"})
+    const promise = await CampaignDuration.findOne({User:"admin"})
     .then(function(foundData){
         budget = foundData.CampaignBudget;
         const durationsArray = foundData.CampaignSessions;
@@ -84,7 +84,7 @@ async function compareToday(){
     console.log("inside compare today");
     var budget;
     var used;
-    const promise = await DailyDuration.findOne({User:"Admin"})
+    const promise = await DailyDuration.findOne({User:"admin"})
     .then(function(foundData){
        budget = foundData.DailyBudget;
         const durationsArray = foundData.TodaySessions;
@@ -100,7 +100,7 @@ async function compareToday(){
 
 function Switch(Switch, Res){
     console.log("inside compare switch total" + Res);
-    StreamSwitch.updateOne({User: "Admin"},{Stream: Switch, Reason: Res}, function(err){
+    StreamSwitch.updateOne({User: "admin"},{Stream: Switch, Reason: Res}, function(err){
         if(err){
             console.log(err);
             return "Switching Failed";

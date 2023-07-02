@@ -5,7 +5,7 @@ const {sessionSchema} = require('../../database/schemas.js');
 const Session = mongoose.model("Session", sessionSchema);
 
 async function getStreamDuration(req, res){
-    Session.findOne({User: "Admin"}, function(err, foundData){
+    Session.findOne({User: "admin"}, function(err, foundData){
         if(foundData){
             console.log(foundData);
             const jsonContent = JSON.stringify({

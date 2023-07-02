@@ -9,12 +9,8 @@ const StreamSwitch = mongoose.model("StreamSwitch", streamSwitchSchema);
 const User = mongoose.model("User", userSchema);
 
 async function register(req, res){
-//     const user = await User.find();
-// console.log(`i amin user ${user}  remove ho gya`)
-// const ruser= await User.deleteMany({});
-// console.log(` i am in delet user ${ruser}`);
-    console.log("inside register function");
     const email = req.body.Email;
+    console.log(req);
     User.findOne({ Email: email }, function (err, foundUser) {
         if(!foundUser){
             console.log("User not found");
@@ -33,7 +29,7 @@ async function register(req, res){
                 else if(!errors) {
                     console.log("Login Success");
                     var message="";
-                    const promise2 = await StreamSwitch.findOne({User: "Admin"})
+                    const promise2 = await StreamSwitch.findOne({User: "admin"})
                     .then(function(foundUser){
                         console.log(foundUser);
                         if(foundUser.Stream === "ON"){

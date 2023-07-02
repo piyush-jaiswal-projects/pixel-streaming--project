@@ -5,7 +5,7 @@ const {CampaignDuration} = require('../../database/schemas.js');
 
 
 async function getTotalMinutesBudget(req, res){
-    CampaignDuration.findOne({User:"Admin"}, function(err, foundData){
+    CampaignDuration.findOne({User:"admin"}, function(err, foundData){
         if(!foundData){
             console.log(err);
             const jsonContent = JSON.stringify({

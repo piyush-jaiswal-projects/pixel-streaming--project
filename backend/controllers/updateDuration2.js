@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userSchema = require("../database/database.js");
 const User = mongoose.model("User", userSchema);
-// const {mail} =require("../nodemailer/nodemailer.js");
 const {streamSwitchSchema} = require('../database/schemas.js');
 const {campaignDurationSchema} = require('../database/schemas.js')
 const {dailyDurationSchema} = require('../database/schemas.js')
@@ -15,18 +14,20 @@ const StreamSwitch = mongoose.model("StreamSwitch", streamSwitchSchema);
 
 const {mail} =require("../nodemailer/nodemailer2.js");
 
-async function updateDuration(req, res){
+async function updateDuration2(req, res){
     console.log("inside updateDuration function");
     console.log(req.body);
     User.updateOne({Email: req.body.Email},{
         $set: {
-            Duration: req.body.Duration
+            Duration: {
+                Minutes: 44,
+                Seconds: 59
+            }
         }
-       
     },
     function(err, result){
         if(!err){
-            mail("UpdateDuration", req.body.Email, req.body.Duration.Minutes, req.body.Duration.Seconds)
+            mail("UpdateDuration", req.body.Email, 44, 59);
             message="Success"; 
                     const responseData ={
                         Message: message
@@ -35,7 +36,6 @@ async function updateDuration(req, res){
                     streamSwitch();
                     res.status(200).send(jsonContent);
                     console.log("Duration Update Success");
-                    
         }
         else if(err){
             console.log("Duration Update Failed");
@@ -83,7 +83,7 @@ async function updateDuration(req, res){
         console.log("inside compare total");
         var budget;
         var used;
-        const promise = await CampaignDuration.findOne({User:"Admin"})
+        const promise = await CampaignDuration.findOne({User:"admin"})
         .then(function(foundData){
             budget = foundData.CampaignBudget;
             const durationsArray = foundData.CampaignSessions;
@@ -101,7 +101,7 @@ async function updateDuration(req, res){
         console.log("inside compare today");
         var budget;
         var used;
-        const promise = await DailyDuration.findOne({User:"Admin"})
+        const promise = await DailyDuration.findOne({User:"admin"})
         .then(function(foundData){
            budget = foundData.DailyBudget;
             const durationsArray = foundData.TodaySessions;
@@ -117,7 +117,7 @@ async function updateDuration(req, res){
     
     function Switch(Switch){
         console.log("inside compare switch");
-        StreamSwitch.updateOne({User: "Admin"},{Stream: Switch}, function(err){
+        StreamSwitch.updateOne({User: "admin"},{Stream: Switch}, function(err){
             if(err){
                 console.log(err);
                 return "Switching Failed";
@@ -133,6 +133,5 @@ async function updateDuration(req, res){
             }
         });
     }
-    
 
-module.exports = updateDuration;
+module.exports = updateDuration2;

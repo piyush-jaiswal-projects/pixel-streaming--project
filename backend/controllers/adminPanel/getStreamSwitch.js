@@ -6,7 +6,7 @@ const StreamSwitch = mongoose.model("StreamSwitch", streamSwitchSchema);
 
 async function getStreamSwitch(req, res){
     console.log("Insie get stream switch");
-    StreamSwitch.findOne({User: "Admin"}, function(err, foundUser){
+    StreamSwitch.findOne({User: "admin"}, function(err, foundUser){
         if(foundUser){
             const jsonContent = JSON.stringify({
                 Message: foundUser.Stream

@@ -22,16 +22,15 @@ function AdminPortal() {
 
     const handleAdminLogin=async(res)=> {
     
-         axios.post('/adminlogin', { 
+         axios.post(`${process.env.REACT_APP_API_URL}/adminlogin`, { 
             'AdminUserName': username,
             'AdminPassWord': password
         }).then((res) => {
           console.log(res.data.message);
             if(res.data.message){
-                console.log("me yha tha ")
                 alert("Login Success");
                 setPortal( false);
-                document.getElementById("form-container").style.display = "none";
+                // document.getElementById("form-container").style.display="none";
                 setValid(true);
               }
               else if(!res.data.message){

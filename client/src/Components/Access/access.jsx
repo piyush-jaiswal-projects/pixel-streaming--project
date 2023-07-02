@@ -38,7 +38,7 @@ function Access({ language }) {
     function updateLoginCount(email, logincount) {
         const mail = email;
         const newLogincount = logincount + 1;
-        axios.post('/updatelogincount', {
+        axios.post(`${process.env.REACT_APP_API_URL}/updatelogincount`, {
             'Email': mail,
             'LoginCount': newLogincount
         }).then((res) => {
@@ -49,7 +49,7 @@ function Access({ language }) {
 
     function deleteUser(email) {
         const mail = email;
-        axios.post('/deleteuser', {
+        axios.post(`${process.env.REACT_APP_API_URL}/deleteuser`, {
             'Email': mail
         }).then((res) => {
             if (res.data.message === "Success") return "done";
@@ -60,7 +60,7 @@ function Access({ language }) {
     var duration;
     function handleLogin(props) {
 
-        axios.post('/login', {
+        axios.post(`${process.env.REACT_APP_API_URL}/login`, {
             'Code': code
         }).then((res) => {
             console.log(res.data.Message);

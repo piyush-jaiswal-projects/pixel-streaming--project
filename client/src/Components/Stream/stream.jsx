@@ -36,7 +36,7 @@ const videoRef = React.useRef();
 window.onbeforeunload = confirmExit;
 function confirmExit(){
     const newDuration=(minutes*60)+seconds;
-    axios.post('/addNewSessionDuration',{
+    axios.post(`${process.env.REACT_APP_API_URL}/addNewSessionDuration`,{
         NewDuration: newDuration
     }).then((res)=>{
         if(res.data.Message === "Success"){
@@ -46,7 +46,7 @@ function confirmExit(){
             console.log("FAILED + Error Occurred");
         }
     });
-    axios.post('/updateduration',{
+    axios.post(`${process.env.REACT_APP_API_URL}/updateduration`,{
                 Email: address,
                 Duration: {
                     Minutes: minutes,
@@ -66,7 +66,7 @@ const state = "standby";
 
 
 useEffect(()=>{
-    axios.post('/startTimer')
+    axios.post(`${process.env.REACT_APP_API_URL}/startTimer`)
     .then((res)=>{
         setTimerDuration(res.data.Duration);
         // window.location.replace('/login');

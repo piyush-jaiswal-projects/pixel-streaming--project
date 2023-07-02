@@ -8,8 +8,8 @@ module.exports.mail= async (str,data) => {
     host: "smtp-mail.outlook.com",
     port: "587",
     auth: {
-      user: "notimetowastedeveloper@outlook.com",
-      pass: "#Notimetowaste123",
+      user: "developerpiyush1610@outlook.com",
+      pass: "developer@123",
     },
     tls: {
       rejectUnauthorized: false,
@@ -17,7 +17,7 @@ module.exports.mail= async (str,data) => {
   });
 
   const options = {
-from:"notimetowastedeveloper@outlook.com",
+from:"developerpiyush1610@outlook.com",
 to:data.Email,
 subject: "NoTimeToWaste - Access Code ", 
 html: `

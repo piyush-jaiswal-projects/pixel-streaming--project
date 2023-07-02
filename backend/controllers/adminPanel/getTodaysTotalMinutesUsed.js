@@ -5,7 +5,7 @@ const {DailyDuration} = require('../../database/schemas.js');
 // const DailyDuration = mongoose.model("DailyDuration", dailyDurationSchema);
 
 async function getTodaysTotalMinutesUsed(req, res){
-    DailyDuration.findOne({User:"Admin"}, function(err, foundData){
+    DailyDuration.findOne({User:"admin"}, function(err, foundData){
         if(!foundData){
             console.log(err);
             const jsonContent = JSON.stringify({
@@ -47,7 +47,7 @@ async function getTodaysTotalMinutesUsed(req, res){
 
 
 function updateTodaysDate(req,res){
-    DailyDuration.updateOne({User:"Admin"},{
+    DailyDuration.updateOne({User:"admin"},{
         Date: new Date(),
         TodaySessions: []
     }, function(err){

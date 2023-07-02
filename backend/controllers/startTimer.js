@@ -10,9 +10,10 @@ const User = mongoose.model("User", userSchema);
 
 async function StartServer(req, res){
     var timerDuration;
-    const promise = await Session.findOne({User: "Admin"})
-    .then(function(foundUser){
-        const timer = foundUser.Duration;
+    const promise = await Session.findOne({User: "admin"})
+        .then(function (foundUser) {
+        console.log(foundUser);
+        const timer = foundUser.Duration.Minutes;
         timerDuration = timer*60*1000;
     });
     console.log(timerDuration);

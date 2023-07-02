@@ -5,7 +5,7 @@ const {streamSwitchSchema} = require('../../database/schemas.js');
 const StreamSwitch = mongoose.model("StreamSwitch", streamSwitchSchema);
 
 async function streamSwitch(req, res){
-    StreamSwitch.updateOne({User: "Admin"},{Stream: req.body.Switch}, function(err){
+    StreamSwitch.updateOne({User: "admin"},{Stream: req.body.Switch}, function(err){
         if(err){
             const jsonContent = JSON.stringify({
                 Message: "Switching Failed"
